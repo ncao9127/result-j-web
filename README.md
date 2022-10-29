@@ -21,7 +21,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 To get started, just clone the repository and run `npm install && npm run dev`:
 
-    git clone https://github.com/khaja-moiz/JNTUHRESULTS-WEB.git
+    git clone https://github.com/khaja-moiz/JNTUHRESULTS.git
     npm install
     npm run dev
 
