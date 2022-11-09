@@ -87,3 +87,4 @@ const SingleResults = ({ query }) => {
 export default SingleResults
 
 
+
