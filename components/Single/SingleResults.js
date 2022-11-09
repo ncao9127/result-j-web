@@ -6,22 +6,11 @@ import ScrollToTop from "react-scroll-to-top";
 const SingleResults = ({ query }) => {
   const Results = query['Results'];
   const Details = query['Details'];
-  const print = () => {
-    {/* setDisplay("hidden")
-    setTimeout(function () {
-      window.print();
-    }, 500);
-  }
-  const [display, setDisplay] = useState("fixed bottom-8 right-6 sm:right-8 sm:bottom-8 bg-white rounded-full");*/}
 
   return (
     <>
-    {/* <div id="print" className={display}>
-        <img src='./download.png' onClick={print} className="w-[40px]  sm:w-[60px]" />
-      </div> */}
-     <PrintButton />
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
-         {Object.keys(Results).map((val) => {
+        {Object.keys(Results).map((val) => {
           if (val != 'Total') {
             return <>
               <div id='1'>
@@ -84,7 +73,7 @@ const SingleResults = ({ query }) => {
           </table>
         </div>
       </div>
- <PrintButton />
+      <PrintButton />
       <ScrollToTop
         className='scroller'
         smooth
@@ -96,6 +85,5 @@ const SingleResults = ({ query }) => {
   )
 }
 export default SingleResults
-
 
 
