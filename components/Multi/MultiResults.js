@@ -76,4 +76,5 @@ const MultiResults = ({ query }) => {
 
 }
 
+
 export default MultiResults;
