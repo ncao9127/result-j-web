@@ -22,7 +22,7 @@ th{
     background: none;
 }
 @media print {
-    .printi, .scroller {
+    .print, .scroller {
         display: none;
     }
 }
