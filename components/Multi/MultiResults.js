@@ -32,9 +32,6 @@ const MultiResults = ({ query }) => {
                             <tr>
                                 <th>SUBJECT_NAME</th>
                                 <th>SUBJECT_CODE</th>
-                                <th>INTERNAL</th>
-                                <th>EXTERNAL</th>
-                                <th>Total</th>
                                 <th>GRADE</th>
                                 <th>CREDITS</th>
                             </tr>
@@ -45,10 +42,7 @@ const MultiResults = ({ query }) => {
                                             if (subject_code != 'CGPA' & subject_code!='total' & subject_code!='credits') {
                                                 return <><tr>
                                                     <th>{Result['Results'][exam_code][subject_code]['subject_name']}</th>
-                                                    <th>{Result['Results'][exam_code][subject_code]['subject_code']}</th>
-                                                    <th>{Result['Results'][exam_code][subject_code]['subject_internal']}</th>
-                                                    <th>{Result['Results'][exam_code][subject_code]['subject_external']}</th>
-                                                    <th>{Result['Results'][exam_code][subject_code]['subject_total']}</th>
+                                                    <th>{Result['Results'][exam_code][subject_code]['subject_code']}</th>                           
                                                     <th>{Result['Results'][exam_code][subject_code]['subject_grade']}</th>
                                                     <th>{Result['Results'][exam_code][subject_code]['subject_credits']}</th>
                                                     </tr>
