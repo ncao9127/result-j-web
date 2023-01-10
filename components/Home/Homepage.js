@@ -5,6 +5,7 @@ import HomeFooter from './HomeFooter'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Homemulti from './Homemulti'
+import HomePrintlist from './HomePrintlist'
 import React, { useState } from 'react';
 
 const Home = ({ homepage }) => {
@@ -19,6 +20,7 @@ const Home = ({ homepage }) => {
         <Carousel showThumbs={false}>
           <HomeSingle homepage={homepage} />
           <Homemulti homepage={homepage} />
+          <HomePrintlist homepage={homepage}/>
         </Carousel>
 
 
