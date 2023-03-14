@@ -1,34 +1,30 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/router'
 import axios from 'axios';
-import MultiResults from "../components/Multi/MultiResults";
 import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
-const Homemulti = ({homepage}) => {
+import SemResult from "../components/SemesterResult/SemResult";
+const HomeSemResult = ({homepage}) => {
     const router = useRouter();
     const submits=async()=>
     {
-        if((htno1.length!=10 || htno2.length!=10 || code=="") || (htno1.slice(0,8)!=htno2.slice(0,8)) || (htno1.slice(8,10)>htno2.slice(8,10)))
+        if((htno.length!=10 || code==""))
         {
             alert("Please give the correct information!!")
         }
         else
         {
             homepage(<Loading />)
-            const response=await axios.get(url+'/api/multi?from='+htno1+'&to='+htno2+'&code='+code,{mode:'cors'});
-            homepage(<MultiResults query={response.data}/>)
+            const response=await axios.get(url+'/api/result?htno='+htno+'&code='+code,{mode:'cors'});
+            homepage(<SemResult query={response.data}/>)
         }
     }
     const inputEvent=(event)=>
     {
         event.target.value=event.target.value.toUpperCase();
-        if(event.target.name=="htno_1")
+        if(event.target.name=="htno")
         {
-            setHtno1(event.target.value)
-        }
-        else if(event.target.name=="htno_2")
-        {
-            setHtno2(event.target.value)
+            setHtno(event.target.value)
         }
         else if(event.target.name=="code")
         {
@@ -36,8 +32,8 @@ const Homemulti = ({homepage}) => {
         }
         
     }
-  const [htno1, setHtno1] = useState("");
-  const [htno2, setHtno2] = useState("");
+  const [htno, setHtno] = useState("");
+  
   const [code, setCode] = useState("");
     return (
         <>
@@ -45,12 +41,11 @@ const Homemulti = ({homepage}) => {
                 <center>
                     <br />
                     <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
-                        Grades of All Students of Particular Semester
+                        Particular Semester Results
                     </h2>
                     <br />
                     <div>
-                        <input onChange={inputEvent} name="htno_1" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter From Roll Number" required/>
-                        <input onChange={inputEvent} name="htno_2" className="my-2 content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:my-0 sm:mx-2" type="text" maxLength="10" placeholder="Enter To Roll Number" required/>
+                        <input onChange={inputEvent} name="htno" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter Your Roll Number" required/>
                     </div>
                     <select name="code" onChange={inputEvent}   className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">
                         <option >Semester</option>
@@ -75,13 +70,12 @@ const Homemulti = ({homepage}) => {
         </>
     )
 }
-
 const HomePage = () => {
     const homepage = (value) => {
       setContent(value);
     };
   
-    const [content, setContent] = useState(<Homemulti homepage={homepage} />);
+    const [content, setContent] = useState(<HomeSemResult homepage={homepage} />);
   
     return (
       <div>

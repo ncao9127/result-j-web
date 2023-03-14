@@ -34,7 +34,6 @@ const HomePrintlist = ({homepage}) => {
         {
             setCode(event.target.value)
         }
-        
     }
   const [htno1, setHtno1] = useState("");
   const [htno2, setHtno2] = useState("");

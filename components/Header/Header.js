@@ -11,7 +11,7 @@ const Header = () => {
         <link rel="manifest" href="/site.webmanifest" />
         <meta
           property='og:url'
-          content='https://jntuhresults.vercel.app/'
+          content='https://jntuhresultsweb.vercel.app/'
         />
         
         <meta property='og:type' content='website' />

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/router'
 import axios from 'axios';
-import MultiResults from "../components/Multi/MultiResults";
+import Printlist from "../components/Printlist/Printlist";
 import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
-const Homemulti = ({homepage}) => {
+const HomePrintlist = ({homepage}) => {
     const router = useRouter();
     const submits=async()=>
     {
@@ -16,7 +16,7 @@ const Homemulti = ({homepage}) => {
         {
             homepage(<Loading />)
             const response=await axios.get(url+'/api/multi?from='+htno1+'&to='+htno2+'&code='+code,{mode:'cors'});
-            homepage(<MultiResults query={response.data}/>)
+            homepage(<Printlist query={response.data}/>)
         }
     }
     const inputEvent=(event)=>
@@ -34,7 +34,6 @@ const Homemulti = ({homepage}) => {
         {
             setCode(event.target.value)
         }
-        
     }
   const [htno1, setHtno1] = useState("");
   const [htno2, setHtno2] = useState("");
@@ -45,7 +44,7 @@ const Homemulti = ({homepage}) => {
                 <center>
                     <br />
                     <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
-                        Grades of All Students of Particular Semester
+                      Fetech The List Grades of All Students of Particular Semester
                     </h2>
                     <br />
                     <div>
@@ -81,7 +80,7 @@ const HomePage = () => {
       setContent(value);
     };
   
-    const [content, setContent] = useState(<Homemulti homepage={homepage} />);
+    const [content, setContent] = useState(<HomePrintlist homepage={homepage} />);
   
     return (
       <div>
