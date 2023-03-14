@@ -12,7 +12,6 @@ import HomeClassmateCgpa from './HomeClassmateCgpa';
 import HomeSemResult from './HomeSemResult';
 
 const Home = ({ homepage }) => {
-
   return (
     <>
       <br />
