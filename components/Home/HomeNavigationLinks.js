@@ -69,6 +69,7 @@ const HomeNavLinks = () => {
           className='text-blue-400 hover:text-blue-600 hover:underline'
           href='https://github.com/khaja-moiz'
           target='_blank'
+          rel="noreferrer"
         >
           JNTUH Results
         </a>

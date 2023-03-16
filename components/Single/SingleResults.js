@@ -22,12 +22,12 @@ const SingleResults = ({ query }) => {
           <tbody>
             <tr>
               {Object.keys(Details).map((key) => (
-                <th>{key}</th>
+                <th key={key}>{key}</th>
               ))}
             </tr>
             <tr>
               {Object.keys(Details).map((key) => (
-                <th>{Details[key]}</th>
+                <th key={key}>{Details[key]}</th>
               ))}
             </tr>
           </tbody>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MdOutlineDarkMode, MdLightMode } from 'react-icons/md';
 import { AiFillGithub as GitHubIcon } from 'react-icons/ai';
 import Navbar from './NavBar';
+import Image from 'next/image';
 
 const NavBarComponent = () => {
   const [isEnable, setIsEnable] = useState(false);
@@ -34,7 +35,7 @@ const NavBarComponent = () => {
     <nav className="bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.1px] dark:border-gray-800 sticky">
       <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] dark:text-white">
         <Link href="/">
-          <a><img src='./logo.png' onClick="window.location.reload()" className="w-[60px]  sm:w-[80px]"/></a>
+          <a><Image src='/logo.png' onClick="window.location.reload()" className="w-[60px]  sm:w-[80px]" alt="" width={80} height={60}/></a>
         </Link>
       </h1>
       <div className="hidden md:flex">
@@ -48,7 +49,7 @@ const NavBarComponent = () => {
             <MdOutlineDarkMode className="w-5 h-5" />
           )}
         </h1>
-        <a href='https://github.com/khaja-moiz' target="_blank">
+        <a href='https://github.com/khaja-moiz' target="_blank" rel="noreferrer">
           <GitHubIcon size="1.5rem" className="dark:text-white text-black" />
         </a>
       </div>
