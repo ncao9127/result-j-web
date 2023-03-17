@@ -126,8 +126,10 @@ const StudentDataCard = ({ query }) => {
   {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F')) && (
     <table>
       <thead>
+        <tr> 
+        <th colspan={10}>{val} Results</th> 
+        </tr>
         <tr>
-          <th colspan={10}>BACKLOG LIST</th>
           <th>SUBJECT CODE</th>
           <th>SUBJECT NAME</th>
           <th>INTERNAL</th>
