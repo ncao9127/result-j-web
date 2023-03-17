@@ -127,6 +127,7 @@ const StudentDataCard = ({ query }) => {
     <table>
       <thead>
         <tr>
+          <th colspan={10}>BACKLOG LIST</th>
           <th>SUBJECT CODE</th>
           <th>SUBJECT NAME</th>
           <th>INTERNAL</th>
