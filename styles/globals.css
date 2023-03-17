@@ -50,7 +50,18 @@ tr:hover {background-color: #80808030;}
     }
 }
 
-/* added */
+/* added 18032023 */
+.popup-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #80808030;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 
 .code {
   background: #fafafa;

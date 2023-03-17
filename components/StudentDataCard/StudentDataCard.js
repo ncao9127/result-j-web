@@ -59,10 +59,10 @@ const StudentDataCard = ({ query }) => {
       <br />
       <div class="mx-auto w-max bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
         <p class="font-bold">B.Tech Student Score Board</p></div>
-      <div className="flex flex-col items-center justify-center text-center dark:text-white">
+      <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
           <h1 className="text-xl font-semibold" onClick={handleNameClick}>{Details['NAME']}</h1>
-          <h1 className="text-lg text-black dark:text-white sm:text-xl">{Details['ROLL_NO']}</h1>
+          <h1 className="text-lg text-black  sm:text-xl">{Details['ROLL_NO']}</h1>
           <hr className="w-full border-gray-700" />
           <Confetti active={isConfettiActive} config={config} />
         </div>
@@ -121,64 +121,75 @@ const StudentDataCard = ({ query }) => {
           </tbody>
         </table>
       </div>
-      <br/>
+      <br />
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
-      <div id='1'>
-  {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F')) && (
-    <table>
-      <thead>
-      <tr>
-                    <th colspan={10}>BACKLOGS LIST</th>
-                  </tr>
-        <tr>
-          <th>SUBJECT CODE</th>
-          <th>SUBJECT NAME</th>
-          <th>INTERNAL</th>
-          <th>EXTERNAL</th>
-          <th>TOTAL</th>
-          <th>GRADE</th>
-          <th>CREDITS</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.keys(Results).map(val => {
-          if (val !== 'Total') {
-            const subjects = Object.keys(Results[val]).filter(item => Results[val][item]['subject_grade'] === 'F');
-            if (subjects.length > 0) {
-              return (
-                <>
-                  <tr>
-                    <th colspan={10}>{val} Results</th>
-                  </tr>
-                  {Object.keys(Results[val]).map(function (item, index) {
-                    if (Results[val][item]['subject_grade'] === 'F') {
+        <div id='1'>
+          {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F')) && (
+            <table>
+              <thead>
+                <tr>
+                  <th colspan={10}>BACKLOGS LIST</th>
+                </tr>
+                <tr>
+                  <th>SUBJECT CODE</th>
+                  <th>SUBJECT NAME</th>
+                  <th>INTERNAL</th>
+                  <th>EXTERNAL</th>
+                  <th>TOTAL</th>
+                  <th>GRADE</th>
+                  <th>CREDITS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(Results).map(val => {
+                  if (val !== 'Total') {
+                    const subjects = Object.keys(Results[val]).filter(item => Results[val][item]['subject_grade'] === 'F');
+                    if (subjects.length > 0) {
                       return (
-                        <tr key={index}>
-                          <th colspan={1}>{Results[val][item]['subject_name']}</th>
-                          <th>{Results[val][item]['subject_code']}</th>
-                          <th>{Results[val][item]['subject_internal']}</th>
-                          <th>{Results[val][item]['subject_external']}</th>
-                          <th>{Results[val][item]['subject_total']}</th>
-                          <th>{Results[val][item]['subject_grade']}</th>
-                          <th>{Results[val][item]['subject_credits']}</th>
-                        </tr>
+                        <>
+                          <tr>
+                            <th colspan={10}>{val} Results</th>
+                          </tr>
+                          {Object.keys(Results[val]).map(function (item, index) {
+                            if (Results[val][item]['subject_grade'] === 'F') {
+                              return (
+                                <tr key={index}>
+                                  <th colspan={1}>{Results[val][item]['subject_name']}</th>
+                                  <th>{Results[val][item]['subject_code']}</th>
+                                  <th>{Results[val][item]['subject_internal']}</th>
+                                  <th>{Results[val][item]['subject_external']}</th>
+                                  <th>{Results[val][item]['subject_total']}</th>
+                                  <th>{Results[val][item]['subject_grade']}</th>
+                                  <th>{Results[val][item]['subject_credits']}</th>
+                                </tr>
+                              );
+                            }
+                          })}
+                        </>
                       );
                     }
-                  })}
-                </>
-              );
-            }
-          }
-        })}
-      </tbody>
-    </table>
-  )}
-  <br />
-</div>
+                  }
+                })}
+              </tbody>
+            </table>
+          )}
 
-        <div class="powered-by-container">
-          <a href="http://netflix.com">Powered by Moiz
-          </a>
+        </div>
+
+        <div>
+          <h1 className='font-bold'
+            style={{ fontSize: '10px' }}>
+            Powered By{' '}
+            <a
+              className='text-red-400 hover:text-red-600'
+              href='https://github.com/khaja-moiz'
+              target='_blank'
+              rel="noreferrer"
+              style={{ fontSize: '15px' }}
+            >
+              MOIZ
+            </a>
+          </h1>
         </div>
         {/* <div>
           <table className="w-[100%]">

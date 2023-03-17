@@ -4,7 +4,6 @@ import HomeInfo from './HomeInfo';
 import Hr from '../Hr/Hr';
 import HomeFooter from './HomeFooter';
 import Footer from './Footer';
-import '../ui/Home.module.css'
 
 const HomeNavLinks = () => {
   const links = [
@@ -108,8 +107,9 @@ const HomeNavLinks = () => {
       
     </div>
     <br/>
-      <Hr />
-      <Hr />
+    <hr className="w-full border-gray" />
+      {/* <Hr />
+      <Hr /> */}
       <Footer />
     </>
   );
