@@ -31,8 +31,8 @@ const NavBarComponent = () => {
   }
 
   return (
-    <nav className="bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.1px] dark:border-gray-800 sticky">
-      <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] dark:text-white">
+    <nav className="bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.1px] sticky">
+      <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] ">
         <Link href="/">
           <a><Image src='/logo.png' onClick="window.location.reload()" className="w-[60px]  sm:w-[80px]" alt="" width={80} height={60}/></a>
         </Link>
@@ -43,13 +43,13 @@ const NavBarComponent = () => {
       <div className="flex items-center space-x-4 md:space-x-8">
         <h1 className="cursor-pointer" onClick={handleMode}>
           {isEnable ? (
-            <MdLightMode className="w-5 h-5 dark:text-white" />
+            <MdLightMode className="w-5 h-5" />
           ) : (
             <MdOutlineDarkMode className="w-5 h-5" />
           )}
         </h1>
         <a href='https://github.com/khaja-moiz' target="_blank" rel="noreferrer">
-          <GitHubIcon size="1.5rem" className="dark:text-white text-black" />
+          <GitHubIcon size="1.5rem" className="text-black" />
         </a>
       </div>
     </nav>

@@ -62,7 +62,7 @@ const HomeNavLinks = () => {
   return (
     <>
     <br/>
-    <h1 className='p-4 text-black dark:text-white text-3xl font-bold  text-center sm:text-6xl'>
+    <h1 className='p-4 text-black  text-3xl font-bold  text-center sm:text-6xl'>
         Welcome to{' '}
         <a
           className='text-blue-400 hover:text-blue-600 hover:underline'
@@ -73,11 +73,11 @@ const HomeNavLinks = () => {
           JNTUH Results
         </a>
       </h1>
-      <p className='home-header-caption text-black dark:text-white mt-6 text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]' >
+      <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]' >
         Examination Results Portal{' '}
           <code >Jawaharlal Nehru Technological University Hyderabad</code>
         </p>
-      <p className='home-header-caption text-black dark:text-white mt-6 text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
+      <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
         Get all your results in one place.{' '}
         <i>
           Just your <b>hallticket</b>, to rule them all.
@@ -88,7 +88,7 @@ const HomeNavLinks = () => {
         <a
           href={link.route}
           key={idx}
-          className='border border-gray-100 dark:border-slate-800 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'
+          className='border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'
           onMouseEnter={() => setHoveredLink(idx)}
           onMouseLeave={() => setHoveredLink(null)}
         >
