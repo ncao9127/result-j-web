@@ -31,7 +31,7 @@ function Home({ notifications }) {
       <Link href="/">
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
-          <h3 className="dark:text-white text-lg sm:text-2xl font-bold mt-6">
+          <h3 className="text-lg sm:text-2xl font-bold mt-6">
             Latest Notifications
           </h3>
         </div>
@@ -40,7 +40,7 @@ function Home({ notifications }) {
         {notifications.map((item, index) => (
           <div
             key={index}
-            className="shadow-2xl dark:text-white p-6 mt-6 text-left border dark:border-gray-800 w-96 rounded-xl min-w-[30%]"
+            className="shadow-2xl p-6 mt-6 text-left border w-96 rounded-xl min-w-[30%]"
           >
             <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
               {item.notification_date}
