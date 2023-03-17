@@ -121,11 +121,15 @@ const StudentDataCard = ({ query }) => {
           </tbody>
         </table>
       </div>
+      <br/>
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
       <div id='1'>
   {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F')) && (
     <table>
       <thead>
+      <tr>
+                    <th colspan={10}>BACKLOGS LIST</th>
+                  </tr>
         <tr>
           <th>SUBJECT CODE</th>
           <th>SUBJECT NAME</th>
@@ -174,7 +178,6 @@ const StudentDataCard = ({ query }) => {
 
         <div class="powered-by-container">
           <a href="http://netflix.com">Powered by Moiz
-            <div role="img" aria-label="Powered by Netflix" class="powered-by centered"></div>
           </a>
         </div>
         {/* <div>

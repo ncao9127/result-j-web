@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-
 import { MdOutlineDarkMode, MdLightMode } from 'react-icons/md';
 import { AiFillGithub as GitHubIcon } from 'react-icons/ai';
 import Navbar from './NavBar';
@@ -56,5 +55,4 @@ const NavBarComponent = () => {
     </nav>
   );
 };
-
 export default NavBarComponent;

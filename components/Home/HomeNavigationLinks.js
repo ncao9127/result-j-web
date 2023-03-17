@@ -5,7 +5,6 @@ import Hr from '../Hr/Hr';
 import HomeFooter from './HomeFooter';
 import Footer from './Footer';
 
-
 const HomeNavLinks = () => {
   const links = [
     {

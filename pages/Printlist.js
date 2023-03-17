@@ -4,6 +4,8 @@ import axios from 'axios';
 import Printlist from "../components/Printlist/Printlist";
 import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
+import Hr from "../components/Hr/Hr";
+import HomeInfo from "../components/Home/HomeInfo";
 const HomePrintlist = ({homepage}) => {
     const router = useRouter();
     const submits=async()=>
@@ -71,6 +73,8 @@ const HomePrintlist = ({homepage}) => {
                     <br />
                 </center>
             </div>
+            <Hr/>
+            <HomeInfo/>
         </>
     )
 }

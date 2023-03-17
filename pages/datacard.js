@@ -4,6 +4,8 @@ import Loading from "../components/Loading/Loading";
 import { useRouter } from 'next/router'
 import url from "../components/api/api"
 import StudentDataCard from "../components/StudentDataCard/StudentDataCard";
+import Hr from "../components/Hr/Hr";
+import HomeInfo from "../components/Home/HomeInfo";
 
 
 const HomeStudentDataCard = ({ homepage }) => {
@@ -55,7 +57,7 @@ const HomeStudentDataCard = ({ homepage }) => {
              Student Score Board
           </h2>
           <br />
-          <br />
+          
           <input name="htno" onChange={inputEvent} className="border-[1px] m-[9.8px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:m-0" type="text" maxLength="10" placeholder="Enter your Roll Number" />
           <br />
           <p className="text-[60%] text-red-600">{warning}</p>
@@ -68,6 +70,8 @@ const HomeStudentDataCard = ({ homepage }) => {
           <br />
         </center>
       </div>   
+      <Hr/>
+      <HomeInfo/>
     </>
   );
 };

@@ -46,7 +46,7 @@ function Home({ notifications }) {
               {item.notification_date}
             </h3>
             <title>JNTUH Results Notifications</title>
-            <p className="mt-4 text-m text-center">
+            <p className=" text-m text-center">
               {item.notification_description}
             </p>
           </div>

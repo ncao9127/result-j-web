@@ -4,6 +4,8 @@ import axios from 'axios';
 import MultiResults from "../components/Multi/MultiResults";
 import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
+import Hr from "../components/Hr/Hr";
+import HomeInfo from "../components/Home/HomeInfo";
 const Homemulti = ({homepage}) => {
     const router = useRouter();
     const submits=async()=>
@@ -72,6 +74,8 @@ const Homemulti = ({homepage}) => {
                     <br />
                 </center>
             </div>
+            <Hr/>
+            <HomeInfo/>
         </>
     )
 }

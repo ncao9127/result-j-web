@@ -4,6 +4,8 @@ import axios from 'axios';
 import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
 import SemResult from "../components/SemesterResult/SemResult";
+import Hr from "../components/Hr/Hr";
+import HomeInfo from "../components/Home/HomeInfo";
 const HomeSemResult = ({homepage}) => {
     const router = useRouter();
     const submits=async()=>
@@ -67,6 +69,8 @@ const HomeSemResult = ({homepage}) => {
                     <br />
                 </center>
             </div>
+            <Hr/>
+            <HomeInfo/>
         </>
     )
 }
