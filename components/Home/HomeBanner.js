@@ -20,7 +20,8 @@ const HomeBanner = ({ closeBanner }) => {
                             </Link>
                         </a>
                     </div>
-                    <Image src='/logo.png' href="https://jntuhresultsweb.vercel.app/" className="w-[60px]  sm:w-[120px]" alt="" width={80} height={60} />
+                    <center>
+                    <Image src='/logo.png' href="https://jntuhresultsweb.vercel.app/" className="w-[60px]  sm:w-[120px]" alt="" width={80} height={60} /></center>
                     <small>Get your Results with your CGPA in a second</small>
                     <br />
                     <br />

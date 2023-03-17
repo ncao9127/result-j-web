@@ -4,6 +4,7 @@ import HomeInfo from './HomeInfo';
 import Hr from '../Hr/Hr';
 import HomeFooter from './HomeFooter';
 import Footer from './Footer';
+import '../ui/Home.module.css'
 
 const HomeNavLinks = () => {
   const links = [
@@ -62,10 +63,10 @@ const HomeNavLinks = () => {
   return (
     <>
     <br/>
-    <h1 className='p-4 text-black  text-3xl font-bold  text-center sm:text-6xl'>
+    <h1 className='title font-bold'>
         Welcome to{' '}
         <a
-          className='text-blue-400 hover:text-blue-600 hover:underline'
+          className='text-blue-400 hover:text-blue-600'
           href='https://github.com/khaja-moiz'
           target='_blank'
           rel="noreferrer"
@@ -73,9 +74,10 @@ const HomeNavLinks = () => {
           JNTUH Results
         </a>
       </h1>
-      <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]' >
+      <p className='description' >
         Examination Results Portal{' '}
-          <code >Jawaharlal Nehru Technological University Hyderabad</code>
+        <br/>
+          <code className='code' >Jawaharlal Nehru Technological University Hyderabad</code>
         </p>
       <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
         Get all your results in one place.{' '}
