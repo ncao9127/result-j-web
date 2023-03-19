@@ -108,6 +108,7 @@ const HomeNavLinks = () => {
     </div>
     <br/>
     <hr className="w-full border-gray" />
+    <br/>
       {/* <Hr />
       <Hr /> */}
       <Footer />

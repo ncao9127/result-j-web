@@ -16,24 +16,31 @@ const ResultHeader = ({ examCode }) => {
 };
 
 const ResultRow = ({ details, examResults }) => {
+    // Check if any required fields are 'N/A'
+    if (!details || !details.NAME || !details.ROLL_NO || !details.COLLEGE_CODE || !details.FATHER_NAME) {
+      return null;
+    }
+  
     return (
-        <tr key={details ? details.NAME ? details.NAME : "N/A" : "N/A"}>
-        <th>{details ? details.NAME ? details.NAME : "N/A" : "N/A"}</th>
-        <th>{details ? details.ROLL_NO : "N/A"}</th>
-        <th>{details ? details.COLLEGE_CODE : "N/A"}</th>
-        <th>{details ? details.FATHER_NAME : "N/A"}</th>
-            <th>{examResults.credits}</th>
-            <th>{examResults.SGPA}</th>
-            <th className={examResults.status === 'PASSED' ? 'pass' : 'fail'}>{examResults.status}</th>
-        </tr>
+      <tr key={details.NAME}>
+        <th>{details.NAME}</th>
+        <th>{details.ROLL_NO}</th>
+        <th>{details.COLLEGE_CODE}</th>
+        <th>{details.FATHER_NAME}</th>
+        <th>{examResults.credits}</th>
+        <th>{examResults.SGPA}</th>
+        <th className={examResults.status === 'PASSED' ? 'pass' : 'fail'}>{examResults.status}</th>
+      </tr>
     );
-};
+  };
+  
 
 const Printlist = ({ query }) => {
     const examCode = Object.keys(query[0]['Results'])[0];
-    const numStudentsPassed = query.filter((result) => result.Results[examCode].status === "PASSED").length;
-    const numStudentsFailed = query.length - numStudentsPassed;
-  
+    const numStudentsPassed = query.filter((result) => result.Results[examCode].status === "PASSED" && result.DETAILS && result.DETAILS.NAME).length;
+    const numStudentsFailed = query.filter((result) => result.Results[examCode].status !== "PASSED" && result.DETAILS && result.DETAILS.NAME).length;
+    const totalStudents = query.filter((result) => result.DETAILS && result.DETAILS.NAME).length;
+
     return (
         <div key="Results" className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
             <ResultHeader examCode={examCode} />
@@ -60,15 +67,19 @@ const Printlist = ({ query }) => {
                             />
                         );
                     })}
-                      <tr>
-            <th colSpan={4}>Total Students:</th>
-            <th>{query.length}</th>
-            <th colSpan={2}>
-              Pass: {numStudentsPassed} ({((numStudentsPassed / query.length) * 100).toFixed(2)}%), Fail: {numStudentsFailed} ({((numStudentsFailed / query.length) * 100).toFixed(2)}%)
-            </th>
-          </tr>
+                    <tr>
+                        <th colSpan={4}>Total Students:</th>
+                        <th>{totalStudents}</th>
+                        <th colSpan={2}>
+                        Pass: {numStudentsPassed} ({totalStudents > 0 ? ((numStudentsPassed / totalStudents) * 100).toFixed(2) : 0}%), Fail: {numStudentsFailed} ({totalStudents > 0 ? ((numStudentsFailed / totalStudents) * 100).toFixed(2) : 0}%)
+                        </th>
+                    </tr>
                 </tbody>
             </table>
+            {/* <RenderOverAllPassFailPieChart
+                numStudentsPassed={query}
+                numStudentsFailed={query}
+            /> */}
             <PrintButton />
             <ScrollToTop
                 className='scroller'

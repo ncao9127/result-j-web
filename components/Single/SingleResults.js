@@ -100,9 +100,7 @@ const SingleResults = ({ query }) => {
         style={{ bottom: "30px", opacity: 0.75, backgroundColor: 'grey' }}
       />
       <Hr />
-      <Hr />
       <Footer />
-
     </>
   )
 }

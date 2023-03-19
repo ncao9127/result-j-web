@@ -11,7 +11,7 @@ const Header = () => {
         <link rel="manifest" href="/site.webmanifest" />
         <meta
           property='og:url'
-          content='https://jntuhresultsweb.vercel.app/'
+          content='https://resultsjntuh.vercel.app/'
         />
         
         <meta property='og:type' content='website' />
@@ -20,14 +20,14 @@ const Header = () => {
         <meta property="twitter:title" content="JNTUH Results" />
         <meta
           property='og:description'
-          content='You can find the Results of your entire B Tech semesters here of Jawaharlal Nehru Technological University, Hyderabad (JNTUH).'
+          content='You can find the Results of your entire B.Tech semesters here of Jawaharlal Nehru Technological University, Hyderabad (JNTUH).'
         />
         
         <meta property="twitter:description" content="JNTUH Results, JNTUH B.Tech Results, JNTUH Results Enginnering, JNTUH Engineering Results "></meta>
         <meta
           property='og:image'
           content={
-            'https://github.com/khaja-moiz/test/blob/main/public/homepage.jpg'
+            'https://github.com/khaja-moiz/ResultsJntuh/tree/main/public/HomeMain.jpg'
           }
         />
 
@@ -52,7 +52,7 @@ const Header = () => {
         </script>
       </Head>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-6CR1W425NE"
+        src="https://www.googletagmanager.com/gtag/js?id=G-ST6BWFLTTP"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -60,8 +60,7 @@ const Header = () => {
         window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          gtag('config', 'G-6CR1W425NE');
+          gtag('config', 'G-ST6BWFLTTP');
         `}
       </Script>
     </>
