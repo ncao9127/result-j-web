@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
-import HomeInfo from './HomeInfo';
-import Hr from '../Hr/Hr';
-import HomeFooter from './HomeFooter';
 import Footer from './Footer';
 
 const HomeNavLinks = () => {
@@ -40,6 +37,13 @@ const HomeNavLinks = () => {
       desctiption: [
         'Get Your CGPA',
         'Get Your Gpa & Results Performance Detailed Here ',
+      ],
+    },
+    {
+      route: '/CreditsCheck',
+      desctiption: [
+        'Credits Check',
+        'Check Your Credits Eligible Critiera Here',
       ],
     },
     {
@@ -109,8 +113,6 @@ const HomeNavLinks = () => {
     <br/>
     <hr className="w-full border-gray" />
     <br/>
-      {/* <Hr />
-      <Hr /> */}
       <Footer />
     </>
   );

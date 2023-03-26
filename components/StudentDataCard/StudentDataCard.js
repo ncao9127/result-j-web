@@ -3,6 +3,7 @@ import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
 import React, { useState } from 'react';
 import Confetti from 'react-dom-confetti';
+import Link from "next/link";
 
 const config = {
   angle: 90,
@@ -81,7 +82,7 @@ const StudentDataCard = ({ query }) => {
       </div>
       <table >
         <tbody>
-          <tr class="mx-auto w-max bg-blue-100">
+          <tr class="mx-auto w-max bg-gray-200">
             <th>SEMESTER</th>
             <th>CREDITS</th>
             <th>SGPA</th>
@@ -114,10 +115,10 @@ const StudentDataCard = ({ query }) => {
       <div>
         <table >
           <tbody>
-            <tr><th>TOTAL CREDITS : {totalCredits}</th></tr>
-            <tr><th>TOTAL SUBJECTS : {totalSubjects}</th></tr>
-            <tr><th>PASSED SUBJECTS : {passedSubjects}</th></tr>
-            <tr><th>FAILED SUBJECTS : {failedSubjects}</th></tr>
+            <tr><th>TOTAL CREDITS </th><th>{totalCredits}</th></tr>
+            <tr><th>TOTAL SUBJECTS </th><th>{totalSubjects}</th></tr>
+            <tr><th>PASSED SUBJECTS </th><th> {passedSubjects}</th></tr>
+            <tr><th>FAILED SUBJECTS </th><th>{failedSubjects}</th></tr>
           </tbody>
         </table>
       </div>
@@ -130,7 +131,7 @@ const StudentDataCard = ({ query }) => {
                 <tr>
                   <th colspan={10}>BACKLOGS LIST</th>
                 </tr>
-                <tr>
+                <tr >
                   <th>SUBJECT CODE</th>
                   <th>SUBJECT NAME</th>
                   <th>INTERNAL</th>
@@ -177,19 +178,14 @@ const StudentDataCard = ({ query }) => {
         </div>
 
         <div>
-          <h1 className='font-bold'
-            style={{ fontSize: '10px' }}>
-            Powered By{' '}
-            <a
-              className='text-red-400 hover:text-red-600'
-              href='https://github.com/khaja-moiz'
-              target='_blank'
-              rel="noreferrer"
-              style={{ fontSize: '15px' }}
-            >
-              MOIZ
-            </a>
-          </h1>
+          <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
+            Made with ❤ by &nbsp;
+            <Link href="https://github.com/khaja-moiz/" >
+                <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
+                    MD MOIZ UDDIN
+                </a>
+            </Link>
+        </p>
         </div>
         {/* <div>
           <table className="w-[100%]">

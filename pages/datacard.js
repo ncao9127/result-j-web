@@ -38,6 +38,8 @@ const HomeStudentDataCard = ({ homepage }) => {
             alignItems: 'center',
           }}>
           <p>500 | Please try again later</p>
+          <br/>
+          <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
         </div></>);
       }
     }

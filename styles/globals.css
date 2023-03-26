@@ -42,7 +42,7 @@ th{
   border-bottom: 1px solid #059142;
 }
 
-tr:hover {background-color: #80808030;}
+tr:hover {background-color: rgb(227, 236, 239);}
 @media print {
    
     .printi, .scroller {
