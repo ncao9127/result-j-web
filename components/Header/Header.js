@@ -30,6 +30,7 @@ const Header = () => {
             'https://raw.githubusercontent.com/khaja-moiz/ResultsJntuh/main/public/HomeMain.jpg' 
           }
         />
+        <meta name="google-site-verification" content="FUy87m9L-VxJNFarXrOAq8E6TLmFSOFkkeFZsIZEMOk" />
 
         <script
           dangerouslySetInnerHTML={{
