@@ -20,7 +20,7 @@ const Header = () => {
         <meta property="twitter:title" content="JNTUH Results" />
         <meta
           property='og:description'
-          content='You can find the Results of your entire B.Tech semesters here of Jawaharlal Nehru Technological University, Hyderabad (JNTUH).'
+          content='You can find the results of all your B.Tech semesters here, from Jawaharlal Nehru Technological University, Hyderabad (JNTUH).'
         />
         
         <meta property="twitter:description" content="JNTUH Results, JNTUH B.Tech Results, JNTUH Results Enginnering, JNTUH Engineering Results "></meta>
