@@ -46,7 +46,7 @@ const HomePrintlist = ({homepage}) => {
                 <center>
                     <br />
                     <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
-                      Fetech The List Grades of All Students of Particular Semester
+                      Fetech The List Of Grades For All Students of Particular Semester
                     </h2>
                     <br />
                     <div>

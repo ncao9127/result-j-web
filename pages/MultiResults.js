@@ -47,7 +47,7 @@ const Homemulti = ({homepage}) => {
                 <center>
                     <br />
                     <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
-                        Grades of All Students of Particular Semester
+                        Grades of All Students In A Particular Semester
                     </h2>
                     <br />
                     <div>

@@ -63,6 +63,7 @@ import { MdOutlineDarkMode, MdLightMode } from 'react-icons/md';
 import { AiFillGithub as GitHubIcon } from 'react-icons/ai';
 import Navbar from './NavBar';
 import Image from 'next/image';
+import { BiShareAlt } from 'react-icons/bi';
 
 const NavBarComponent = () => {
   const [isEnable, setIsEnable] = useState(false);
@@ -126,6 +127,14 @@ const NavBarComponent = () => {
           <a href="https://github.com/khaja-moiz" target="_blank" rel="noreferrer">
             <GitHubIcon size="1.5rem" className="text-black" />
           </a>
+          <h1 onClick={() => {
+                        const url = "https://resultsjntuh.vercel.app/";
+                        const title = "JNTUH Results";
+                        const text = "Check out JNTUH Results website";
+                        navigator.share({ url, title, text });
+                    }}>
+          <BiShareAlt size="1.5rem" className="text-black"/>
+          </h1>
         </div>
       </nav>
     </>

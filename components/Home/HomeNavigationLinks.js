@@ -5,49 +5,49 @@ import Footer from './Footer';
 const HomeNavLinks = () => {
   const links = [
     {
-      route: '/ConsoliatedResult',
+      route: '/ConsolidatedResult',
       desctiption: [
         'Consolidated Results',
         'Get All Your Semester Results Here',
       ],
     },
     {
-      route: '/Results',
+      route: '/SemResults',
       desctiption: [
-        'Get Your Result',
+        'Get Your Sem Result',
         'Get Results Of Particular Semester',
       ],
     },
     {
-      route: '/multi',
+      route: '/MultiResults',
       desctiption: [
         'Get Multiple Results',
         'Get Results Of More Than One Hallticket For A Semester',
       ],
     },
     {
-      route: '/Printlist',
+      route: '/MultiList',
       desctiption: [
         'Get Multiple List',
         'Get Results Of Pass Or Fail List More Than One Hallticket',
       ],
     },
     {
-      route: '/datacard',
+      route: '/CGPACalculator',
       desctiption: [
         'Get Your CGPA',
         'Get Your Gpa & Results Performance Detailed Here ',
       ],
     },
     {
-      route: '/CreditsCheck',
+      route: '/CreditsCalculator',
       desctiption: [
         'Credits Check',
         'Check Your Credits Eligible Critiera Here',
       ],
     },
     {
-      route: '/notifications',
+      route: '/Notifications',
       desctiption: [
         'Notifications',
         'Get All The Latest Notifications From JNTUH.',
@@ -58,6 +58,13 @@ const HomeNavLinks = () => {
       desctiption: [
         'Old Version',
         'Get All The Latest Results From JNTUH.',
+      ],
+    },
+    {
+      route: '/help',
+      desctiption: [
+        'Help Desk',
+        'Found any craches or bugs feel free to report us here',
       ],
     },
   ];

@@ -43,7 +43,7 @@ const HomeSemResult = ({homepage}) => {
                 <center>
                     <br />
                     <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
-                        Particular Semester Results
+                        Results For A Particular Semester
                     </h2>
                     <br />
                     <div>
