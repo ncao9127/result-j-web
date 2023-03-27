@@ -47,7 +47,7 @@ const Faq = () => {
                     Yes! you can find your overall backlogs of btech here in this website. Go Main Home Section.
                     <br />
                     Check Here Is The Reference Of R18 Doc{' '}
-                    <a className="text-blue-400 hover:text-blue-600"> <Link href="/CGPACaculator">Click Here To View.</Link></a>
+                    <a className="text-blue-400 hover:text-blue-600"> <Link href="/CGPACalculator">Click Here To View.</Link></a>
                 </div>
             ),
             isOpen: false,
