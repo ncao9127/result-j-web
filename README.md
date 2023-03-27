@@ -21,7 +21,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 To get started, just clone the repository and run `npm install && npm run dev`:
 
-    git clone https://github.com/khaja-moiz/JNTUHRESULTS.git
+    git clone https://github.com/khaja-moiz/ResultsJntuh.git
     npm install
     npm run dev
 
@@ -36,6 +36,14 @@ If you wanted to run this site in production, you should install modules then bu
 You should run `npm run build` again any time you make changes to the site.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Sitemap generate
+
+To generate sitemap run node sitemap-generator.js
+
+    node sitemap-generator.js
+    
+    
 
 ## Questions? Need Help? Found a bug?
 
