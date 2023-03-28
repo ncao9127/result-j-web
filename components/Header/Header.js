@@ -27,7 +27,7 @@ const Header = () => {
         <meta
           property='og:image'
           content={
-            'https://raw.githubusercontent.com/khaja-moiz/ResultsJntuh/main/public/HomeMain.jpg' 
+            'https://raw.githubusercontent.com/khaja-moiz/Drive/main/HomeMain.jpg' 
           }
         />
         <meta name="google-site-verification" content="FUy87m9L-VxJNFarXrOAq8E6TLmFSOFkkeFZsIZEMOk" />
