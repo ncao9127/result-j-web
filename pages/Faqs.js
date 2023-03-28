@@ -72,6 +72,26 @@ const Faq = () => {
             ),
             isOpen: false,
         },
+        {
+            question: 'How can I check my Jntu result ?',
+            answer: (
+                <div>
+                    {"Yes! you can see your overall CGPA of btech here in this website. Go to Section Home, 'Click Get Your CGPA' "}
+                    <a className="text-blue-400 hover:text-blue-600"> <Link href="MultiList">Click Here To View.</Link></a>
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How can I check my B Tech all semester results ?',
+            answer: (
+                <div>
+                    {"Yes! you can see your overall CGPA of btech here in this website. Go to Section Home, 'Click Get Your CGPA' "}
+                    <a className="text-blue-400 hover:text-blue-600"> <Link href="MultiList">Click Here To View.</Link></a>
+                </div>
+            ),
+            isOpen: false,
+        },
     ]);
 
     const toggleFaq = (index) => {
@@ -113,7 +133,7 @@ const Faq = () => {
             </div>
             <br />
             <center>
-                <button className="w-[70px] text-white	bg-blue-700 rounded mr-1.5 text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[160px] sm:text-[100%] font-bold" >
+                <button className="w-[70px] text-white	bg-blue-700 rounded mr-1.5 text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[180px] sm:text-[100%] font-bold" >
                     <a href='https://telegram.me/JntuhResultschatBot'>
                         Ask Questions?
                     </a>
