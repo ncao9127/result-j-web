@@ -40,7 +40,7 @@ const StudentDataCard = ({ query }) => {
           totalSubjects++;
           totalCredits += parseFloat(Results[val][item]?.subject_credits) || 0;
 
-          if (Results[val][item]['subject_grade'] === 'F') {
+          if (Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab') {
             failedSubjects++;
           } else {
             passedSubjects++;
