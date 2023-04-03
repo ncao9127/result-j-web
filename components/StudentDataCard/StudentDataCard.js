@@ -125,7 +125,7 @@ const StudentDataCard = ({ query }) => {
       <br />
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
         <div id='1'>
-          {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F' || item => Results[val][item]['subject_grade'] === 'Ab')) && (
+          {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab')) && (
             <table>
               <thead>
                 <tr>
@@ -144,7 +144,7 @@ const StudentDataCard = ({ query }) => {
               <tbody>
                 {Object.keys(Results).map(val => {
                   if (val !== 'Total') {
-                    const subjects = Object.keys(Results[val]).filter(item => Results[val][item]['subject_grade'] === 'F');
+                    const subjects = Object.keys(Results[val]).filter(item => Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab');
                     if (subjects.length > 0) {
                       return (
                         <>
