@@ -152,7 +152,7 @@ const StudentDataCard = ({ query }) => {
                             <th colspan={10}>{val} Results</th>
                           </tr>
                           {Object.keys(Results[val]).map(function (item, index) {
-                            if (Results[val][item]['subject_grade'] === 'F') {
+                            if (Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab') {
                               return (
                                 <tr key={index}>
                                   <th colspan={1}>{Results[val][item]['subject_name']}</th>
