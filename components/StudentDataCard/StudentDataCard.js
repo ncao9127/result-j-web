@@ -69,7 +69,7 @@ const StudentDataCard = ({ query }) => {
         </div>
       </div>
       <div className="mb-5 text-center">
-        <h1 className="text-blue-500 text-bold text-xl">Overall GPA</h1>
+        <h1 className="text-blue-500 text-bold text-xl">Overall CGPA</h1>
         <h1 className="text-bold text-2xl">
           {Results['Total']} ({Results['Total'] >= 9.5 ? 'Outstanding' :
             Results['Total'] >= 8.5 ? 'Excellent' :
