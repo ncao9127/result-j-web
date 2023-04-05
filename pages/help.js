@@ -141,7 +141,7 @@ function Home({ notifications }) {
             <hr className="sm:w-96 w-48 border-gray mb-4" />
             <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]"><p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
                 If you found this app helpful, you can support me by &nbsp;
-                <Link href="https://www.buymeacoffee.com/" >
+                <Link href="upi://pay?pa=9581302502@apl&pn=ResultsJntuh&cu=INR" >
                     <a className="font-bold text-[#9C1A8B]">
                         buying me a pizza here.
                     </a>
