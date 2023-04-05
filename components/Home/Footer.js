@@ -22,7 +22,7 @@ const Footer = ()=>
         </p>
         <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
             If you found this app helpful, you can support me by &nbsp;
-            <Link href="upi://pay?pa=mduddin2502@paytm&pn=ResultsJntuh&cu=INR" >
+            <Link href="upi://pay?pa=paytmqr6w470snlgt@paytm&pn=Paytm" >
                 <a className="font-bold text-[#9C1A8B]">
                     buying me a pizza here.
                 </a>
