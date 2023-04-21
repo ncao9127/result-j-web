@@ -6,50 +6,47 @@ import url from "../components/api/api";
 import SemResult from "../components/SemesterResult/SemResult";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
-const HomeSemResult = ({homepage}) => {
+const HomeSemResult = ({ homepage }) => {
     const router = useRouter();
-    const submits=async()=>
-    {
-        if((htno.length!=10 || code==""))
-        {
+    const submits = async () => {
+        if ((htno.length != 10 || code == "")) {
             alert("Please give the correct information!!")
         }
-        else
-        {
+        else {
             homepage(<Loading />)
-            const response=await axios.get(url+'/api/result?htno='+htno+'&code='+code,{mode:'cors'});
-            homepage(<SemResult query={response.data}/>)
+            const response = await axios.get(url + '/api/result?htno=' + htno + '&code=' + code, { mode: 'cors' });
+            homepage(<SemResult query={response.data} />)
         }
     }
-    const inputEvent=(event)=>
-    {
-        event.target.value=event.target.value.toUpperCase();
-        if(event.target.name=="htno")
-        {
+    const inputEvent = (event) => {
+        event.target.value = event.target.value.toUpperCase();
+        if (event.target.name == "htno") {
             setHtno(event.target.value)
         }
-        else if(event.target.name=="code")
-        {
+        else if (event.target.name == "code") {
             setCode(event.target.value)
         }
-        
+
     }
-  const [htno, setHtno] = useState("");
-  
-  const [code, setCode] = useState("");
+    const [htno, setHtno] = useState("");
+
+    const [code, setCode] = useState("");
     return (
         <>
-            <div  method="get" >
+            <div method="get" >
                 <center>
                     <br />
-                    <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                    <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                        Semester Result
+                    </h1>
+                    <p>
                         Results For A Particular Semester
-                    </h2>
+                    </p>
                     <br />
                     <div>
-                        <input onChange={inputEvent} name="htno" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter Your Roll Number" required/>
+                        <input onChange={inputEvent} name="htno" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter Your Roll Number" required />
                     </div>
-                    <select name="code" onChange={inputEvent}   className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">
+                    <select name="code" onChange={inputEvent} className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">
                         <option >Semester</option>
                         <option defaultValue value="1-1">1-1</option>
                         <option value="1-2">1-2</option>
@@ -69,23 +66,23 @@ const HomeSemResult = ({homepage}) => {
                     <br />
                 </center>
             </div>
-            <Hr/>
-            <HomeInfo/>
+            <Hr />
+            <HomeInfo />
         </>
     )
 }
 const HomePage = () => {
     const homepage = (value) => {
-      setContent(value);
+        setContent(value);
     };
-  
+
     const [content, setContent] = useState(<HomeSemResult homepage={homepage} />);
-  
+
     return (
-      <div>
-        {content}
-      </div>
+        <div>
+            {content}
+        </div>
     );
-  };
-  
-  export default HomePage;
+};
+
+export default HomePage;

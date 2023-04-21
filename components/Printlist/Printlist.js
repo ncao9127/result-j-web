@@ -2,6 +2,8 @@ import React from 'react';
 import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
 import RenderOverAllPassFailPieChart from '../ui/OverAllPassFailPieChart';
+import Info from '../Home/info';
+import Hr from '../Hr/Hr';
 
 const ResultHeader = ({ examCode }) => {
     return (
@@ -43,10 +45,11 @@ const Printlist = ({ query }) => {
 
     return (
         <div key="Results" className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
+            <br/>
             <ResultHeader examCode={examCode} />
             <table className="w-[100%]" key="Details">
                 <tbody key="Details_tbody">
-                    <tr>
+                    <tr class="mx-auto w-max bg-gray-200">
                         <th>NAME</th>
                         <th>ROLL NO</th>
                         <th>COLLEGE CODE</th>
@@ -80,6 +83,9 @@ const Printlist = ({ query }) => {
                 numStudentsPassed={query}
                 numStudentsFailed={query}
             /> */}
+            <Info/>
+            <br/>
+            <Hr/>
             <PrintButton />
             <ScrollToTop
                 className='scroller'

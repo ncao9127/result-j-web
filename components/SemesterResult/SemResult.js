@@ -1,6 +1,8 @@
 import React from 'react';
 import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
+import Info from '../Home/info';
+import Hr from '../Hr/Hr';
 
 const SemResult = ({ query }) => {
     const exam_co = Object.keys(query[0]['Results'])[0]
@@ -11,9 +13,10 @@ const SemResult = ({ query }) => {
                 if (!Result || !Result['DETAILS']) return null;
                 return (
                     <div key={Result['DETAILS']['NAME']}>
+                        <br/>
                         <table className="w-[100%]" key="Heading">
                             <tbody key="heading_tbody">
-                                <tr>
+                                <tr class="mx-auto w-max bg-gray-200">
                                     <th>{Object.keys(Result['Results'])[0]} Results</th>
                                 </tr>
                             </tbody>
@@ -31,7 +34,7 @@ const SemResult = ({ query }) => {
 
                         <table key="Result">
                             <tbody key="Result_tbody">
-                                <tr>
+                                <tr class="mx-auto w-max bg-gray-200">
                                     <th>SUBJECT_NAME</th>
                                     <th>SUBJECT_CODE</th>
                                     <th>INTERNAL</th>
@@ -78,6 +81,8 @@ const SemResult = ({ query }) => {
                     </div>
                 );
             })}
+            <Info/>
+            <Hr/>
             <PrintButton />
             <ScrollToTop
                 className='scroller'

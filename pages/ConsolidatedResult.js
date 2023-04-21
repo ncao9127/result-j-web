@@ -66,9 +66,12 @@ const HomeSingle = ({ homepage }) => {
       <div method="get">
         <center>
           <br />
-          <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+          <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+             Consolidated Results
+          </h1>
+          <p>
             Grades For All Semesters Of A Particular Student
-          </h2>
+          </p>
           <br />
           <br />
           <input name="htno" onChange={inputEvent} className="border-[1px] m-[9.8px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:m-0" type="text" maxLength="10" placeholder="Enter your Roll Number" />

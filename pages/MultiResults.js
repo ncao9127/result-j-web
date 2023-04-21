@@ -6,55 +6,51 @@ import Loading from "../components/Loading/Loading";
 import url from "../components/api/api";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
-const Homemulti = ({homepage}) => {
+const Homemulti = ({ homepage }) => {
     const router = useRouter();
-    const submits=async()=>
-    {
-        if((htno1.length!=10 || htno2.length!=10 || code=="") || (htno1.slice(0,8)!=htno2.slice(0,8)) || (htno1.slice(8,10)>htno2.slice(8,10)))
-        {
+    const submits = async () => {
+        if ((htno1.length != 10 || htno2.length != 10 || code == "") || (htno1.slice(0, 8) != htno2.slice(0, 8)) || (htno1.slice(8, 10) > htno2.slice(8, 10))) {
             alert("Please give the correct information!!")
         }
-        else
-        {
+        else {
             homepage(<Loading />)
-            const response=await axios.get(url+'/api/multi?from='+htno1+'&to='+htno2+'&code='+code,{mode:'cors'});
-            homepage(<MultiResults query={response.data}/>)
+            const response = await axios.get(url + '/api/multi?from=' + htno1 + '&to=' + htno2 + '&code=' + code, { mode: 'cors' });
+            homepage(<MultiResults query={response.data} />)
         }
     }
-    const inputEvent=(event)=>
-    {
-        event.target.value=event.target.value.toUpperCase();
-        if(event.target.name=="htno_1")
-        {
+    const inputEvent = (event) => {
+        event.target.value = event.target.value.toUpperCase();
+        if (event.target.name == "htno_1") {
             setHtno1(event.target.value)
         }
-        else if(event.target.name=="htno_2")
-        {
+        else if (event.target.name == "htno_2") {
             setHtno2(event.target.value)
         }
-        else if(event.target.name=="code")
-        {
+        else if (event.target.name == "code") {
             setCode(event.target.value)
         }
-        
+
     }
-  const [htno1, setHtno1] = useState("");
-  const [htno2, setHtno2] = useState("");
-  const [code, setCode] = useState("");
+    const [htno1, setHtno1] = useState("");
+    const [htno2, setHtno2] = useState("");
+    const [code, setCode] = useState("");
     return (
         <>
-            <div  method="get" >
+            <div method="get" >
                 <center>
                     <br />
-                    <h2 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                    <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                        Multi Results
+                    </h1>
+                    <p>
                         Grades of All Students In A Particular Semester
-                    </h2>
+                    </p>
                     <br />
                     <div>
-                        <input onChange={inputEvent} name="htno_1" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter From Roll Number" required/>
-                        <input onChange={inputEvent} name="htno_2" className="my-2 content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:my-0 sm:mx-2" type="text" maxLength="10" placeholder="Enter To Roll Number" required/>
+                        <input onChange={inputEvent} name="htno_1" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter From Roll Number" required />
+                        <input onChange={inputEvent} name="htno_2" className="my-2 content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:my-0 sm:mx-2" type="text" maxLength="10" placeholder="Enter To Roll Number" required />
                     </div>
-                    <select name="code" onChange={inputEvent}   className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">
+                    <select name="code" onChange={inputEvent} className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">
                         <option >Semester</option>
                         <option defaultValue value="1-1">1-1</option>
                         <option value="1-2">1-2</option>
@@ -74,24 +70,24 @@ const Homemulti = ({homepage}) => {
                     <br />
                 </center>
             </div>
-            <Hr/>
-            <HomeInfo/>
+            <Hr />
+            <HomeInfo />
         </>
     )
 }
 
 const HomePage = () => {
     const homepage = (value) => {
-      setContent(value);
+        setContent(value);
     };
-  
+
     const [content, setContent] = useState(<Homemulti homepage={homepage} />);
-  
+
     return (
-      <div>
-        {content}
-      </div>
+        <div>
+            {content}
+        </div>
     );
-  };
-  
-  export default HomePage;
+};
+
+export default HomePage;

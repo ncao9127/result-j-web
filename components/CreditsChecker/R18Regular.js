@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hr from '../Hr/Hr';
 import PrintButton from '../ui/PrintButton';
+import Info from '../Home/info';
 
 const R18Regular = ({ query }) => {
   const Results = query['Results'];
@@ -113,6 +114,7 @@ const R18Regular = ({ query }) => {
         </tbody>
       </table>
       {/* <PrintButton/> */}
+      <Info/>
       <br />
       <Hr />
       <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]">

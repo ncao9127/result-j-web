@@ -109,7 +109,7 @@ function Home({ notifications }) {
           pauseOnHover={true}
           
         >
-          <span style={{paddingRight: "800px"}}></span>
+          <span style={{paddingRight: "700px"}}></span>
             <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
               {firstNotification?.notification_date}
             </h3>

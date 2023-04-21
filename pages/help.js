@@ -31,6 +31,7 @@ import { BiMessageSquare } from "react-icons/bi";
 import { BiBug } from "react-icons/bi";
 import { BiCommentDetail, BiMessageSquareAdd } from "react-icons/bi";
 import { BiHelpCircle } from 'react-icons/bi';
+import StatusPage from "../components/ui/StatusPage";
 
 
 
@@ -53,7 +54,7 @@ function Home({ notifications }) {
                     speed={50}
                     gradient={true}
                     pauseOnHover={true}>
-                    <span style={{ paddingRight: "800px" }}></span>
+                    <span style={{ paddingRight: "700px" }}></span>
                     <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
                         {firstNotification?.notification_date}
                     </h3>
@@ -147,6 +148,14 @@ function Home({ notifications }) {
                     </a>
                 </Link>
             </p>
+            </div>
+            <div className="mt-1 block text-center text-green-600 mb-4 text-[55%] md:text-[80%]">
+                <Link href="https://resultsjntuhweb.statuspage.io" >
+                    <a >
+                    <StatusPage/>
+                    </a>
+                </Link>
+                
             </div>
         </div>
 

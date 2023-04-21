@@ -3,6 +3,8 @@ import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
 import EachSubjectOverAllPassFailBarChart from '../ui/EachSubjectPassFailBar';
 import RenderOverAllPassFailPieChart from '../ui/OverAllPassFailPieChart';
+import Hr from '../Hr/Hr';
+import Info from '../Home/info';
 
 const MultiResults = ({ query }) => {
 
@@ -21,13 +23,14 @@ const MultiResults = ({ query }) => {
                         query={query} />
                 </div>
             </div> */}
+            <br/>
             {query.map((Result) => {
                 if (!Result || !Result['DETAILS']) return null;
                 return (
                     <div key={Result['DETAILS']['NAME']}>
                         <table className="w-[100%]" key="Heading">
                             <tbody key="heading_tbody">
-                                <tr>
+                                <tr class="mx-auto w-max bg-gray-200">
                                     <th>{Object.keys(Result['Results'])[0]} Results</th>
                                 </tr>
                             </tbody>
@@ -45,7 +48,7 @@ const MultiResults = ({ query }) => {
 
                         <table key="Result">
                             <tbody key="Result_tbody">
-                                <tr>
+                                <tr >
                                     <th>SUBJECT NAME</th>
                                     <th>SUBJECT CODE</th>
                                     <th>INTERNAL</th>
@@ -92,6 +95,9 @@ const MultiResults = ({ query }) => {
                     </div>
                 );
             })}
+            <Info/>
+            <Hr/>
+            
             <PrintButton />
             <ScrollToTop
                 className='scroller'
