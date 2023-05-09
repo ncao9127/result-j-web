@@ -66,18 +66,16 @@ const HomeSingle = ({ homepage }) => {
       <div method="get">
         <center>
           <br />
-          <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+          <h1 className="mb-2 font-bold text-[180%] ">
              Consolidated Results
           </h1>
           <p>
             Grades For All Semesters Of A Particular Student
           </p>
           <br />
-          <br />
           <input name="htno" onChange={inputEvent} className="border-[1px] m-[9.8px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:m-0" type="text" maxLength="10" placeholder="Enter your Roll Number" />
           <br />
           <p className="text-[60%] text-red-600">{warning}</p>
-          <br />
           <br />
           <button type="submit" onClick={submit} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >
             Results

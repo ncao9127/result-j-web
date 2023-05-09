@@ -145,13 +145,13 @@ const StudentDataCard = ({ query }) => {
     
           <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
-            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-green-500'>{passedSubjects}</p>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-green-300'>{passedSubjects}</p>
           </a>
         
         
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
-            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL FAILED</h3>
-            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-red-500'>{failedSubjects}</p>
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center '>TOTAL FAILED</h3>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-red-300 '>{failedSubjects}</p>
           </a>
         
         <Link href="/CreditsCalculator">

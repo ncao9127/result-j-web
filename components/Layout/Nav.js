@@ -43,7 +43,7 @@ const NavBarComponent = () => {
           <p>This feature is still in development.</p>
         </div>
       )}
-      <nav className="bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.1px] sticky">
+      <nav className="nav bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.1px] sticky">
         <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] mt-1">
           <Link href="/">
             <a>
@@ -78,7 +78,7 @@ const NavBarComponent = () => {
                     }}>
           <BiShareAlt size="1.5rem" className="text-black"/>
           </h1> */}
-          <Icon icon={menu2Fill} className="w-5 h-5" onClick={handleMode}/>
+          <Icon icon={menu2Fill} className="w-8 h-8" onClick={handleMode}/>
         </div>
       </nav>
     </>

@@ -38,7 +38,7 @@ const HomePrintlist = ({ homepage }) => {
             <div method="get" >
                 <center>
                     <br />
-                    <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                    <h1 className="mb-2 font-bold text-[180%] ">
                         Multi Results List
                     </h1>
                     <p>
@@ -46,7 +46,7 @@ const HomePrintlist = ({ homepage }) => {
                     </p>
                     <br />
                     <div>
-                        <input onChange={inputEvent} name="htno_1" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2" type="text" maxLength="10" placeholder="Enter From Roll Number" required />
+                        <input onChange={inputEvent} name="htno_1" className="content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] sm:mx-2 m-1" type="text" maxLength="10" placeholder="Enter From Roll Number" required />
                         <input onChange={inputEvent} name="htno_2" className="my-2 content-center border-[1px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:my-0 sm:mx-2" type="text" maxLength="10" placeholder="Enter To Roll Number" required />
                     </div>
                     <select name="code" onChange={inputEvent} className="text-[60%] md:border-[0.5px] rounded border-black border-solid md:mt-[25px] md:text-[80%]">

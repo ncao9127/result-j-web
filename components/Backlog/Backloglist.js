@@ -34,7 +34,7 @@ const Backlogslist = ({ query }) => {
                     </tbody>
                 </table>
             </div>
-            <br />
+          
 
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <div id='1'>

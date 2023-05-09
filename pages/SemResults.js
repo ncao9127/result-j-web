@@ -36,7 +36,7 @@ const HomeSemResult = ({ homepage }) => {
             <div method="get" >
                 <center>
                     <br />
-                    <h1 className="font-normal leading-normal mt-0 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">
+                    <h1 className="mb-2 font-bold text-[180%] ">
                         Semester Result
                     </h1>
                     <p>

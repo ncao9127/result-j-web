@@ -21,11 +21,11 @@ function MyFlippyComponent({ name, position, company, link }) {
     >
       <div className=''>
         <br />
-        <FrontSide style={{ backgroundColor: '' }} className=' mt-2 rounded-xl shadow-2xl text-center font-bold  '>
+        <FrontSide style={{ backgroundColor: '' }} className=' mt-2 rounded-xl shadow-2xl text-center font-bold text-[67%] sm:text-[100%] '>
           {name}
         </FrontSide>
 
-        <BackSide style={{ backgroundColor: '' }} className='  rounded-xl shadow-2xl text-center font-bold '>
+        <BackSide style={{ backgroundColor: '' }} className='  rounded-xl shadow-2xl text-center font-bold text-[67%] sm:text-[100%]'>
           <a href={link} target="_blank" rel="noopener noreferrer">
             {position}<br />
             {company}
@@ -44,14 +44,12 @@ function MultiFlippyComponent() {
 
   return (
 
-    <div className="container mx-[4%]">
+    <div className="container  ">
       <div>
-        <h1 className='text-center font-bold '>THANKS</h1>
+        <h1 className='text-center font-bold text-[67%] sm:text-[100%]'>----THANKS----</h1>
       </div>
-
-      <br />
       {data.map((item, index) => (
-        <div key={index} className=" mt-2 mx-[1%]">
+        <div key={index} className=" mt-2">
           <MyFlippyComponent key={index} name={item.name} position={item.position} company={item.company} link={item.link} />
         </div>
       ))}

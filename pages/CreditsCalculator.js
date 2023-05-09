@@ -109,7 +109,7 @@ const HomeCC = ({ homepage }) => {
         <>
             <form>
                 <div className="flex flex-col items-center justify-center text-center ">
-                    <h1 className="text-3xl font-bold mt-16 mb-4 text-blue-500">Welcome to Credits Checker</h1>
+                    <h1 className="text-3xl font-bold mt-16 mb-4 text-black-500">Credits Checker</h1>
                     <hr className="sm:w-96 w-48 border-gray-700 mb-4" />
                     <h6 className="font-normal leading-normal mt-5 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">Check Your Credits Eligible Critiera Here </h6>
                     <div className="flex flex-row items-center justify-center mb-6">
@@ -140,7 +140,6 @@ const HomeCC = ({ homepage }) => {
                         <input name="htno" onChange={inputEvent} className="border-[1px] m-[9.8px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:m-0" type="text" maxLength="10" placeholder="Enter your Roll Number" />
                         <br />
                         <p className="text-[60%] text-red-600">{warning}</p>
-                        <br />
                         <br />
                         <button type="submit" onClick={submit} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >
                             Results
