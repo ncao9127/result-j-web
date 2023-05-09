@@ -20,7 +20,7 @@ const SingleResults = ({ query }) => {
         <Hr />
       </div>
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
-        <table className="w-[100%]">
+        <table className="w-[100%] my-1">
           <tbody>
             <tr class="mx-auto w-max bg-gray-200">
               {Object.keys(Details).map((key) => (
@@ -34,7 +34,7 @@ const SingleResults = ({ query }) => {
             </tr>
           </tbody>
         </table>
-        <br />
+        
         <table>
           <thead>
             <tr>

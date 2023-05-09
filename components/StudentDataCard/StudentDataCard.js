@@ -83,39 +83,42 @@ const StudentDataCard = ({ query }) => {
           })
         </h1>
       </div>
-      <table >
-        <tbody>
-          <tr class="bg-gray-200">
-            <th>SEMESTER</th>
-            <th>CREDITS</th>
-            <th>SGPA</th>
-            <th>STATUS</th>
-          </tr>
-          {Object.keys(Results).map((val) => {
-            if (val !== 'Total') {
-              return (
-                <tr key={val} >
-                  <th>{val} Results</th>
-                  <th>{Results[val]['credits']}</th>
-                  <th>{Results[val]['SGPA']}</th>
-                  <th className={Results[val]['status'] === 'PASSED' ? 'pass' : 'fail'}>{Results[val]['status']}</th>
-                </tr>
-              );
-            }
-          })}
-        </tbody>
-      </table>
-      <table >
-        <tbody >
-          <tr>
-            <th className="py-2" style={{ width: '75%' }}>Overall CGPA</th>
-            <th>{Results['Total']}</th>
-          </tr>
-        </tbody>
-      </table>
-      <br />
+      <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
+        <table >
+          <tbody>
+            <tr class="bg-gray-200">
+              <th>SEMESTER</th>
+              <th>CREDITS</th>
+              <th>SGPA</th>
+              <th>STATUS</th>
+            </tr>
+            {Object.keys(Results).map((val) => {
+              if (val !== 'Total') {
+                return (
+                  <tr key={val} >
+                    <th>{val}</th>
+                    <th>{Results[val]['credits']}</th>
+                    <th>{Results[val]['SGPA']}</th>
+                    <th className={Results[val]['status'] === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{Results[val]['status']}</th>
+                  </tr>
+                );
+              }
+            })}
+          </tbody>
+        </table>
+        <table >
+          <tbody >
+            <tr>
+              <th className="py-2" style={{ width: '75%' }}>Overall CGPA</th>
+              <th>{Results['Total']}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
       {/* Display the subject counts */}
-      <div>
+      {/* <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
         <table >
           <tbody>
             <tr><th>TOTAL CREDITS </th><th>{totalCredits}</th></tr>
@@ -124,19 +127,54 @@ const StudentDataCard = ({ query }) => {
             <tr><th>FAILED SUBJECTS </th><th class="text-red-600">{failedSubjects}</th></tr>
           </tbody>
         </table>
+      </div> */}
+
+      <div className='home-links flex flex-wrap items-center justify-around max-w-4xl mt-5 sm:w-full '>
+        <Link href="/CreditsCheck">
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL CREDITS</h3>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalCredits}</p>
+          </a>
+        </Link>
+        
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL SUBJECTS</h3>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalSubjects}</p>
+          </a>
+       
+    
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-green-500'>{passedSubjects}</p>
+          </a>
+        
+        
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL FAILED</h3>
+            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-red-500'>{failedSubjects}</p>
+          </a>
+        
+        <Link href="/CreditsCalculator">
+          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>CHECK YOUR CREDITS ELIGIBLILTY</h3>
+          </a>
+        </Link>
       </div>
+
+
       <br />
+
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
         <div id='1'>
           {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab' || Results[val][item]['subject_grade'] === '-')) && (
             <table>
               <thead>
-                <tr class="mx-auto w-max bg-gray-200">
+                <tr class="bg-gray-200">
                   <th colspan={10}>BACKLOGS LIST</th>
                 </tr>
                 <tr >
-                  <th>SUBJECT NAME</th>
                   <th>SUBJECT CODE</th>
+                  <th>SUBJECT NAME</th>
                   <th>INTERNAL</th>
                   <th>EXTERNAL</th>
                   <th>TOTAL</th>
@@ -158,8 +196,8 @@ const StudentDataCard = ({ query }) => {
                             if (Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab' || Results[val][item]['subject_grade'] === '-') {
                               return (
                                 <tr key={index}>
-                                  <th colspan={1}>{Results[val][item]['subject_name'] === "" ? "-" : Results[val][item]['subject_name']}</th>
                                   <th>{Results[val][item]['subject_code'] === "" ? "-" : Results[val][item]['subject_code']}</th>
+                                  <th>{Results[val][item]['subject_name'] === "" ? "-" : Results[val][item]['subject_name']}</th>
                                   <th>{Results[val][item]['subject_internal'] === "" ? "-" : Results[val][item]['subject_internal']}</th>
                                   <th>{Results[val][item]['subject_external'] === "" ? "-" : Results[val][item]['subject_external']}</th>
                                   <th>{Results[val][item]['subject_total'] === "" ? "-" : Results[val][item]['subject_total']}</th>

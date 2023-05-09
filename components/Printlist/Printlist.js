@@ -7,7 +7,7 @@ import Hr from '../Hr/Hr';
 
 const ResultHeader = ({ examCode }) => {
     return (
-        <table className="w-[100%]" key="Heading">
+        <table className="my-1 bg-gray-200 w-[100%]" key="Heading">
             <tbody key="heading_tbody">
                 <tr>
                     <th>{examCode} RESULTS</th>
@@ -25,13 +25,13 @@ const ResultRow = ({ details, examResults }) => {
   
     return (
       <tr key={details.NAME}>
-        <th>{details.NAME}</th>
         <th>{details.ROLL_NO}</th>
+        <th>{details.NAME}</th>
         <th>{details.COLLEGE_CODE}</th>
-        <th>{details.FATHER_NAME}</th>
+        {/* <th>{details.FATHER_NAME}</th> */}
         <th>{examResults.credits}</th>
         <th>{examResults.SGPA}</th>
-        <th className={examResults.status === 'PASSED' ? 'pass' : 'fail'}>{examResults.status}</th>
+        <th className={examResults.status === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{examResults.status}</th>
       </tr>
     );
   };
@@ -50,10 +50,10 @@ const Printlist = ({ query }) => {
             <table className="w-[100%]" key="Details">
                 <tbody key="Details_tbody">
                     <tr class="mx-auto w-max bg-gray-200">
-                        <th>NAME</th>
                         <th>ROLL NO</th>
+                        <th>NAME</th>
                         <th>COLLEGE CODE</th>
-                        <th>FATHER NAME</th>
+                        {/* <th>FATHER NAME</th> */}
                         <th>CREDITS</th>
                         <th>SGPA</th>
                         <th>STATUS</th>

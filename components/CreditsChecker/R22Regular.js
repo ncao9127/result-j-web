@@ -88,6 +88,7 @@ const R22Regular = ({ query }) => {
         <h1 className="text-blue-500 text-bold text-xl">Overall Credits</h1>
         <h1 className="text-bold text-2xl">{totalCredits} {SemStatus}</h1>
       </div>
+      <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
       <table>
         <tbody>
           <tr class="mx-auto w-max bg-gray-200">
@@ -113,6 +114,7 @@ const R22Regular = ({ query }) => {
           </tr>
         </tbody>
       </table>
+      </div>
       {/* <PrintButton/> */}
       <Info/>
       <br />

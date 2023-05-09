@@ -23,24 +23,30 @@ const MultiResults = ({ query }) => {
                         query={query} />
                 </div>
             </div> */}
-            <br/>
+            <br />
+            <table className="w-[100%] my-1  " key="Heading">
+                <tbody key="heading_tbody">
+                    <tr className="bg-gray-200">
+                        <th>{Object.keys(query[0]['Results'])[0]} Results</th>
+                    </tr>
+                </tbody>
+            </table>
+
             {query.map((Result) => {
                 if (!Result || !Result['DETAILS']) return null;
                 return (
                     <div key={Result['DETAILS']['NAME']}>
-                        <table className="w-[100%]" key="Heading">
-                            <tbody key="heading_tbody">
-                                <tr class="mx-auto w-max bg-gray-200">
-                                    <th>{Object.keys(Result['Results'])[0]} Results</th>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <table className="w-[100%]" key="Details">
+                        <table className="my-1 w-[100%]" key="Details">
                             <tbody>
+                                <tr class="bg-gray-200">
+                                    <th>NAME</th>
+                                    <th>ROLL NO</th>
+                                    <th>COLLEGE CODE</th>
+                                    <th>FATHER NAME</th>
+                                </tr>
                                 <tr>
                                     {
-                                        Object.keys(Result['DETAILS']).map((value, index) => { return <><th>{value}</th><th>{Result['DETAILS'][value]}</th></> })
+                                        Object.keys(Result['DETAILS']).map((value, index) => { return <><th>{Result['DETAILS'][value]}</th></> })
                                     }
                                 </tr>
                             </tbody>
@@ -48,9 +54,9 @@ const MultiResults = ({ query }) => {
 
                         <table key="Result">
                             <tbody key="Result_tbody">
-                                <tr >
-                                    <th>SUBJECT NAME</th>
+                                <tr class="mx-auto w-max bg-gray-200">
                                     <th>SUBJECT CODE</th>
+                                    <th>SUBJECT NAME</th>
                                     <th>INTERNAL</th>
                                     <th>EXTERNAL</th>
                                     <th>TOTAL</th>
@@ -63,8 +69,8 @@ const MultiResults = ({ query }) => {
                                             Object.keys(Result['Results'][exam_code]).map(function (subject_code) {
                                                 if (subject_code !== 'SGPA' && subject_code !== 'total' && subject_code !== 'credits' && subject_code !== 'status') {
                                                     return <><tr>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_name']}</th>
                                                         <th>{Result['Results'][exam_code][subject_code]['subject_code']}</th>
+                                                        <th>{Result['Results'][exam_code][subject_code]['subject_name']}</th>
                                                         <th>{Result['Results'][exam_code][subject_code]['subject_internal'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_internal']}</th>
                                                         <th>{Result['Results'][exam_code][subject_code]['subject_external'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_external']}</th>
                                                         <th>{Result['Results'][exam_code][subject_code]['subject_total'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_total']}</th>
@@ -95,9 +101,9 @@ const MultiResults = ({ query }) => {
                     </div>
                 );
             })}
-            <Info/>
-            <Hr/>
-            
+            <Info />
+            <Hr />
+
             <PrintButton />
             <ScrollToTop
                 className='scroller'

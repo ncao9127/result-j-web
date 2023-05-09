@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
 import Footer from './Footer';
+import Thanks from './HomeThanks';
+import Hr from '../Hr/Hr';
 
 const HomeNavLinks = () => {
   const links = [
@@ -47,19 +49,26 @@ const HomeNavLinks = () => {
       ],
     },
     {
+      route: '/Backlogs',
+      desctiption: [
+        'Check Backlogs',
+        'Get Your Overall Backlogs List Here ',
+      ],
+    },
+    {
       route: '/Notifications',
       desctiption: [
         'Notifications',
         'Get All The Latest Notifications From JNTUH.',
       ],
     },
-    {
-      route: '/OldVersion',
-      desctiption: [
-        'Old Version',
-        'Get All The Latest Results From JNTUH.',
-      ],
-    },
+    // {
+    //   route: '/OldVersion',
+    //   desctiption: [
+    //     'Old Version',
+    //     'Get All The Latest Results From JNTUH.',
+    //   ],
+    // },
     {
       route: '/help',
       desctiption: [
@@ -121,6 +130,9 @@ const HomeNavLinks = () => {
     <hr className="w-full border-gray" />
     <br/>
       <Footer />
+      <br/>
+      <Thanks/>
+      <br/>
     </>
   );
 };

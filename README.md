@@ -47,9 +47,9 @@ To generate sitemap run node sitemap-generator.js
 
 ## Questions? Need Help? Found a bug?
 
-If you've got questions about setup, deploying, special feature implementation, or just want to chat with the developer, please feel free to contact me on <a href="mailto:khwaja.moizuddin786@gmail.com">mail</a>
+If you've got questions about setup, deploying, special feature implementation, or just want to chat with the developer, please feel free to contact me on <a href="mailto:resultsjnuthweb@gmail.com">mail</a>
 
-Found a bug? Go ahead and [submit an issue](https://github.com/khaja-moiz/JNTUHRESULTS-SERVICE/issues). And, of course, feel free to submit pull requests with bug fixes or changes to the `dev` branch.
+Found a bug? Go ahead and [submit an issue](https://github.com/khaja-moiz/ResultsJntuh/issues). And, of course, feel free to submit pull requests with bug fixes or changes to the `dev` branch.
 
 Also feel free to message me if you have any ideas for small website tools that you can't yet find online. Thanks!
 
@@ -57,6 +57,8 @@ Also feel free to message me if you have any ideas for small website tools that 
 
 - [▲ Vercel](https://vercel.com/) for fast deployments served from the edge, hosting our website, downloads, and updates.
 - [Next.js](https://nextjs.org/) for development framework created by Vercel enabling React-based web applications with server-side rendering and generating static websites
-"# test" 
+- [▲ THILAK REDDY](https://github.com/ThilakReddyy) for fast deployment Backend served 
+- [▲ HEMANTH KOTAGIRI](https://github.com/hemanth-kotagiri) for fast deployments RestApi served 
+"# JNTUH RESULTS" 
 "# RESULTSJNTUH" 
 "# RESULTSJNTUH" 

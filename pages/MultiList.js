@@ -71,6 +71,9 @@ const HomePrintlist = ({ homepage }) => {
             </div>
             <Hr />
             <HomeInfo />
+            <div className="font-serif mt-1 block text-left text-[#808080] ml-[13%] mb-4 text-[55%] md:text-[80%]">
+                Range Should Be In Between Of 100
+            </div>
         </>
     )
 }
