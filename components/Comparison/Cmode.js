@@ -306,14 +306,14 @@ const Cmode = ({ query }) => {
               </tr>
               <tr>
                 <th>
-                  <table className="w-full text-sm">
+                  <table className="w-full ">
                     <tbody>
                       {rf}
                     </tbody>
                   </table>
                 </th>
                 <th>
-                  <table className="w-full text-sm">
+                  <table className="w-full ">
                     <tbody>
                       {rf2}
                     </tbody>
