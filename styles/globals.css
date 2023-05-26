@@ -45,7 +45,7 @@ th{
 tr:hover {background-color: rgb(227, 236, 239);}
 @media print {
    
-    .printi, .scroller {
+    .printi, .scroller ,.nav {
         display: none;
     }
 }
@@ -83,25 +83,36 @@ tr:hover {background-color: rgb(227, 236, 239);}
   font-size: 3rem;
 }
 
+/* 25052023 */
+/* add this formenu its support mini screens  */
+@media (min-width: 300px) {
+  .lg\:w-60 {
+    width: 15rem;
+  }
+
+  .lg\:left-0 {
+    left: 0px;
+  }
+}
 
 
 /* /////////// */
 /* added */
-nav {
+.nav {
   position: sticky;
   top: 0;
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 1;
   transition: all 0.9s ease; /* adds a smooth transition to all CSS changes */
 }
 
-nav:hover {
+/* nav:hover {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   background-color: rgba(255, 255, 255, 0.8);
-}
+} */
 
 .container {
   display: flex;

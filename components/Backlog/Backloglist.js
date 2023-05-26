@@ -19,7 +19,7 @@ const Backlogslist = ({ query }) => {
         <>
             <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
                 <br />
-                <Jntuh />
+                {/* <Jntuh /> */}
                 <table className="my-1" key="Details">
                     <tbody>
                         <tr class="bg-gray-200">
@@ -96,7 +96,7 @@ const Backlogslist = ({ query }) => {
                 <div>
                     <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
                         Made with ❤ by &nbsp;
-                        <Link href="https://github.com/khaja-moiz/" >
+                        <Link href="" >
                             <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
                                 MD MOIZ UDDIN
                             </a>

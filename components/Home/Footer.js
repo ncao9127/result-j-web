@@ -14,8 +14,8 @@ const Footer = ()=>
 
         <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
             Made with ❤ by &nbsp;
-            <Link href="https://github.com/khaja-moiz/" >
-                <a target="_blank" className="font-bold text-[#9C1A8B]" >
+            <Link href=""  >
+                <a target="_blank" className="font-bold text-[#9C1A8B]"  onClick={() => window.location.reload()}>
                     MD MOIZ UDDIN
                 </a>
             </Link>

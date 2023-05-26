@@ -5,36 +5,54 @@ import HomeFooter from '../Home/HomeFooter';
 import Hr from '../Hr/Hr';
 import Footer from '../Home/Footer';
 import Info from '../Home/info';
+import Branch from '../Json/Branch_codes.json';
+import College from '../Json/college_codes.json';
 
 const SingleResults = ({ query }) => {
   const Results = query['Results'];
   const Details = query['Details'];
   const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+
+  const collegeCode = Details['COLLEGE_CODE'];
+  const branchCode = Details['ROLL_NO'].slice(6, 8);
+
+  const branchName = Branch.find(item => item.Code === branchCode);
+  const collegeName = College.find(item => item.Code === collegeCode);
+
   return (
     <>
       <br />
-      <br />
       <div className="items-center justify-center text-center ">
         <h1 className="text-xl font-semibold text-green-600 text-bold ">Results History Marks Card</h1>
-        <br/>
+        <br />
         <Hr />
       </div>
       <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
         <table className="w-[100%] my-1">
           <tbody>
             <tr class="mx-auto w-max bg-gray-200">
-              {Object.keys(Details).map((key) => (
-                <th key={key}>{key}</th>
-              ))}
+              <th>ROLL NO</th><th>NAME</th><th>FATHER NAME</th><th>BRANCH</th>
             </tr>
             <tr>
-              {Object.keys(Details).map((key) => (
-                <th key={key}>{Details[key]}</th>
-              ))}
+              <th>{Details.ROLL_NO}</th>
+              <th>{Details.NAME}</th>
+              <th>{Details.FATHER_NAME}</th>
+              <th>{branchName.Branch ? branchName.Branch : '-'}</th>
             </tr>
           </tbody>
         </table>
-        
+
+        <table className="w-[100%] my-1">
+          <tbody>
+            <tr class="mx-auto w-max bg-gray-200">
+              <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
+            </tr>
+            <tr>
+              <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName.College ? collegeName.College : '-'}</th>
+            </tr>
+          </tbody>
+        </table>
+
         <table>
           <thead>
             <tr>
@@ -73,7 +91,7 @@ const SingleResults = ({ query }) => {
                       }
                     })}
                     <tr>
-                      <th colSpan={4}>SGPA</th>
+                      <th colSpan={5}>SGPA</th>
                       <th colSpan={4}>{Results[val]['SGPA']}</th>
                     </tr>
                   </>
@@ -93,8 +111,8 @@ const SingleResults = ({ query }) => {
           </table>
         </div>
       </div>
-      <Info/>
-      <Hr/>
+      <Info />
+      <Hr />
       <PrintButton />
       <ScrollToTop
         className='scroller'

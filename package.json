@@ -10,6 +10,7 @@
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@iconify/icons-eva": "^1.2.6",
     "@iconify/react": "^4.1.0",
     "@vercel/analytics": "^0.1.11",

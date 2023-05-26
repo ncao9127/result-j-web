@@ -4,10 +4,19 @@ import ScrollToTop from "react-scroll-to-top";
 import Info from '../Home/info';
 import Hr from '../Hr/Hr';
 import Jntuh from '../Home/jnuth';
+import Branch from '../Json/Branch_codes.json';
+import College from '../Json/college_codes.json';
 
 const SemResult = ({ query }) => {
     const exam_co = Object.keys(query[0]['Results'])[0]
     const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+
+    const Details = query[0].DETAILS;
+    const collegeCode = Details['COLLEGE_CODE'];
+    const branchCode = Details['ROLL_NO'].slice(6, 8);
+
+    const branchName = Branch.find(item => item.Code === branchCode);
+    const collegeName = College.find(item => item.Code === collegeCode);
     return (
         <div key="Results" className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
 
@@ -17,21 +26,28 @@ const SemResult = ({ query }) => {
 
                     <div key={Result['DETAILS']['NAME']}>
                         <br />
-                        <Jntuh />
+                        {/* <Jntuh /> */}
                         <table className="my-1" key="Details">
                             <tbody>
                                 <tr class="bg-gray-200">
-                                    <th>NAME</th>
-                                    <th>ROLL NO</th>
-                                    <th>COLLEGE CODE</th>
-                                    <th>FATHER NAME</th>
+                                    <th>ROLL NO</th><th>NAME</th>
+                                    <th>FATHER NAME</th><th>BRANCH</th>
                                     <th>SEMESTER</th>
                                 </tr>
                                 <tr>
-                                    {
-                                        Object.keys(Result['DETAILS']).map((value, index) => { return <><th>{Result['DETAILS'][value]}</th></> })
-                                    }
+                                    <th>{Details.ROLL_NO}</th><th>{Details.NAME}</th>
+                                    <th>{Details.FATHER_NAME}</th><th>{branchName.Branch ? branchName.Branch : '-'}</th>
                                     <th>{Object.keys(Result['Results'])[0]}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table className="w-[100%] my-1">
+                            <tbody>
+                                <tr class="mx-auto w-max bg-gray-200">
+                                    <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
+                                </tr>
+                                <tr>
+                                    <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName.College ? collegeName.College : '-'}</th>
                                 </tr>
                             </tbody>
                         </table>

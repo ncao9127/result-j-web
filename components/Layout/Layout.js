@@ -7,6 +7,7 @@ const Layout=({children})=>{
         <Header />
         <Nav />
         {children}
+        <div className="mt-16"></div>
         </>
     );
 }

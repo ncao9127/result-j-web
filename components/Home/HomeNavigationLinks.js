@@ -49,6 +49,13 @@ const HomeNavLinks = () => {
       ],
     },
     {
+      route: '/ComparisonMode',
+      desctiption: [
+        'Results Comparison',
+        'Get Overall Results Comparison with Classmate',
+      ],
+    },
+    {
       route: '/Backlogs',
       desctiption: [
         'Check Backlogs',
@@ -86,15 +93,16 @@ const HomeNavLinks = () => {
         Welcome to{' '}
         <a
           className='text-blue-400 hover:text-blue-600'
-          href='https://github.com/khaja-moiz'
+          href=''
           target='_blank'
           rel="noreferrer"
+          onClick={() => window.location.reload()}
         >
-          JNTUH Results
+          B.Tech Results
         </a>
       </h1>
       <p className='description' >
-        Examination Results Portal{' '}
+        Examination Results Portal {' '}
         <br/>
           <code className='code' >Jawaharlal Nehru Technological University Hyderabad</code>
         </p>

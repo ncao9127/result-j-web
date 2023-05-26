@@ -73,7 +73,7 @@ const Faq = () => {
             isOpen: false,
         },
         {
-            question: 'How can I check my Jntu result ?',
+            question: 'How can I check my Jntuh result ?',
             answer: (
                 <div>
                     {"Yes! you can see your overall CGPA of btech here in this website. Go to Section Home, 'Click Get Your CGPA' "}
@@ -88,6 +88,133 @@ const Faq = () => {
                 <div>
                     {"Yes! you can see your overall CGPA of btech here in this website. Go to Section Home, 'Click Get Your CGPA' "}
                     <a className="text-blue-400 hover:text-blue-600"> <Link href="MultiList">Click Here To View.</Link></a>
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'What are the different types of results that I can view on the JNTUH Results website?',
+            answer: (
+                <div>
+                    {"You can view your academic results, class results, and notifications "}
+                    <a className="text-blue-400 hover:text-blue-600"> <Link href="/">Click Here To View.</Link></a>
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I view my academic results?',
+            answer: (
+                <div>
+                    {"To view your academic results, you will need to enter your hall ticket number. You can find your hall ticket number on your admit card. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I view notifications?',
+            answer: (
+                <div>
+                    {"To view notifications, you can click on the Notifications tab. You will see a list of all the latest notifications from JNTUH. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I report a crash or bug?',
+            answer: (
+                <div>
+                    {" If you find any crashes or bugs, you can report them by clicking on the Help Desk tab. You will see a form where you can enter your details and describe the problem. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I support the JNTUH Results website?',
+            answer: (
+                <div>
+                    {"If you found the JNTUH Results website helpful, you can support it by buying the developer a pizza. You can do this by clicking on the Support tab."}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'Who are the developers of the JNTUH Results website?',
+            answer: (
+                <div>
+                    {"The developers of the JNTUH Results website are MD MOIZ UDDIN "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'What are the future plans for the JNTUH Results website?',
+            answer: (
+                <div>
+                    {"The developers of the JNTUH Results website plan to add more features in the future, such as the ability to view results of previous years and the ability to compare results with other students. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'Is there a website to view the overall performance and class results of JNTUH B.Tech students?',
+            answer: (
+                <div>
+                    {"Yes, you can view the overall performance and class results of JNTUH B.Tech students by visiting the website"}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'What is the difference between consolidated results and single results?',
+            answer: (
+                <div>
+                    {"Consolidated results show the results of all your semesters. Single results show the results of a single semester."}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'What is the difference between pass or fail list and detailed results?',
+            answer: (
+                <div>
+                    {"Pass or fail list shows whether you passed or failed a particular semester. Detailed results show your marks in each subject."}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: ' What is the difference between credits eligible criteria and backlogs?',
+            answer: (
+                <div>
+                    {"Credits eligible criteria shows the number of credits you need to pass a particular semester. Backlogs are the number of semesters you have failed. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'What is the difference between credits eligible criteria and overall backlogs list?',
+            answer: (
+                <div>
+                    {"Credits eligible criteria shows the number of credits you need to pass in order to be eligible to graduate, while overall backlogs list shows the number of backlogs you have in total. "}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I find out my credits eligible criteria?',
+            answer: (
+                <div>
+                    {"To find out your credits eligible criteria, you will need to visit the website and enter your hall ticket number."}
+                </div>
+            ),
+            isOpen: false,
+        },
+        {
+            question: 'How do I find out my overall backlogs list?',
+            answer: (
+                <div>
+                    {"To find out your credits eligible criteria, you will need to visit the website and enter your hall ticket number."}
                 </div>
             ),
             isOpen: false,
