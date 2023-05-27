@@ -64,7 +64,7 @@ function Home({ notifications }) {
                     </h1>
                     <br />
                 </Marquee>
-                <Link href="https://forms.gle/nuWgqatiy3AUPiAx5">
+                <Link href="https://resultsjntuhbpharm.vercel.app">
                     <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
                             {/* <BiCommentDetail className="inline-block mr-2" /> */}

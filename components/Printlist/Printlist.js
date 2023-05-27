@@ -20,22 +20,22 @@ const ResultHeader = ({ examCode }) => {
 const ResultRow = ({ details, examResults }) => {
     // Check if any required fields are 'N/A'
     if (!details || !details.NAME || !details.ROLL_NO || !details.COLLEGE_CODE || !details.FATHER_NAME) {
-      return null;
+        return null;
     }
-  
+
     return (
-      <tr key={details.NAME}>
-        <th>{details.ROLL_NO}</th>
-        <th>{details.NAME}</th>
-        <th>{details.COLLEGE_CODE}</th>
-        {/* <th>{details.FATHER_NAME}</th> */}
-        <th>{examResults.credits}</th>
-        <th>{examResults.SGPA}</th>
-        <th className={examResults.status === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{examResults.status}</th>
-      </tr>
+        <tr key={details.NAME}>
+            <th>{details.ROLL_NO}</th>
+            <th>{details.NAME}</th>
+            <th>{details.COLLEGE_CODE}</th>
+            {/* <th>{details.FATHER_NAME}</th> */}
+            <th>{examResults.credits}</th>
+            <th>{examResults.SGPA}</th>
+            <th className={examResults.status === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{examResults.status}</th>
+        </tr>
     );
-  };
-  
+};
+
 
 const Printlist = ({ query }) => {
     const examCode = Object.keys(query[0]['Results'])[0];
@@ -45,7 +45,7 @@ const Printlist = ({ query }) => {
 
     return (
         <div key="Results" className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
-            <br/>
+            <br />
             <ResultHeader examCode={examCode} />
             <table className="w-[100%]" key="Details">
                 <tbody key="Details_tbody">
@@ -74,7 +74,7 @@ const Printlist = ({ query }) => {
                         <th colSpan={4}>Total Students:</th>
                         <th>{totalStudents}</th>
                         <th colSpan={2}>
-                        Pass: {numStudentsPassed} ({totalStudents > 0 ? ((numStudentsPassed / totalStudents) * 100).toFixed(2) : 0}%), Fail: {numStudentsFailed} ({totalStudents > 0 ? ((numStudentsFailed / totalStudents) * 100).toFixed(2) : 0}%)
+                            Pass: {numStudentsPassed} ({totalStudents > 0 ? ((numStudentsPassed / totalStudents) * 100).toFixed(2) : 0}%), Fail: {numStudentsFailed} ({totalStudents > 0 ? ((numStudentsFailed / totalStudents) * 100).toFixed(2) : 0}%)
                         </th>
                     </tr>
                 </tbody>
@@ -83,9 +83,18 @@ const Printlist = ({ query }) => {
                 numStudentsPassed={query}
                 numStudentsFailed={query}
             /> */}
-            <Info/>
-            <br/>
-            <Hr/>
+            <Info />
+            <Hr />
+            <div>
+                <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
+                    Made with ❤ by &nbsp;
+
+                    <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
+                        MD MOIZ UDDIN
+                    </a>
+                </p>
+            </div>
+
             <PrintButton />
             <ScrollToTop
                 className='scroller'

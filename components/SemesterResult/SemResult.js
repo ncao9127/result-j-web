@@ -106,6 +106,15 @@ const SemResult = ({ query }) => {
             })}
             <Info />
             <Hr />
+            <div>
+                <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
+                    Made with ❤ by &nbsp;
+
+                    <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
+                        MD MOIZ UDDIN
+                    </a>
+                </p>
+            </div>
             <PrintButton />
             <ScrollToTop
                 className='scroller'

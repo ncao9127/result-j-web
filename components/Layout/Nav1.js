@@ -5,10 +5,10 @@ import {
     MdOutlineSpaceDashboard,
     MdOutlineMoreHoriz,
     MdOutlineLogout,
-    MdCreditScore,MdCompareArrows
+    MdCreditScore, MdCompareArrows
 } from "react-icons/md";
 import { BsListNested, BsCardChecklist, BsListUl, BsCardText, BsClipboardData } from 'react-icons/bs'
-import { BiHomeHeart } from 'react-icons/bi'
+import { BiHomeHeart,BiShareAlt } from 'react-icons/bi'
 import Link from 'next/link';
 
 function SideNavbar() {
@@ -106,11 +106,24 @@ function SideNavbar() {
                         <div className=" my-2 border-b border-gray-100 pb-4">
                             <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                                 <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
-                                <a href="https:www.google.com" target='_blank' rel="noreferrer">
+                                <a href="https://resultsjntuhbpharm.vercel.app" target='_blank' rel="noreferrer">
                                     <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                                         B.Pharm Results
                                     </h3>
                                 </a>
+                            </div>
+                        </div>
+                        <div className=" my-2" onClick={() => {
+                            const url = "https://resultsjntuh.vercel.app/";
+                            const title = "JNTUH B.Tech Results";
+                            const text = "Check out JNTUH B.Tech Results website";
+                            navigator.share({ url, title, text });
+                        }}>
+                            <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                                <BiShareAlt className="text-2xl text-gray-600 group-hover:text-white " />
+                                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    Share
+                                </h3>
                             </div>
                         </div>
                         <Link href='/help'>
