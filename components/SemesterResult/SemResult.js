@@ -36,7 +36,7 @@ const SemResult = ({ query }) => {
                                 </tr>
                                 <tr>
                                     <th>{Details.ROLL_NO}</th><th>{Details.NAME}</th>
-                                    <th>{Details.FATHER_NAME}</th><th>{branchName.Branch ? branchName.Branch : '-'}</th>
+                                    <th>{Details.FATHER_NAME}</th><th>{branchName?.Branch || '-'}</th>
                                     <th>{Object.keys(Result['Results'])[0]}</th>
                                 </tr>
                             </tbody>
@@ -47,7 +47,7 @@ const SemResult = ({ query }) => {
                                     <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
                                 </tr>
                                 <tr>
-                                    <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName.College ? collegeName.College : '-'}</th>
+                                    <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName?.College || '-'}</th>
                                 </tr>
                             </tbody>
                         </table>

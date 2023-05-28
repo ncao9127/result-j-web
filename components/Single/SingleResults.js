@@ -37,7 +37,7 @@ const SingleResults = ({ query }) => {
               <th>{Details.ROLL_NO}</th>
               <th>{Details.NAME}</th>
               <th>{Details.FATHER_NAME}</th>
-              <th>{branchName.Branch ? branchName.Branch : '-'}</th>
+              <th>{branchName?.Branch ||  '-'}</th>
             </tr>
           </tbody>
         </table>
@@ -48,7 +48,7 @@ const SingleResults = ({ query }) => {
               <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
             </tr>
             <tr>
-              <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName.College ? collegeName.College : '-'}</th>
+              <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName?.College || '-'}</th>
             </tr>
           </tbody>
         </table>
