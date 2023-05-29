@@ -56,6 +56,26 @@
         "Code": "22"
     },
     {
+        "Branch": "Computer Science & Business Systems",
+        "Code": "32"
+    },
+    {
+        "Branch": "Computer Science & Information Technology",
+        "Code": "33"
+    },
+    {
+        "Branch": "Information Technology and Engineering",
+        "Code": "34"
+    },
+    {
+        "Branch": "Artificial Intelligence",
+        "Code": "35"
+    },
+    {
+        "Branch": "Computer Science and Technology",
+        "Code": "36"
+    },
+    {
         "Branch": "Computer Engineering (Software Engineering) Technology",
         "Code": "56"
     },
@@ -74,6 +94,25 @@
     {
         "Branch": "CSE (IoT)",
         "Code": "69"
+    },
+    {
+        "Branch": "CSE (Networks)",
+        "Code": "70"
+    },
+    {
+        "Branch": "AI & Data Science",
+        "Code": "72"
+    },
+    {
+        "Branch": "AI & ML",
+        "Code": "73"
+    },
+    {
+        "Branch": "Computer Science and Design",
+        "Code": "74"
+    },
+    {
+        "Branch": "Automation and Robotics",
+        "Code": "75"
     }
-    
 ]
