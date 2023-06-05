@@ -8,7 +8,7 @@
         "Code": "01"
     },
     {
-        "Branch": "Electrical & Electronics Engineering",
+        "Branch": "EEE",
         "Code": "02"
     },
     {
@@ -16,7 +16,7 @@
         "Code": "03"
     },
     {
-        "Branch": "Electronics & Communication Engineering",
+        "Branch": "ECE",
         "Code": "04"
     },
     {
@@ -56,15 +56,15 @@
         "Code": "22"
     },
     {
-        "Branch": "Computer Science & Business Systems",
+        "Branch": "CS & Business Systems",
         "Code": "32"
     },
     {
-        "Branch": "Computer Science & Information Technology",
+        "Branch": "CS & IT",
         "Code": "33"
     },
     {
-        "Branch": "Information Technology and Engineering",
+        "Branch": "IT and Engineering",
         "Code": "34"
     },
     {
@@ -72,11 +72,11 @@
         "Code": "35"
     },
     {
-        "Branch": "Computer Science and Technology",
+        "Branch": "CS and Technology",
         "Code": "36"
     },
     {
-        "Branch": "Computer Engineering (Software Engineering) Technology",
+        "Branch": "Computer Engineering (SE) Technology",
         "Code": "56"
     },
     {
