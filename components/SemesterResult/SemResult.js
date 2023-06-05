@@ -36,7 +36,7 @@ const SemResult = ({ query }) => {
                                 </tr>
                                 <tr>
                                     <th>{Details.ROLL_NO}</th><th>{Details.NAME}</th>
-                                    <th>{Details.FATHER_NAME}</th><th>{branchName?.Branch || '-'}</th>
+                                    <th>{Details.FATHER_NAME}</th><th className='uppercase'>{branchName?.Branch || '-'}</th>
                                     <th>{Object.keys(Result['Results'])[0]}</th>
                                 </tr>
                             </tbody>
