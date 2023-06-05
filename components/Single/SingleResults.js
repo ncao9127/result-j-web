@@ -37,7 +37,7 @@ const SingleResults = ({ query }) => {
               <th>{Details.ROLL_NO}</th>
               <th>{Details.NAME}</th>
               <th>{Details.FATHER_NAME}</th>
-              <th>{branchName?.Branch ||  '-'}</th>
+              <th className='uppercase' >{branchName?.Branch ||  '-'}</th>
             </tr>
           </tbody>
         </table>
