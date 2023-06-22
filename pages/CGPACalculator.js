@@ -6,45 +6,71 @@ import url from "../components/api/api"
 import StudentDataCard from "../components/StudentDataCard/StudentDataCard";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
+import Head from 'next/head';
 
 
 const HomeStudentDataCard = ({ homepage }) => {
   const router = useRouter();
   const [htno, setHtno] = useState("");
-  const [warning, setWarning] = useState();
-  
+  const [warning, setWarning] = useState("");
+
   const submit = async () => {
     if (htno.length !== 10) {
       setWarning("The Hall Ticket Should be 10 digits");
     } else {
-      setWarning();
+      setWarning("");
       homepage(<Loading />);
       try {
-        const response = await axios.get(url+'/api/single?htno=' + htno, { mode: 'cors' });
+        const storedData = localStorage.getItem(htno);
+        if (storedData) {
+          const parsedData = JSON.parse(storedData);
+          const { data, expiryTimestamp } = parsedData;
+          console.log('Taking From Cache');
+          console.log('Cache expiry ', new Date(expiryTimestamp));
+          if (expiryTimestamp > Date.now()) {
+            homepage(<StudentDataCard query={data} />);
+            return;
+          } else {
+            console.log('Cache Expired : Cached Cleared...');
+            localStorage.removeItem(htno);
+          }
+        }
+        // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+        const url = "/api/single?htno=" + htno;
+        const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
           homepage(<><div className="text-[300%]">{response.status} | 404 page Not Found</div></>);
         } else {
-          homepage(<StudentDataCard query={response.data} />);
+          const responseData = response.data;
+          const expiryTimestamp = Date.now() + 10 * 60 * 1000; // 10 minutes expiry time
+          const dataToStore = JSON.stringify({ data: responseData, expiryTimestamp });
+          console.log('New Data Cached Succesfull..');
+          console.log('Cache Expiry', new Date(expiryTimestamp));
+          localStorage.setItem(htno, dataToStore);
+          homepage(<StudentDataCard query={responseData} />);
         }
       } catch {
-        homepage(<><div
-          style={{
-            marginTop: 100,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <p>500 | Please try again later</p>
-          <br/>
-          <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
-        </div></>);
+        homepage(<>
+          <div
+            style={{
+              marginTop: 100,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <p>500 | Please try again later</p>
+            <br />
+            <button onClick={() => window.location.reload()} className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]">Refresh</button>
+          </div>
+        </>);
       }
     }
   };
-  
+
   const inputEvent = (event) => {
     event.target.value = event.target.value.toUpperCase();
     setHtno(event.target.value);
@@ -52,13 +78,23 @@ const HomeStudentDataCard = ({ homepage }) => {
 
   return (
     <>
+      <Head>
+        <title>
+          JNTUH | CGPA FINDER
+        </title>
+        <meta
+          name="description"
+          content="Check out academic CGPA with in a go."
+          key="desc"
+        />
+      </Head>
       <div method="get">
         <center>
           <br />
           <h1 className="mb-2 font-bold text-[180%]">
-             Student Score Board
+            CGPA Calculator
           </h1>
-          <p>Get Your CGPA and SGPA Of All Semesters </p>
+          <p>Get Your CGPA and SGPA Of Overall Semesters </p>
           <br />
           <input name="htno" onChange={inputEvent} className="border-[1px] m-[9.8px] border-double border-black rounded text-rounded text-center text-[60%]  shadow-xl w-[150px] h-[28px] sm:w-[200px] sm:h-[35px] sm:text-[100%] md:m-0" type="text" maxLength="10" placeholder="Enter your Roll Number" />
           <br />
@@ -70,9 +106,9 @@ const HomeStudentDataCard = ({ homepage }) => {
           <br />
           <br />
         </center>
-      </div>   
-      <Hr/>
-      <HomeInfo/>
+      </div>
+      <Hr />
+      <HomeInfo />
     </>
   );
 };

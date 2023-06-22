@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import Hr from "../components/Hr/Hr";
 import Link from "next/link";
+import Head from 'next/head';
 
 const Faq = () => {
     const [faqs, setFaqs] = useState([
@@ -243,6 +244,16 @@ const Faq = () => {
 
     return (
         <div className="container mx-auto py-12">
+                        <Head>
+                <title>
+                    JNTUH RESULTS | FAQS
+                </title>
+                <meta
+                    name="description"
+                    content="Check out RESULTSJNTUH website faqs .."
+                    key="desc"
+                />
+            </Head>
             <h1 className="text-4xl font-bold text-center mb-5">Frequently Asked Questions</h1>
             <center><hr className="sm:w-96 w-48 border-gray-700 mb-6 " /></center>
             <div className="grid gap-4">

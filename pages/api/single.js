@@ -34,12 +34,55 @@ class ResultScraper {
                     '4-1': ['663', '705', '754', '794', '832', '836'],
                     '4-2': ['678', '700', '789', '809']
                 }
+
+            },
+            mtech: {
+                R19:
+                {
+                    '1-1': ['319', '332', '347', '356', '371', '382', '388'],
+                    '1-2': ['328', '336', '344', '353', '368', '379', '387'],
+                    '2-1': ['337', '350', '365', '376', '386'],
+                    '2-2': ['340', '374', '385']
+                },
+                R22:
+                {
+                    '1-1': ['389']
+                }
+            },
+            mpharmacy: {
+                R19:
+                {
+                    '1-1': ['161', '177', '185', '198', '209', '215'],
+                    '1-2': ['157', '165', '174', '182', '195', '206', '214'],
+                    '2-1': ['166', '180', '194', '204', '213'],
+                    '2-2': ['169', '203', '212']
+                },
+                R22:
+                {
+                    '1-1': ['216']
+                }
+            },
+            mba: {
+                R19:
+                {
+                    '1-1': ['297', '316', '323', '350', '362', '368'],
+                    '1-2': ['122', '293', '302', '313', '320', '347', '359', '367'],
+                    '2-1': ['303', '310', '344', '356', '366'],
+                    '2-2': ['120', '307', '341', '353', '365']
+                },
+                R22:
+                {
+                    '1-1': ['369']
+                }
             }
         };
-        this.gradesToGPA = { O: 10, 'A+': 9, A: 8, 'B+': 7, B: 6, C: 5, F: 0, Ab: 0, '-': 0 };
+        this.gradesToGPA = { O: 10, 'A+': 9, A: 8, 'B+': 7, B: 6, C: 5, 'D': 0, F: 0, 'P': 0, Ab: 0, '-': 0 };
         this.payloads = {
             btech: ['&degree=btech&etype=r17&result=null&grad=null&type=intgrade&htno=', '&degree=btech&etype=r17&result=gradercrv&grad=null&type=rcrvintgrade&htno='],
-            bpharmacy: ['&degree=bpharmacy&etype=r17&grad=null&result=null&type=regular&htno=', '&degree=bpharmacy&etype=r17&grad=null&result=gradercrv&type=rcrvintgrade&htno=']
+            bpharmacy: ["&degree=bpharmacy&etype=r17&result=null&grad=null&type=intgrade&htno=", "&degree=bpharmacy&etype=r17&result=gradercrv&grad=null&type=rcrvintgrade&htno="],
+            mtech: ["&degree=mtech&grad=pg&etype=null&result=grade17&type=intgrade&htno=", "&degree=mtech&grad=pg&etype=r16&result=gradercrv&type=rcrvintgrade&htno="],
+            mpharmacy: ["&degree=mpharmacy&grad=pg&etype=null&result=grade17&type=intgrade&htno=", "&degree=mpharmacy&grad=pg&etype=r16&result=gradercrv&type=rcrvintgrade&htno="],
+            mba: ["&degree=mba&grad=pg&etype=null&result=grade17&type=intgrade&htno=", "&degree=mba&grad=pg&etype=r16&result=gradercrv&type=rcrvintgrade&htno="]
         };
     }
 
@@ -104,26 +147,38 @@ class ResultScraper {
                 subject_credits: subjectCredits
             };
         });
+        //           // Extract exam name
+        //   const examName = $('h6').text();
+        //   this.results.Results.exam_name = examName;
+
+        //   console.log(examName);
     }
 
     totalGradeCalculator(code, value) {
         let total = 0;
         let credits = 0;
+        let orgGrades = [];
 
         for (const data in value) {
             if (data === 'DETAILS') continue;
 
-            if (value[data].subject_grade === 'F' || value[data].subject_grade === 'Ab' || value[data].subject_grade === '-') {
-                return '';
-            }
+            // if (value[data].subject_grade === 'F' || value[data].subject_grade === 'Ab' || value[data].subject_grade === '-') {
+            //     return '';
+            // }
 
             total += parseInt(this.gradesToGPA[value[data].subject_grade]) * parseFloat(value[data].subject_credits);
             credits += parseFloat(value[data].subject_credits);
+            orgGrades.push(value[data]['subject_grade']);
         }
 
+        if (orgGrades.includes('F') || orgGrades.includes('Ab') || orgGrades.includes('-') || credits === 0) {
+            this.results.Results[code]['status'] = 'FAILED';
+        } else {
+            this.results.Results[code]['status'] = 'PASSED';
+        }
         this.results.Results[code].total = total;
         this.results.Results[code].credits = credits;
-        this.results.Results[code].CGPA = (total / credits).toFixed(2);
+        this.results.Results[code].SGPA = (total / credits).toFixed(2);
     }
 
     async scrapeAllResults(examCode = 'all') {
@@ -137,6 +192,15 @@ class ResultScraper {
         } else if (this.rollNumber[5] === 'R') {
             payloads = this.payloads.bpharmacy;
             examCodes = this.examCodes.bpharmacy.R17;
+        } else if (this.rollNumber[5] == 'D') {
+            payloads = this.payloads.mtech;
+            examCodes = this.examCodes.mtech[this.rollNumber.startsWith('22') ? 'R22' : 'R19'];
+        } else if (this.rollNumber[5] == 'S') {
+            payloads = this.payloads.mpharmacy;
+            examCodes = this.examCodes.mpharmacy[this.rollNumber.startsWith('22') ? 'R22' : 'R19'];
+        } else if (this.rollNumber[5] == 'E') {
+            payloads = this.payloads.mba;
+            examCodes = this.examCodes.mba[this.rollNumber.startsWith('22') ? 'R22' : 'R19'];
         }
 
         if (this.rollNumber[4] === '5') {
@@ -213,27 +277,56 @@ class ResultScraper {
 
 
 export default async function handler(req, res) {
-    // Usage
-    console.log()
     const startTime = performance.now();
     const rollNumber = req.query['htno'];
+    const htnos = req.query['htnos']; // Parameter for multiple roll numbers separated by commas
+    const examCode = req.query['code']; // New parameter for specifying the exam code
     const scraper = new ResultScraper(rollNumber);
-    scraper.run()
-        .then(results => {
-            const endTime = performance.now();
 
-            // Calculate the time taken in milliseconds
-
-            console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
-            res.status(200).json(results);
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json("Internal Server Error");
-            console.log(htno, "results failed to fetch")
-            res.end();
+    if (examCode) {
+        scraper.scrapeAllResults(examCode) // Call the new method
+            .then(results => {
+                const endTime = performance.now();
+                console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
+                res.status(200).json(results);
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).json("Internal Server Error");
+            });
+    } else if (rollNumber) {
+        scraper.run()
+            .then(results => {
+                const endTime = performance.now();
+                console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
+                res.status(200).json(results);
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).json("Internal Server Error");
+            });
+    } else if (htnos) {
+        const rollNumbers = htnos.split(",");
+        const resultsPromises = rollNumbers.map(number => {
+            const scraper = new ResultScraper(number.trim());
+            return scraper.run();
         });
+
+        Promise.all(resultsPromises)
+            .then(results => {
+                const endTime = performance.now();
+                console.log(rollNumbers, "Multiple Roll Numbers", 'Time taken:', endTime - startTime, 'seconds');
+                res.status(200).json(results);
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).json("Internal Server Error");
+            });
+    } else {
+        res.status(400).json("Bad Request");
+    }
 }
+
 export const config = {
     api: {
         externalResolver: true,

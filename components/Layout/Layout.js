@@ -1,5 +1,6 @@
 import Header from "../Header/Header";
 import Nav from "./Nav";
+import Footer from "./footer";
 
 const Layout=({children})=>{
     return (
@@ -8,6 +9,7 @@ const Layout=({children})=>{
         <Nav />
         {children}
         <div className="mt-16"></div>
+        <Footer/>
         </>
     );
 }

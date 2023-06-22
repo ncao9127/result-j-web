@@ -108,7 +108,7 @@ const R18LE = ({ query }) => {
       <br />
       <Hr />
       <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]">
-        <b>NOTE:</b> Your Credits Validation Is Done Based Upon JNTUH Regulation Given.<br />
+        <b>NOTE:</b> Your Credits Validation Is Done Based Upon JNTUH BTECH Regulation Given.<br />
         Check Here Is The Reference Of R18 Doc <a href="/R18B.TECHAcademicRegulations2.pdf" className='text-blue-400 hover:text-blue-600'>Click Here To View</a>
       </div>
     </>

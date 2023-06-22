@@ -1,33 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-table{
-    border: 1px solid black;
-    /* border-collapse: separate; */
-    border-spacing:2px;
-    width:100%;
-    border-bottom-width: 1px;
+
+table {
+  border: 1px solid black;
+  /* border-collapse: separate; */
+  border-spacing: 2px;
+  width: 100%;
+  border-bottom-width: 1px;
 }
-th{
-    border: 1px solid black;
-    border-collapse: separate;
-    border-spacing:2px;
+
+th {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 2px;
 }
+
 .pass {
-    background-color: #d9ffb3;
-  }
-  
-.fail {
-    background-color: #ffb3b3;
-  }
- 
-.control-dots,.carousel-status
-{
-    visibility: hidden;
+  background-color: #d9ffb3;
 }
-.control-arrow:hover
-{
-    background: none;
+
+.fail {
+  background-color: #ffb3b3;
+}
+
+.control-dots,
+.carousel-status {
+  visibility: hidden;
+}
+
+.control-arrow:hover {
+  background: none;
 }
 
 /* tr:nth-child(odd) {
@@ -36,18 +39,33 @@ th{
 
 /* CSS code */
 .table-collapse {
-    border-collapse: collapse;
-  }
+  border-collapse: collapse;
+}
+
 .border-bottom {
   border-bottom: 1px solid #059142;
 }
 
-tr:hover {background-color: rgb(227, 236, 239);}
+tr:hover {
+  background-color: rgb(227, 236, 239);
+}
+
 @media print {
-   
-    .printi, .scroller ,.nav {
-        display: none;
-    }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Backgroundgraphics enabled  */
+  tr:hover {
+    background-color: transparent !important;
+  }
+
+  .printi,
+  .scroller,
+  .nav {
+    display: none;
+  }
 }
 
 /* added 18032023 */
@@ -71,6 +89,7 @@ tr:hover {background-color: rgb(227, 236, 239);}
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
+
 .description {
   margin: 0.5rem 0;
   line-height: 1.5;
@@ -97,6 +116,20 @@ tr:hover {background-color: rgb(227, 236, 239);}
 
 
 /* /////////// */
+.Jfw7Vd {
+  color: rgb(32, 33, 36);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 32px 0 8px;
+}
+.mqJkEc {
+  color: rgb(95,99,104);
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-line;
+}
 /* added */
 .nav {
   position: sticky;
@@ -105,7 +138,8 @@ tr:hover {background-color: rgb(227, 236, 239);}
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 1;
-  transition: all 0.9s ease; /* adds a smooth transition to all CSS changes */
+  transition: all 0.9s ease;
+  /* adds a smooth transition to all CSS changes */
 }
 
 /* nav:hover {
@@ -140,29 +174,57 @@ tr:hover {background-color: rgb(227, 236, 239);}
 }
 
 /* ANIMATIONS */
+/* 150623 */
+@keyframes ellipsis {
+  0% {
+    content: '.';
+  }
+
+  33% {
+    content: '..';
+  }
+
+  66% {
+    content: '...';
+  }
+}
+
+.animate-ellipsis::after {
+  content: '';
+  animation: ellipsis 1s infinite steps(3);
+}
+
+/* -------- */
 
 @keyframes wave {
   0% {
     transform: rotate(0deg);
   }
+
   10% {
     transform: rotate(14deg);
   }
+
   20% {
     transform: rotate(-8deg);
   }
+
   30% {
     transform: rotate(14deg);
   }
+
   40% {
     transform: rotate(-4deg);
   }
+
   50% {
     transform: rotate(10deg);
   }
+
   60% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(0deg);
   }

@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <>
       <Head>
-        <title>JNTUH B.Tech Results</title>
+        <title>JNTUH Results</title>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -20,10 +20,10 @@ const Header = () => {
         <meta property="twitter:title" content="JNTUH Results" />
         <meta
           property='og:description'
-          content='You can find the results of all your B.Tech semesters here, from Jawaharlal Nehru Technological University, Hyderabad (JNTUH).'
+          content='You can find the Results of your entire B Tech & B Pharmacy semesters here (JNTUH).'
         />
         
-        <meta property="twitter:description" content="JNTUH Results, JNTUH B.Tech Results, JNTUH Results Enginnering, JNTUH Engineering Results "></meta>
+        <meta property="twitter:description" content="JNTUH Results, JNTUH B.Tech Results,jntuhresults,jntuh notifications, JNTUH Results Enginnering, JNTUH Engineering Results,jntuh bpharmacy results,jntuh bpharm results"></meta>
         <meta
           property='og:image'
           content={

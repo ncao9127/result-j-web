@@ -5,10 +5,13 @@ import {
     MdOutlineSpaceDashboard,
     MdOutlineMoreHoriz,
     MdOutlineLogout,
-    MdCreditScore, MdCompareArrows
+    MdCreditScore, MdCompareArrows, MdSubject
 } from "react-icons/md";
-import { BsListNested, BsCardChecklist, BsListUl, BsCardText, BsClipboardData } from 'react-icons/bs'
-import { BiHomeHeart,BiShareAlt } from 'react-icons/bi'
+import { BsListNested, BsCardChecklist, BsListUl, BsCardText, BsClipboardData } from 'react-icons/bs';
+import { BiHomeHeart, BiShareAlt } from 'react-icons/bi';
+import { LuStretchVertical, LuGraduationCap } from 'react-icons/lu';
+import { FaUserGraduate } from 'react-icons/fa';
+import { CgNotifications } from 'react-icons/cg'
 import Link from 'next/link';
 
 function SideNavbar() {
@@ -25,7 +28,7 @@ function SideNavbar() {
                     <div className="flex flex-col justify-start item-center">
                         <Link href="/">
                             <h1 className="text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
-                                JNTUH B.Tech Results
+                                JNTUH RESULTS
                             </h1>
                         </Link>
                         <div className=" my-4 border-b border-gray-100 pb-4">
@@ -39,7 +42,7 @@ function SideNavbar() {
                             </Link>
                             <Link href='/ConsolidatedResult'>
                                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
+                                    <FaUserGraduate className="text-2xl text-gray-600 group-hover:text-white " />
                                     <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                                         Consolidated Results
                                     </h3>
@@ -53,19 +56,19 @@ function SideNavbar() {
                                     </h3>
                                 </div>
                             </Link>
-                            <Link href='/MultiResults'>
+                            <Link href='/Classresults'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                                     <BsListUl className="text-2xl text-gray-600 group-hover:text-white " />
                                     <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                                        Multiple Results
+                                        Class Results
                                     </h3>
                                 </div>
                             </Link>
-                            <Link href='/MultiList'>
+                            <Link href='/Classmate'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                                     <BsListNested className="text-2xl text-gray-600 group-hover:text-white " />
                                     <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                                        Multi List
+                                        Classmate Results
                                     </h3>
                                 </div>
                             </Link>
@@ -87,7 +90,7 @@ function SideNavbar() {
                             </Link>
                             <Link href='/ComparisonMode'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <MdCompareArrows className="text-2xl text-gray-600 group-hover:text-white " />
+                                    <LuStretchVertical className="text-2xl text-gray-600 group-hover:text-white " />
                                     <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                                         Results Comparison
                                     </h3>
@@ -101,9 +104,27 @@ function SideNavbar() {
                                     </h3>
                                 </div>
                             </Link>
+                            <Link href='/Subjectratio'>
+                                <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                                    <MdSubject className="text-2xl text-gray-600 group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                        Subjects Stats
+                                    </h3>
+                                </div>
+                            </Link>
+
+                            <Link href='/Notifications'>
+                                <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                                    <CgNotifications className="text-2xl text-gray-600 group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                        Notifications
+                                    </h3>
+                                </div>
+                            </Link>
+
                         </div>
                         {/* setting  */}
-                        <div className=" my-2 border-b border-gray-100 pb-4">
+                        {/* <div className=" my-2 border-b border-gray-100 pb-4">
                             <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                                 <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
                                 <a href="https://resultsjntuhbpharm.vercel.app" target='_blank' rel="noreferrer">
@@ -112,11 +133,11 @@ function SideNavbar() {
                                     </h3>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                         <div className=" my-2" onClick={() => {
                             const url = "https://resultsjntuh.vercel.app/";
-                            const title = "JNTUH B.Tech Results";
-                            const text = "Check out JNTUH B.Tech Results website";
+                            const title = "JNTUH Results";
+                            const text = "Stop your endless search for exam results! Find all your JNTUH exam results conveniently at here. Our user-friendly website provides reliable and accurate results for B.Tech, B.Pharmacy, M.Tech, M.Pharmacy, and MBA. Best of all, it's free! Don't waste time on countless websites – trust us for quick and easy access to your results. Spread the word and let your fellow students know they can find their results here too.";
                             navigator.share({ url, title, text });
                         }}>
                             <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">

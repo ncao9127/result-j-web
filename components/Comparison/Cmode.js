@@ -8,7 +8,7 @@ import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
 
 const Cmode = ({ query }) => {
-  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
   const result1 = query.Result1;
   const result2 = query.Result2;

@@ -6,115 +6,158 @@ import Hr from '../Hr/Hr';
 import Jntuh from '../Home/jnuth';
 import Branch from '../Json/Branch_codes.json';
 import College from '../Json/college_codes.json';
+import mpbranch from '../Json/mpharmbranchcode.json'
+import mbranch from '../Json/mtechbranchcodes.json'
+
 
 const SemResult = ({ query }) => {
-    const exam_co = Object.keys(query[0]['Results'])[0]
-    const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+    if (!query) {
+        // Handle the case when the query is empty or undefined
+        return <div>No results found.</div>;
+    }
 
-    const Details = query[0].DETAILS;
-    const collegeCode = Details['COLLEGE_CODE'];
-    const branchCode = Details['ROLL_NO'].slice(6, 8);
+    const detailed = query['Details'];
+    if (!detailed) {
+        // Handle the case when the 'Details' property is missing in the query
+        return <div>Invalid data format.</div>;
+    }
 
-    const branchName = Branch.find(item => item.Code === branchCode);
+    const collegeCode = detailed['COLLEGE_CODE'];
+    // const branchCode = detailed['ROLL_NO'].slice(6, 8);
+    // const branchName = Branch.find(item => item.Code === branchCode);
+    const rollNumber = detailed['ROLL_NO'];
+    let branchName;
+
+    if (rollNumber[5] === 'A' || rollNumber[5] === 'R') {
+        const branchCode = rollNumber.slice(6, 8);
+        branchName = Branch.find(item => item.Code === branchCode)?.Branch || '-';
+    } else if (rollNumber[5] === 'D') {
+        const branchCode = rollNumber.slice(6, 8);
+        branchName = mbranch.find(item => item.Code === branchCode)?.Branch || '-';
+    } else if (rollNumber[5] === 'S') {
+        const branchCode = rollNumber.slice(6, 8);
+        branchName = mpbranch.find(item => item.Code === branchCode)?.Branch || '-';
+    } else {
+        branchName = '-';
+    }
+
+
     const collegeName = College.find(item => item.Code === collegeCode);
+    const semesterCode = Object.keys(query['Results'])[0]; // Extracting the semester code
+    // console.log(semesterCode);
+
+    const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
+
     return (
-        <div key="Results" className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
+        <>
+            <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]" >
+                {/* <h1 className=" font-bold text-[180%] text-center uppercase" >
+                    {collegeName?.College || ''}
+                </h1>
+                <h1 className="mb-2 text-center uppercase" style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: 'bold' }}>
+                    {branchName?.Branch || ''}
+                </h1> */}
 
-            {query.map((Result) => {
-                if (!Result || !Result['DETAILS']) return null;
-                return (
+                {/* <table className="w-[100%]">
+                    <tbody>
+                        <tr className="bg-gray-300 md:bg-white">
+                            <th>{semesterCode}</th>
+                        </tr>
+                    </tbody>
+                </table> */}
+            </div>
 
-                    <div key={Result['DETAILS']['NAME']}>
-                        <br />
-                        {/* <Jntuh /> */}
-                        <table className="my-1" key="Details">
-                            <tbody>
-                                <tr class="bg-gray-200">
-                                    <th>ROLL NO</th><th>NAME</th>
-                                    <th>FATHER NAME</th><th>BRANCH</th>
-                                    <th>SEMESTER</th>
-                                </tr>
-                                <tr>
-                                    <th>{Details.ROLL_NO}</th><th>{Details.NAME}</th>
-                                    <th>{Details.FATHER_NAME}</th><th className='uppercase'>{branchName?.Branch || '-'}</th>
-                                    <th>{Object.keys(Result['Results'])[0]}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table className="w-[100%] my-1">
-                            <tbody>
-                                <tr class="mx-auto w-max bg-gray-200">
-                                    <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
-                                </tr>
-                                <tr>
-                                    <th>{Details.COLLEGE_CODE}</th><th className='uppercase'>{collegeName?.College || '-'}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table key="Result">
-                            <tbody key="Result_tbody">
-                                <tr class="mx-auto w-max bg-gray-200">
-                                    <th>SUBJECT CODE</th>
-                                    <th>SUBJECT NAME</th>
-                                    <th>INTERNAL</th>
-                                    <th>EXTERNAL</th>
-                                    <th>TOTAL</th>
-                                    <th>GRADE</th>
-                                    <th>CREDITS</th>
-                                </tr>
-                                {
-                                    Object.keys(Result['Results']).map(function (exam_code) {
-                                        return (
-                                            Object.keys(Result['Results'][exam_code]).map(function (subject_code) {
-                                                if (subject_code !== 'SGPA' && subject_code !== 'total' && subject_code !== 'credits' && subject_code !== 'status') {
-                                                    return <><tr>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_code']}</th>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_name']}</th>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_internal'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_internal']}</th>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_external'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_external']}</th>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_total'] === "" ? "-" : Result['Results'][exam_code][subject_code]['subject_total']}</th>
-                                                        <th className={` ${// item.grade_earned === 'F' || item.grade_earned === 'Ab'
-                                                            !grades.includes(Result['Results'][exam_code][subject_code]['subject_grade'])
-                                                                ? 'text-red-600' : 'text-green-600'}`}
-                                                        >{Result['Results'][exam_code][subject_code]['subject_grade'] === "-" ? "MALPRACTICE" : Result['Results'][exam_code][subject_code]['subject_grade']}</th>
-                                                        <th>{Result['Results'][exam_code][subject_code]['subject_credits']}</th>
-                                                    </tr>
-                                                    </>
-                                                }
-                                            })
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
-                        <table key="CGPA">
-                            <tbody key="CGPA_tbody">
-                                <tr>
-                                    <th style={{ width: '75%' }}>SGPA</th>
-                                    <th>{Result['Results'][exam_co]['SGPA']}</th>
-                                </tr>
-                                <tr>
-                                    <th style={{ width: '75%' }}>Result</th>
-                                    <th className={Result['Results'][exam_co]['status'] === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{Result['Results'][exam_co]['status']}</th>
-                                </tr>
+            <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
+                <table className="w-[100%] mt-10 my-1">
+                    <tbody>
+                        <tr class="bg-gray-200">
+                            <th>ROLL NO</th><th>NAME</th>
+                            <th>FATHER NAME</th><th>BRANCH</th>
+                            <th>SEMESTER</th>
+                        </tr>
+                        <tr>
+                            <th>{detailed['ROLL_NO']}</th>
+                            <th>{detailed['NAME']}</th>
+                            <th>{detailed['FATHER_NAME']}</th>
+                            <th className='uppercase'>{branchName}</th>
+                            <th>{semesterCode}</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <table className="w-[100%] my-1">
+                    <tbody>
+                        <tr class="mx-auto w-max bg-gray-200">
+                            <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
+                        </tr>
+                        <tr>
+                            <th>{detailed['COLLEGE_CODE']}</th><th className='uppercase'>{collegeName?.College || '-'}</th>
+                        </tr>
+                    </tbody>
+                </table>
+                {Object.keys(query['Results']).map((semester) => {
+                    const Results = query['Results'][semester];
 
-                            </tbody>
-                        </table>
-                        <br />
-                    </div>
-                );
-            })}
+                    return (
+                        <div key={semester} id='1'>
+                            <table>
+                                <tbody>
+                                    <tr className="mx-auto w-max bg-gray-200">
+                                        <th>SUBJECT CODE</th>
+                                        <th>SUBJECT NAME</th>
+                                        <th>INTERNAL</th>
+                                        <th>EXTERNAL</th>
+                                        <th>TOTAL</th>
+                                        <th>GRADE</th>
+                                        <th>CREDITS</th>
+                                    </tr>
+                                    {Object.keys(Results).map((subjectCode) => {
+                                        if (subjectCode !== 'total' && subjectCode !== 'credits' && subjectCode !== 'status' && subjectCode !== 'SGPA') {
+                                            const subject = Results[subjectCode];
+                                            return (
+                                                <tr key={subjectCode}>
+                                                    <th>{subject['subject_code']}</th>
+                                                    <th>{subject['subject_name']}</th>
+                                                    <th>{subject['subject_internal'] === "" ? "-" : subject['subject_internal']}</th>
+                                                    <th>{subject['subject_external'] === "" ? "-" : subject['subject_external']}</th>
+                                                    <th>{subject['subject_total'] === "" ? "-" : subject['subject_total']}</th>
+                                                    <th className={` ${!grades.includes(subject['subject_grade']) ? 'text-red-600' : 'text-green-600'}`}>{subject['subject_grade'] === "-" ? "MALPRACTICE" : subject['subject_grade']}</th>
+                                                    <th>{subject['subject_credits'] === "" ? "-" : subject['subject_credits']}</th>
+                                                </tr>
+                                            );
+                                        }
+                                        return null;
+                                    })}
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th style={{ width: '75%' }}>SGPA</th>
+                                        <th>{Results['SGPA']}</th>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ width: '75%' }}>Result</th>
+                                        <th className={Results['status'] === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{Results['status']}</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br />
+                        </div>
+                    );
+                })}
+            </div>
+
             <Info />
             <Hr />
             <div>
                 <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
                     Made with ❤ by &nbsp;
-
                     <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
                         MD MOIZ UDDIN
                     </a>
                 </p>
             </div>
+
             <PrintButton />
             <ScrollToTop
                 className='scroller'
@@ -123,6 +166,8 @@ const SemResult = ({ query }) => {
                 svgPath="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
                 style={{ bottom: "30px", opacity: 0.75, backgroundColor: 'grey' }}
             />
-        </div>)
-}
+        </>
+    );
+};
+
 export default SemResult;

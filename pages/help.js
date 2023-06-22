@@ -21,7 +21,7 @@
 //   )
 // }
 
-
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
@@ -32,14 +32,43 @@ import { BiBug } from "react-icons/bi";
 import { BiCommentDetail, BiMessageSquareAdd } from "react-icons/bi";
 import { BiHelpCircle } from 'react-icons/bi';
 import StatusPage from "../components/ui/StatusPage";
+import url from "../components/api/api";
+import Head from "next/head";
 
 
 
-function Home({ notifications }) {
+function Home() {
+    const [notifications, setNotifications] = useState([]);
+
+    useEffect(() => {
+        fetchNotifications();
+    }, []);
+
+    const fetchNotifications = async () => {
+        try {
+            const url = "/api/notifications"
+            const response = await axios.get(url);
+            const notificationsData = response.data;
+            setNotifications(notificationsData);
+        } catch (error) {
+            console.error("Unable to fetch notifications:", error);
+        }
+    };
+
     const firstNotification = notifications[0];
 
     return (
         <div className="overflow-hidden flex flex-col items-center justify-center min-h-screen py-2 font-inter">
+            <Head>
+                <title>
+                    JNTUH RESULTS | HELP DESK
+                </title>
+                <meta
+                    name="description"
+                    content="Check out here help desk and raise query ."
+                    key="desc"
+                />
+            </Head>
             <Link href="/">
                 <div className="flex flex-row items-center justify-between cursor-pointer">
                     <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
@@ -55,38 +84,27 @@ function Home({ notifications }) {
                     gradient={true}
                     pauseOnHover={true}>
                     <span style={{ paddingRight: "700px" }}></span>
-                    <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
-                        {firstNotification?.notification_date}
+                    <h3 className="text-sky-400  text-center font-bold">
+                        {firstNotification?.notification_date} &nbsp;
                     </h3>
                     <title>JNTUH Results Notifications</title>
-                    <h1 className=" text-m text-center">
+                    <h1 className="text-center">
                         {firstNotification?.notification_description}
                     </h1>
                     <br />
                 </Marquee>
-                <Link href="https://resultsjntuhbpharm.vercel.app">
-                    <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
-                        <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
-                            {/* <BiCommentDetail className="inline-block mr-2" /> */}
-                            B.Pharmacy Results
-                        </h3>
-                        <p className=" text-m text-center group-hover:text-black text-slate-500  text-base sm:text-xl">
-                            Check Out Here Complete JNTUH B.pharm Results Here.
-                        </p>
-                    </div>
-                </Link>
-                <Link href="https://forms.gle/nuWgqatiy3AUPiAx5">
+                <Link href="/feedback">
                     <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
                             <BiCommentDetail className="inline-block mr-2" />
-                            FeedBack
+                            FeedBack / Suggestions
                         </h3>
                         <p className=" text-m text-center group-hover:text-black text-slate-500  text-base sm:text-xl">
                             Tell us how this website helpful to you .
                         </p>
                     </div>
                 </Link>
-                <Link href="https://forms.gle/nuWgqatiy3AUPiAx5">
+                {/* <Link href="https://forms.gle/nuWgqatiy3AUPiAx5">
                     <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
                             <BiMessageSquareAdd className="inline-block mr-2" />
@@ -96,7 +114,7 @@ function Home({ notifications }) {
                             {"Tell us how you'd like to improve this site"}
                         </p>
                     </div>
-                </Link>
+                </Link> */}
                 <Link href="https://telegram.me/JntuhResultschatBot">
                     <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
@@ -122,7 +140,7 @@ function Home({ notifications }) {
                 <Link href="/Faqs">
                     <div className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-200 duration-300">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
-                        <BiHelpCircle className="inline-block mr-2 align-middle" />
+                            <BiHelpCircle className="inline-block mr-2 align-middle" />
                             FAQS
                         </h3>
                         <p className=" text-m text-center group-hover:text-black text-slate-500  text-base sm:text-xl">
@@ -135,12 +153,12 @@ function Home({ notifications }) {
                     onClick={() => {
                         const url = "https://resultsjntuh.vercel.app/";
                         const title = "JNTUH Results";
-                        const text = "Check out JNTUH Results website";
+                        const text = "Stop your endless search for exam results! Find all your JNTUH exam results conveniently at here. Our user-friendly website provides reliable and accurate results for B.Tech, B.Pharmacy, M.Tech, M.Pharmacy, and MBA. Best of all, it's free! Don't waste time on countless websites – trust us for quick and easy access to your results. Spread the word and let your fellow students know they can find their results here too.";
                         navigator.share({ url, title, text });
                     }}>
                     <div className="flex justify-center items-center mb-4">
                         <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-2 text-center group-hover:text-black text-lg sm:text-2xl font-bold">
-                        <BiShareAlt className="inline-block mr-2 align-middle" />
+                            <BiShareAlt className="inline-block mr-2 align-middle" />
                             Share with Friends
                         </h3>
                     </div>
@@ -163,36 +181,15 @@ function Home({ notifications }) {
             <div className="mt-1 block text-center text-green-600 mb-4 text-[55%] md:text-[80%]">
                 <Link href="https://resultsjntuhweb.statuspage.io" >
                     <a >
-                    <StatusPage/>
+                        <StatusPage />
                     </a>
                 </Link>
-                
+
             </div>
         </div>
 
     );
 }
 
-export async function getStaticProps() {
-    try {
-        const response = await axios.get(
-            "https://results-restapi.up.railway.app/notifications?refresh=true"
-        );
-        const notifications = response.data;
-        return {
-            props: {
-                notifications,
-            },
-            revalidate: 60 * 30, // 30 minutes
-        };
-    } catch (error) {
-        return {
-            props: {
-                notifications: [],
-                error: "Unable to fetch notifications",
-            },
-        };
-    }
-}
 
 export default Home;

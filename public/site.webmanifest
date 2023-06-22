@@ -1,19 +1,21 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Results Jntuh",
+    "short_name": "Jntuh Results",
     "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+    {
+    "src": "/android-chrome-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    },
+    {
+    "src": "/android-chrome-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+    }
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
-}
+    "start_url": "/",
+    "display": "standalone",
+    "description": "Dear Students,\n\nAre you tired of endlessly searching for your exam results online? Look no further! Check out https://resultsjntuh.vercel.app/ for all your JNTUH exam results. Our website is user-friendly and offers reliable and accurate results for various courses including B.Tech, B.Pharmacy, M.Tech, M.Pharmacy, and MBA. Plus, it's free to use!\n\nDon't waste any more time searching through countless websites. Trust us to provide you with quick and easy access to your results. Whether you are a B.Tech, B.Pharmacy, M.Tech, M.Pharmacy, or MBA student, you can find your results conveniently on our platform.\n\nSpread the word to your fellow students and let them know that they can find their B.Tech, B.Pharmacy, M.Tech, M.Pharmacy, and MBA results here too. We understand the importance of timely and accurate results, and we strive to make the process as seamless as possible.\n\nVisit https://resultsjntuh.vercel.app/ now and check out our website. Experience the convenience of accessing your exam results in just a few clicks. Trust us for reliable and accurate results, and make sure to share this valuable resource with your friends.\n\nBest regards,\n[Moiz/ResultsJntuh]"
+    }

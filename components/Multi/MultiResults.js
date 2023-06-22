@@ -38,12 +38,12 @@ const MultiResults = ({ query }) => {
                     <div key={Result['DETAILS']['NAME']}>
                         <table className="my-1 w-[100%]" key="Details">
                             <tbody>
-                                <tr class="bg-gray-200">
-                                    <th>NAME</th>
-                                    <th>ROLL NO</th>
-                                    <th>COLLEGE CODE</th>
-                                    <th>FATHER NAME</th>
-                                </tr>
+                                    <tr class="bg-gray-200">
+                                        <th>NAME</th>
+                                        <th>ROLL NO</th>
+                                        <th>COLLEGE CODE</th>
+                                        <th>FATHER NAME</th>
+                                    </tr>
                                 <tr>
                                     {
                                         Object.keys(Result['DETAILS']).map((value, index) => { return <><th>{Result['DETAILS'][value]}</th></> })

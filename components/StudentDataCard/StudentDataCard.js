@@ -23,7 +23,7 @@ const config = {
 const StudentDataCard = ({ query }) => {
   const Results = query['Results'];
   const Details = query['Details'];
-  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const handleNameClick = () => {
     setIsConfettiActive(prevState => !prevState);
@@ -62,7 +62,7 @@ const StudentDataCard = ({ query }) => {
     <>
       <br />
       <div class="mx-auto w-max bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-        <p class="font-bold">B.Tech Student Score Board</p></div>
+        <p class="font-bold">CGPA Calculator</p></div>
       <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
           <h1 className="text-xl font-semibold" onClick={handleNameClick}>{Details['NAME']}</h1>
@@ -113,7 +113,7 @@ const StudentDataCard = ({ query }) => {
               <th>{Results['Total']}</th>
             </tr>
             <tr>
-              <th className="py-2" style={{ width: '75%' }}>B.Tech Overall Percentage</th>
+              <th className="py-2" style={{ width: '75%' }}>Overall Percentage</th>
               <th>{((Results['Total']-0.5)*10).toFixed(2)}%</th></tr>
           </tbody>
         </table>

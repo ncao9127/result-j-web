@@ -7,23 +7,47 @@ import Footer from '../Home/Footer';
 import Info from '../Home/info';
 import Branch from '../Json/Branch_codes.json';
 import College from '../Json/college_codes.json';
+import mpbranch from '../Json/mpharmbranchcode.json'
+import mbranch from '../Json/mtechbranchcodes.json'
+import Mba from '../Json/mbabranchcode.json'
 
 const SingleResults = ({ query }) => {
+  console.log('Query Cross Checking', query);
   const Results = query['Results'];
   const Details = query['Details'];
-  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
   const collegeCode = Details['COLLEGE_CODE'];
-  const branchCode = Details['ROLL_NO'].slice(6, 8);
+  // const branchCode = Details['ROLL_NO'].slice(6, 8);
 
-  const branchName = Branch.find(item => item.Code === branchCode);
+  // const branchName = Branch.find(item => item.Code === branchCode);
+  const rollNumber = Details['ROLL_NO'];
+  let branchName;
+
+  if (rollNumber[5] === 'A' || rollNumber[5] === 'R') {
+    const branchCode = rollNumber.slice(6, 8);
+    branchName = Branch.find(item => item.Code === branchCode)?.Branch || '-';
+  } else if (rollNumber[5] === 'D') {
+    const branchCode = rollNumber.slice(6, 8);
+    branchName = mbranch.find(item => item.Code === branchCode)?.Branch || '-';
+  } else if (rollNumber[5] === 'S') {
+    const branchCode = rollNumber.slice(6, 8);
+    branchName = mpbranch.find(item => item.Code === branchCode)?.Branch || '-';
+  } else if (rollNumber[5] === 'E') {
+    const branchCode = rollNumber.slice(6, 8);
+    console.log('Branch Code:', branchCode, branchName);
+    branchName = Mba.find(item => item.Code === branchCode)?.Branch || '-';
+  } else {
+    branchName = '-';
+  }
+
   const collegeName = College.find(item => item.Code === collegeCode);
 
   return (
     <>
       <br />
       <div className="items-center justify-center text-center ">
-        <h1 className="text-xl font-semibold text-green-600 text-bold ">Results History Marks Card</h1>
+        <h1 className="text-xl font-semibold text-green-600 text-bold ">Consolidated Marks Memo (CMM)</h1>
         <br />
         <Hr />
       </div>
@@ -37,7 +61,7 @@ const SingleResults = ({ query }) => {
               <th>{Details.ROLL_NO}</th>
               <th>{Details.NAME}</th>
               <th>{Details.FATHER_NAME}</th>
-              <th className='uppercase' >{branchName?.Branch ||  '-'}</th>
+              <th className='uppercase'>{branchName}</th>
             </tr>
           </tbody>
         </table>

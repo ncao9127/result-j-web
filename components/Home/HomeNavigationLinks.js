@@ -21,17 +21,17 @@ const HomeNavLinks = () => {
       ],
     },
     {
-      route: '/MultiResults',
+      route: '/Classresults',
       desctiption: [
-        'Get Multiple Results',
-        'Get Results Of More Than One Hallticket For A Semester',
+        'Get Class Results',
+        'Class Results Of A Particular Semester',
       ],
     },
     {
-      route: '/MultiList',
+      route: '/Classmate',
       desctiption: [
-        'Get Multiple List',
-        'Get Results Of Pass Or Fail List More Than One Hallticket',
+        'Classmate Results',
+        'Get Results Status Of A Particular Semester',
       ],
     },
     {
@@ -60,6 +60,13 @@ const HomeNavLinks = () => {
       desctiption: [
         'Check Backlogs',
         'Get Your Overall Backlogs List Here ',
+      ],
+    },
+    {
+      route: '/Subjectsratio',
+      desctiption: [
+        'Subjects Stats',
+        'Class Peformance Subjects Stats For Particular Semester ',
       ],
     },
     {
@@ -98,7 +105,7 @@ const HomeNavLinks = () => {
           rel="noreferrer"
           onClick={() => window.location.reload()}
         >
-          B.Tech Results
+          JNTUH Results
         </a>
       </h1>
       <p className='description' >

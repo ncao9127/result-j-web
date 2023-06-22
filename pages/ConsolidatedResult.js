@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import url from "../components/api/api"
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
+import Head from 'next/head';
 
 const HomeSingle = ({ homepage }) => {
   const router = useRouter();
@@ -18,32 +19,37 @@ const HomeSingle = ({ homepage }) => {
       try {
         // Check if data is available in local storage
         const storedData = localStorage.getItem(htno);
-        // console.log(storedData);
 
         if (storedData) {
           const { data, expiryTimestamp } = JSON.parse(storedData);
+          console.log('Taking From Cache',data);
+          console.log('Cache expiry ', new Date(expiryTimestamp));
 
           // Compare expiry timestamp with current time
           if (expiryTimestamp && expiryTimestamp > Date.now()) {
             // Data is valid, render SingleResults with stored data
             homepage(<SingleResults query={data} />);
             return;
+          } else {
+            // Data has expired, remove it from localStorage
+            console.log('Cache Expired : Cached Cleared...');
+            localStorage.removeItem(htno);
           }
         }
-
-        const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-
+        // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+        const url = "/api/single?htno=" + htno;
+        const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
           homepage(<><div className="text-[300%]">{response.status} | 404 page Not Found</div></>);
         } else {
           // Store the response data and expiry timestamp in local storage
-          const expiryTimestamp = Date.now() + 60 * 1000; // Set expiry to 60 seconds
+          const expiryTimestamp = Date.now() + 10 * 60 * 1000; // Set expiry to 10 minutes
           const dataToStore = { data: response.data, expiryTimestamp };
           localStorage.setItem(htno, JSON.stringify(dataToStore));
-
-
+          console.log('New Data Cached Succesfull..');
+          console.log('Cache Expiry', new Date(expiryTimestamp));
           homepage(<SingleResults query={response.data} />);
         }
       } catch {
@@ -62,7 +68,7 @@ const HomeSingle = ({ homepage }) => {
         </div></>);
       }
     }
-  }
+  };
 
   const inputEvent = (event) => {
     event.target.value = event.target.value.toUpperCase();
@@ -74,6 +80,16 @@ const HomeSingle = ({ homepage }) => {
 
   return (
     <>
+      <Head>
+        <title>
+          JNTUH | ACADEMIC RESULT
+        </title>
+        <meta
+          name="description"
+          content="Check out academic result with in a go."
+          key="desc"
+        />
+      </Head>
       <div method="get">
         <center>
           <br />

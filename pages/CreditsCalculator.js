@@ -8,7 +8,7 @@ import R18LE from "../components/CreditsChecker/R18LE";
 import R22Regular from "../components/CreditsChecker/R22Regular";
 import R22LE from "../components/CreditsChecker/R22LE";
 import Hr from "../components/Hr/Hr";
-
+import Head from 'next/head';
 const HomeCC = ({ homepage }) => {
     const [examType, setExamType] = useState('');
     const [suboption, setSuboption] = useState('');
@@ -30,7 +30,9 @@ const HomeCC = ({ homepage }) => {
             try {
                 // const queryParams = `htno=${htno}&type=${type}&category=${category}`;
                 // const response = await axios.get(url+'/api/single?' + queryParams, { mode: 'cors' });
-                const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+                // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+                const url = "/api/single?htno=" + htno;
+                const response = await axios.get(url);
                 if (response.status == 500) {
                     homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>)
                 }
@@ -107,9 +109,19 @@ const HomeCC = ({ homepage }) => {
     const [warning, setWarning] = useState();
     return (
         <>
+            <Head>
+                <title>
+                    JNTUH | CREDITS CHECKER
+                </title>
+                <meta
+                    name="description"
+                    content="Check out academic credits eligibility with in a go."
+                    key="desc"
+                />
+            </Head>
             <form>
                 <div className="flex flex-col items-center justify-center text-center ">
-                    <h1 className="text-3xl font-bold mt-16 mb-4 text-black-500">Credits Checker</h1>
+                    <h1 className="text-3xl font-bold mt-16 mb-4 text-black-500">BTech Credits Checker</h1>
                     <hr className="sm:w-96 w-48 border-gray-700 mb-4" />
                     <h6 className="font-normal leading-normal mt-5 mb-2 font-bold mx-2 text-[1xl] sm:text-2xl">Check Your Credits Eligible Critiera Here </h6>
                     <div className="flex flex-row items-center justify-center mb-6">
