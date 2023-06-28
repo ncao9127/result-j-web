@@ -14,13 +14,6 @@ const ClassReportForm = ({ warning, submit, form, setForm }) => {
         }));
     }
 
-    const handleSemesterChange = (event) => {
-        setForm(prevForm => ({
-            ...prevForm,
-            semesterOption: event.target.value
-        }));
-    };
-
     const handleRegulationChange = (event) => {
         setForm(prevForm => ({
             ...prevForm,
@@ -65,10 +58,10 @@ const ClassReportForm = ({ warning, submit, form, setForm }) => {
                     <center className="py-[35px]">
 
                         <h1 className="mb-2 font-bold text-[180%] " style={{ fontFamily: 'Arial , sans-serif'}}>
-                            Classmate Overall CGPA
+                            Classmate CGPA
                         </h1>
                         <p>
-                            Status Of Class Results For A Particular Semester
+                        Check the Overall CGPA of Your Classmates
                         </p>
                         <br />
                         <div className="px-[10%] md:px-[30%] text-xs ">
@@ -143,25 +136,6 @@ const ClassReportForm = ({ warning, submit, form, setForm }) => {
                                     </option>
                                 ))}
                             </select>
-                            {/* <select
-                                defaultValue={form['semesterOption']}
-                                onChange={handleSemesterChange}
-                                className="w-[100%] py-[4px] border border-[#CCCCCC] mt-[5px] rounded-sm h-[35px] text-center"
-                                style={{ fontSize: `${fontSize}px`, color: '#808080' }}
-                            >
-                                <option value="" disabled selected>
-                                    Enter the Semester...
-                                </option>
-                                <option value="1-1">I Year I Semester</option>
-                                <option value="1-2">I Year II Semester</option>
-                                <option value="2-1">II Year I Semester</option>
-                                <option value="2-2">II Year II Semester</option>
-                                <option value="3-1">III Year I Semester</option>
-                                <option value="3-2">III Year II Semester</option>
-                                <option value="4-1">IV Year I Semester</option>
-                                <option value="4-2">IV Year II Semester</option>
-                            </select> */}
-
                         </div>
                         <br />
                         <p className="text-[60%] text-red-600 ">{warning}</p>

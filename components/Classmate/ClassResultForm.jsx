@@ -112,6 +112,7 @@ const ClassReportForm = ({ warning, submit, form, setForm }) => {
                                 </option>
                                 <option value="A">B.Tech</option>
                                 <option value="R">B.Pharmacy</option>
+                                {/* <option value="E">MBA</option> */}
                             </select>
                             <select
                                 value={form['regulationOption']}

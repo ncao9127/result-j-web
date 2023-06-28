@@ -8,18 +8,43 @@ import Branch from '../Json/Branch_codes.json';
 import College from '../Json/college_codes.json';
 import mpbranch from '../Json/mpharmbranchcode.json'
 import mbranch from '../Json/mtechbranchcodes.json'
+import Mba from '../Json/mbabranchcode.json'
 
 
 const SemResult = ({ query }) => {
     if (!query) {
         // Handle the case when the query is empty or undefined
-        return <div>No results found.</div>;
+        return <><div
+            style={{
+                marginTop: 100,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <p>500 | Please try again later</p>
+            <br />
+            <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
+        </div></>;
     }
 
     const detailed = query['Details'];
     if (!detailed) {
         // Handle the case when the 'Details' property is missing in the query
-        return <div>Invalid data format.</div>;
+        return <><div
+            style={{
+                marginTop: 100,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <p>500 | Please try again later</p>
+            <br />
+            <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
+        </div></>;
     }
 
     const collegeCode = detailed['COLLEGE_CODE'];
@@ -37,6 +62,9 @@ const SemResult = ({ query }) => {
     } else if (rollNumber[5] === 'S') {
         const branchCode = rollNumber.slice(6, 8);
         branchName = mpbranch.find(item => item.Code === branchCode)?.Branch || '-';
+    } else if (rollNumber[5] === 'E') {
+        const branchCode = rollNumber.slice(6, 8);
+        branchName = Mba.find(item => item.Code === branchCode)?.Branch || '-';
     } else {
         branchName = '-';
     }

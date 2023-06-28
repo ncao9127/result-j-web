@@ -7,7 +7,7 @@ import Branch from '../Json/Branch_codes.json';
 import College from '../Json/college_codes.json';
 
 
-const ClassResultResult = ({ query, semester }) => {
+const ClassResultResult = ({ query }) => {
     if (!query || query.length === 0) {
         // Handle the case when the query array is empty
         return <div>No results found.</div>;
@@ -27,21 +27,6 @@ const ClassResultResult = ({ query, semester }) => {
 
     const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
-    const totalStudents = query.length;
-    let passedStudents = 0;
-    let failedStudents = 0;
-
-    query.forEach((value) => {
-        const Results = value['Results'];
-
-        Object.keys(Results).forEach((val) => {
-            if (Results[val]['status'] === 'PASSED') {
-                passedStudents++;
-            } else {
-                failedStudents++;
-            }
-        });
-    });
     return (
         <>
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]" >
@@ -51,13 +36,7 @@ const ClassResultResult = ({ query, semester }) => {
                 <h1 className="mb-2 text-center uppercase" style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: 'bold' }}>
                     {branchName?.Branch || ''}
                 </h1>
-                <table className="w-[100%]">
-                    <tbody>
-                        <tr className="bg-white">
-                            <th>{semester} Results</th>
-                        </tr>
-                    </tbody>
-                </table>
+                <h1 className="text-xl font-semibold text-green-600 text-bold text-center">Btech Overall Stats</h1>
             </div>
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <table className="w-[100%] my-1">
@@ -66,40 +45,43 @@ const ClassResultResult = ({ query, semester }) => {
                             <th>ROLL NO</th>
                             <th>NAME</th>
                             <th>CREDITS</th>
-                            <th>SGPA</th>
-                            <th>STATUS</th>
+                            <th>CGPA</th>
+                            <th>PERCENTAGE</th>
                         </tr>
                         {query.map((value, index) => {
                             const Details = value['Details'];
                             const Results = value['Results'];
+                            let totalCredits = 0;
+
+                            Object.keys(Results).map((val) => {
+                                if (val !== 'Total') {
+                                    Object.keys(Results[val]).map(function (item, index) {
+                                        if (item !== 'SGPA' & item !== 'total' & item !== 'credits') {
+                                            totalCredits += parseFloat(Results[val][item]?.subject_credits) || 0;
+                                        }
+                                    });
+                                }
+                            });
 
                             return (
                                 <tr key={index}>
                                     <th>{Details['ROLL_NO'] === "" ? "-" : Details['ROLL_NO']}</th>
                                     <th>{Details['NAME'] === "" ? "-" : Details['NAME']}</th>
-                                    {Object.keys(Results).map((val, index) => (
-                                        <React.Fragment key={index}>
-                                            <th>{Results[val]['credits'] === "" ? "-" : Results[val]['credits']}</th>
-                                            <th>{Results[val]['SGPA'] === "" ? "-" : Results[val]['SGPA']}</th>
-                                            <th className={Results[val]['status'] === 'FAILED' ? 'text-red-600' : 'text-green-600'}>{Results[val]['status'] === "" ? "-" : Results[val]['status']}</th>
-                                        </React.Fragment>
-                                    ))}
+                                    <th>{totalCredits}</th>
+                                    <th>{Results['Total']}</th>
+                                    <th>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
-                <table>
-                    <tbody>
-                        <tr className='bg-gray-300'><th>TOTAL STUDENTS</th><th>PASSED</th><th>FAILED</th></tr>
-                        <tr><th>{totalStudents}</th><th>{passedStudents} ({totalStudents > 0 ? ((passedStudents / totalStudents) * 100).toFixed(2) : 0}%)</th>
-                            <th>{failedStudents} ({totalStudents > 0 ? ((failedStudents / totalStudents) * 100).toFixed(2) : 0}%)</th>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
             </div>
             <Info />
+            <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]">
+                <b>NOTE :-</b> The CGPA for students who have backlogs is neither calculated or shown, per CGPA calculation guidelines .<br />
+                However, we calculate the CGPA for the students who have backlogs for their convenience.<br />
+                The CGPA is calculated through the following semester. <a href="/CGPAGuidelines.pdf" className='text-blue-400 hover:text-blue-600'>View CGPA Guidelines</a>
+            </div>
             <Hr />
             <div>
                 <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">

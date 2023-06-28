@@ -286,20 +286,54 @@ export default async function handler(req, res) {
     if (examCode) {
         scraper.scrapeAllResults(examCode) // Call the new method
             .then(results => {
+                const rollResult = results["Results"];
+                const totalResult = rollResult["Total"];
+                if (!totalResult || Object.keys(totalResult).length === 0) {
+                    // Skip this result if it is empty and return null
+                    console.log(rollNumber, 'Empty result');
+                    return null;
+                }
                 const endTime = performance.now();
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
                 res.status(200).json(results);
             })
+            .then(result => {
+                // Filter out null results and send an empty response if all results are empty
+                const filteredResults = result.filter(r => r !== null);
+                if (filteredResults.length === 0) {
+                    console.log('All results are empty');
+                    res.status(200).json({});
+                } else {
+                    res.status(200).json(filteredResults);
+                }
+            })
             .catch(error => {
                 console.error(error);
-                res.status(500).json("Internal Server Error");
+                res.status(500).json("Internal Server Error - 500");
             });
     } else if (rollNumber) {
         scraper.run()
             .then(results => {
+                const rollResult = results["Results"];
+                const totalResult = rollResult["Total"];
+                if (!totalResult || Object.keys(totalResult).length === 0) {
+                    // Skip this result if it is empty and return null
+                    console.log(rollNumber, 'Empty result');
+                    return null;
+                }
                 const endTime = performance.now();
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
                 res.status(200).json(results);
+            })
+            .then(result => {
+                // Filter out null results and send an empty response if all results are empty
+                const filteredResults = result.filter(r => r !== null);
+                if (filteredResults.length === 0) {
+                    console.log('All results are empty');
+                    res.status(200).json({});
+                } else {
+                    res.status(200).json(filteredResults);
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -309,14 +343,28 @@ export default async function handler(req, res) {
         const rollNumbers = htnos.split(",");
         const resultsPromises = rollNumbers.map(number => {
             const scraper = new ResultScraper(number.trim());
-            return scraper.run();
+            return scraper.run()
+                .then(results => {
+                    const rollResult = results["Results"];
+                    const totalResult = rollResult["Total"];
+                    if (!totalResult) {
+                        // Skip this result and proceed to the next roll number
+                        return null;
+                    }
+                    return results;
+                })
+                .catch(error => {
+                    console.error(error);
+                    return null;
+                });
         });
 
         Promise.all(resultsPromises)
             .then(results => {
+                const validResults = results.filter(result => result !== null);
                 const endTime = performance.now();
                 console.log(rollNumbers, "Multiple Roll Numbers", 'Time taken:', endTime - startTime, 'seconds');
-                res.status(200).json(results);
+                res.status(200).json(validResults);
             })
             .catch(error => {
                 console.error(error);
