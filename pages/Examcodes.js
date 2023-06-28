@@ -114,6 +114,24 @@ const ExamTable = () => {
               ))}
             </tbody>
           </table>
+          {/* B.pharmacy R22 Table */} 
+           <table> 
+             <caption>B.pharmacy R22</caption> 
+             <thead> 
+               <tr> 
+                 <th>Semester</th> 
+                 <th>Course Codes</th> 
+               </tr> 
+             </thead> 
+             <tbody> 
+               {Object.entries(examData.bpharmacy.R22).map(([semester, codes]) => ( 
+                 <tr key={semester}> 
+                   <th>{semester}</th> 
+                   <th>{codes.join(', ')}</th> 
+                 </tr> 
+               ))} 
+             </tbody> 
+           </table>
           {/* M.Pharmacy R19 Table */}
           <table className='my-4'>
             <caption>M.Pharmacy R19</caption>
