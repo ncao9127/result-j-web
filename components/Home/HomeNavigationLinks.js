@@ -131,7 +131,7 @@ const HomeNavLinks = () => {
         {links.map((link, idx) => (
           // Check if the link route is '/Classmatecgpa' and the current time is between 6 PM and 12 AM (midnight)
           // If true, render the link
-          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 0 || new Date().getHours() < 18))
+          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 18 || new Date().getHours() < 24))
             ? null
             : (
               <a

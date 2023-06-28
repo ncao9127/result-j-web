@@ -23,6 +23,7 @@ async function getExamCodes() {
     },
     bpharmacy: {
       R17: {},
+      R22: {},
     },
     mtech: {
       R19: {},
