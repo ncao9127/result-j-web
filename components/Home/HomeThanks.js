@@ -39,7 +39,7 @@ function MyFlippyComponent({ name, position, company, link }) {
 function MultiFlippyComponent() {
   const data = [
     { name: 'THILAK REDDY', position: 'BackEnd Developer', company: 'Jntuh Results services', link: 'https://github.com/ThilakReddyy' },
-    // { name: 'HEMANTH KOTAGIRI', position: 'RestApi Developer', company: 'Jntuh Results Services', link: 'https://github.com/hemanth-kotagiri' },
+    { name: 'HEMANTH KOTAGIRI', position: 'RestApi Developer', company: 'Jntuh Results Services', link: 'https://github.com/hemanth-kotagiri' },
   ];
 
   return (
