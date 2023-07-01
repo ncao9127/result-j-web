@@ -36,7 +36,7 @@ const HomeStudentDataCard = ({ homepage }) => {
           }
         }
         // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-        const url = "/api/single?htno=" + htno;
+        const url = "/api/single?htnos=" + htno;
         const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
