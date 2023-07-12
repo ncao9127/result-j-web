@@ -30,9 +30,9 @@ const HomeCC = ({ homepage }) => {
             try {
                 // const queryParams = `htno=${htno}&type=${type}&category=${category}`;
                 // const response = await axios.get(url+'/api/single?' + queryParams, { mode: 'cors' });
-                const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-                // const url = "/api/single?htno=" + htno;
-                // const response = await axios.get(url);
+                // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+                const url = "/api/single?htno=" + htno;
+                const response = await axios.get(url);
                 if (response.status == 500) {
                     homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>)
                 }
