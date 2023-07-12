@@ -102,7 +102,7 @@ const AcademicReportPage = () => {
 
 
                 // Fetch data for different roll numbers
-                const url = "https://resultsjntuh.up.railway.app/api/classresults?" + '&htnos=';
+                const url = "https://jntuhresults.up.railway.app/api/classresults?" + '&htnos=';
                 // const url = "/api/single?htnos=" ;
                 for (let i = 0; i < roll_last_2.length; i++) {
                     const roll_number = hallticket + roll_last_2[i];
@@ -126,7 +126,14 @@ const AcademicReportPage = () => {
                             continue;
                         }
                     }
-                    const response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    var response;
+                    try {
+                        response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    }
+                    catch
+                    {
+                        response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    }
                     if (response.status === 200) {
                         if (response.data.length === 0) {
                             setLen(true);
@@ -141,7 +148,7 @@ const AcademicReportPage = () => {
                             expiry: expiryDate.getTime() // Store expiry timestamp
                         };
                         console.log(dataToStore);
-                        localStorage.setItem(roll_number , JSON.stringify(dataToStore));
+                        localStorage.setItem(roll_number, JSON.stringify(dataToStore));
                     }
                 }
             }

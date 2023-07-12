@@ -1,0 +1,34 @@
+[
+    {
+        "Sem": "I Year I Semester",
+        "Code": "1-1"
+    },
+    {
+        "Sem": "I Year II Semester",
+        "Code": "1-2"
+    },
+    {
+        "Sem": "II Year I Semester",
+        "Code": "2-1"
+    },
+    {
+        "Sem": "II Year II Semester",
+        "Code": "2-2"
+    },
+    {
+        "Sem": "III Year I Semester",
+        "Code": "3-1"
+    },
+    {
+        "Sem": "III Year II Semester",
+        "Code": "3-2"
+    },
+    {
+        "Sem": "IV Year I Semester",
+        "Code": "4-1"
+    },
+    {
+        "Sem": "IV Year II Semester",
+        "Code": "4-2"
+    }
+]

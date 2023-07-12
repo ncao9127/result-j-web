@@ -9,6 +9,7 @@ import College from '../Json/college_codes.json';
 import mpbranch from '../Json/mpharmbranchcode.json'
 import mbranch from '../Json/mtechbranchcodes.json'
 import Mba from '../Json/mbabranchcode.json'
+import Semcode from './semcode.json'
 
 
 const SemResult = ({ query }) => {
@@ -26,7 +27,8 @@ const SemResult = ({ query }) => {
             <p>500 | Please try again later</p>
             <br />
             <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
-        </div></>;
+        </div>
+        </>;
     }
 
     const detailed = query['Details'];
@@ -69,10 +71,44 @@ const SemResult = ({ query }) => {
         branchName = '-';
     }
 
-
+    let name, req;
+    if (rollNumber[5] === 'A' && parseInt(rollNumber.slice(0, 2)) >= 22) {
+        name = 'B.Tech';
+        req = '(R22)';
+    } else if (rollNumber[5] === 'A') {
+        name = 'B.Tech';
+        req = '(R18)';
+    } else if (rollNumber[5] === 'R' && parseInt(rollNumber.slice(0, 2)) >= 22) {
+        name = 'B.Pharmacy';
+        req = '(R22)';
+    } else if (rollNumber[5] === 'R') {
+        name = 'B.Pharmacy';
+        req = '(R17)';
+    } else if (rollNumber[5] === 'D' && parseInt(rollNumber.slice(0, 2)) >= 22) {
+        name = 'M.Tech';
+        req = '(R22)';
+    } else if (rollNumber[5] === 'D') {
+        name = 'M.Tech';
+        req = '(R19)';
+    } else if (rollNumber[5] === 'S' && parseInt(rollNumber.slice(0, 2)) >= 22) {
+        name = 'M.Pharmacy';
+        req = '(R22)';
+    } else if (rollNumber[5] === 'S') {
+        name = 'M.Parmacy';
+        req = '(R19)';
+    } else if (rollNumber[5] === 'E' && parseInt(rollNumber.slice(0, 2)) >= 22) {
+        name = 'MBA';
+        req = '(R22)';
+    } else if (rollNumber[5] === 'E') {
+        name = 'MBA';
+        req = '(R19)';
+    } else {
+        req = '';
+    }
     const collegeName = College.find(item => item.Code === collegeCode);
     const semesterCode = Object.keys(query['Results'])[0]; // Extracting the semester code
     // console.log(semesterCode);
+    const semname = Semcode.find(item => item.Code === semesterCode);
 
     const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
@@ -94,9 +130,11 @@ const SemResult = ({ query }) => {
                     </tbody>
                 </table> */}
             </div>
-
+            <div className="items-center justify-center text-center mt-10">
+                <h1 className="text-xl font-semibold font-sans text-green-600 text-bold ">{name}&nbsp;{semname?.Sem || ''}&nbsp;{req}</h1>
+            </div>
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
-                <table className="w-[100%] mt-10 my-1">
+                <table className="w-[100%] mt-1 my-1">
                     <tbody>
                         <tr class="bg-gray-200">
                             <th>ROLL NO</th><th>NAME</th>

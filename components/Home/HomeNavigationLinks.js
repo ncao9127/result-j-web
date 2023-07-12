@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
-import Footer from './Footer';
-import Thanks from './HomeThanks';
-import Hr from '../Hr/Hr';
+import Link from "next/link";
 
 const HomeNavLinks = () => {
   const links = [
@@ -131,7 +129,7 @@ const HomeNavLinks = () => {
         {links.map((link, idx) => (
           // Check if the link route is '/Classmatecgpa' and the current time is between 6 PM and 12 AM (midnight)
           // If true, render the link
-          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 18 || new Date().getHours() < 24))
+          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 6 || new Date().getHours() < 0))
             ? null
             : (
               <a
@@ -158,9 +156,45 @@ const HomeNavLinks = () => {
       <br />
       <hr className="w-full border-gray" />
       <br />
-      <Footer />
-      <br />
-      <Thanks />
+      {/* Footer */}
+      <p className="mt-1 block text-left mx-[12%] text-center text-[65%] sm:text-[100%]">
+        Made with ❤ by &nbsp;
+        <Link href="/"  >
+          <a target="_blank" className="font-bold text-[#9C1A8B]" onClick={() => window.location.reload()}>
+            MD MOIZ UDDIN
+          </a>
+        </Link>
+      </p>
+      <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
+        If you found this app helpful, you can support me by &nbsp;
+        <Link href="https://paytm.me/d-XoZ3L" >
+          <a className="font-bold text-[#9C1A8B]">
+            buying me a pizza here.
+          </a>
+        </Link>
+      </p>
+      {/* Footer */}
+      <footer className="bottom-0 ">
+        <div className="md:h-8 ">
+          <div className=" md:px-0">
+            <p className="text-center text-sm md:text-lg font-medium">
+              Collaborators:&nbsp;
+            </p>
+            <p className="text-center text-sm md:text-lg  ">
+              <a href="https://github.com/thilakreddyy" target="_blank" rel="noreferrer">
+                Thilak Reddy&nbsp;,&nbsp;
+              </a>
+              <a href="https://github.com/hemanth-kotagiri" target="_blank" rel="noreferrer" >
+                Hemanth Kotagiri&nbsp;
+              </a>
+              &&nbsp;
+              <a href="https://github.com/Syed-Ansar" target="_blank" rel="noreferrer">
+                Syed Ansar
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
       <br />
     </>
   );

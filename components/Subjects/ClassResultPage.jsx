@@ -40,17 +40,17 @@ const AcademicReportPage = () => {
         return incrementedString;
     };
 
-    //use Effect to work only between 12 am and 6 am
+    //use Effect to work only between 12pm and 12pm
     useEffect(() => {
-        //only works between 12 am and 6am
+        //only works between 12 am and 12pm
         var currentTime = new Date();
         var currentHour = currentTime.getHours();
-        if (currentHour < 24) {
+        if (currentHour < 12) {
 
             setWarning("");
         }
         else {
-            setWarning("Feature under development!!")
+            setWarning("Results are only available from 12 AM to 12 PM")
         }
 
     }, [])
@@ -58,11 +58,11 @@ const AcademicReportPage = () => {
     // Function to handle form submission
     const submit = async () => {
 
-        //only works between 6 and 12
+        //only works between 12am  and 12pm
         var currentTime = new Date();
         var currentHour = currentTime.getHours();
 
-        if (currentHour >= 24) {
+        if (currentHour >= 12) {
             console.log("Result not available at this time")
             return "";
         }
@@ -102,7 +102,7 @@ const AcademicReportPage = () => {
 
 
                 // Fetch data for different roll numbers
-                const url = "https://resultsjntuhv3.up.railway.app/api/classresult?semester=" + form['semesterOption'] + '&htnos=';
+                const url = "https://jntuhresults.up.railway.app/api/classresult?semester=" + form['semesterOption'] + '&htnos=';
                 for (let i = 0; i < roll_last_2.length; i++) {
                     const roll_number = hallticket + roll_last_2[i];
                     let roll_numbers = "";
@@ -125,7 +125,14 @@ const AcademicReportPage = () => {
                             continue;
                         }
                     }
-                    const response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    var response;
+                    try {
+                        response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    }
+                    catch
+                    {
+                        response = await axios.get(url + roll_numbers, { mode: 'cors' });
+                    }
                     if (response.status === 200) {
                         if (response.data.length === 0) {
                             setLen(true);
@@ -171,7 +178,7 @@ const AcademicReportPage = () => {
             </div>
 
             {/* Render the result component */}
-            <div className={`${!reportForm && !loading ? 'block' : 'hidden'} `}>
+            <div className={`${!reportForm && !loading ? 'block' : 'hidden'} pt-[55px]`}>
                 <ClassResultResult query={result} semester={form['semesterOption']} />
             </div>
         </div>

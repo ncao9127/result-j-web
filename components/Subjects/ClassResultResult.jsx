@@ -151,7 +151,7 @@ const ClassResultResult = ({ query, semester }) => {
                 </table>
             </div>
             <div className="font-serif block text-center text-[#808080]  text-[55%] md:text-[80%]">
-                <sup>NOTE:-</sup>Caluclation Done Based Upon Only Regular & Lateral Entery Students ..<br />
+                <sup>NOTE:-</sup>Caluclation Done Based Upon Regular & Lateral Entery Students Only..<br />
                 {!disableMessage && (
                     <>
                         Query Queue Updating. Please be patient !<span className="animate-ellipsis"></span>

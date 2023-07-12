@@ -83,7 +83,7 @@ const StudentDataCard = ({ query }) => {
           })
         </h1>
       </div>
-      <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
+      <div className='m-4 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
         <table >
           <tbody>
             <tr class="bg-gray-200">
@@ -133,34 +133,34 @@ const StudentDataCard = ({ query }) => {
       </div> */}
 
       <div className='home-links flex flex-wrap items-center justify-around max-w-4xl mt-5 sm:w-full '>
-        <Link href="/CreditsCheck">
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+        <Link href="/CreditsCalculator">
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL CREDITS</h3>
             <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalCredits}</p>
           </a>
         </Link>
         
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL SUBJECTS</h3>
             <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalSubjects}</p>
           </a>
        
     
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
             <p className='group-hover:text-green-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{passedSubjects}</p>
           </a>
         
         
-          <Link href="/Backlog">
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
+          <Link href="/Backlogs">
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center '>TOTAL FAILED</h3>
             <p className='group-hover:text-red-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{failedSubjects}</p>
           </a>
           </Link>
         
         <Link href="/CreditsCalculator">
-          <a target="_blank" className='border-1 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>CHECK YOUR CREDITS ELIGIBLILTY</h3>
           </a>
         </Link>
@@ -169,7 +169,7 @@ const StudentDataCard = ({ query }) => {
 
       <br />
 
-      <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
+      <div className="m-4 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
         <div id='1'>
           {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab' || Results[val][item]['subject_grade'] === '-')) && (
             <table>
