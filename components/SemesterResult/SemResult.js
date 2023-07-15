@@ -177,7 +177,7 @@ const SemResult = ({ query }) => {
                                         <th>CREDITS</th>
                                     </tr>
                                     {Object.keys(Results).map((subjectCode) => {
-                                        if (subjectCode !== 'total' && subjectCode !== 'credits' && subjectCode !== 'status' && subjectCode !== 'SGPA') {
+                                        if (subjectCode !== 'total' && subjectCode !== 'credits' && subjectCode !== 'status' && subjectCode !== 'SGPA' && subjectCode !== 'Total') {
                                             const subject = Results[subjectCode];
                                             return (
                                                 <tr key={subjectCode}>
