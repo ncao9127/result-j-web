@@ -102,7 +102,7 @@ const AcademicReportPage = () => {
 
 
                 // Fetch data for different roll numbers
-                const url = "https://jntuhresults.up.railway.app/api/classresult?semester=" + form['semesterOption'] + '&htnos=';
+                const url = "http://127.0.0.1:8000/api/classresult?semester=" + form['semesterOption'] + '&htnos=';
                 for (let i = 0; i < roll_last_2.length; i++) {
                     const roll_number = hallticket + roll_last_2[i];
                     let roll_numbers = "";
@@ -110,6 +110,7 @@ const AcademicReportPage = () => {
                         roll_numbers += roll_number + j.toString() + ",";
                     }
                     roll_numbers = roll_numbers.slice(0, -1);
+                    // localStorage.clear();
                     var storedData = localStorage.getItem(roll_number + form['semesterOption']);
                     if (storedData !== null) {
                         const parsedData = JSON.parse(storedData);

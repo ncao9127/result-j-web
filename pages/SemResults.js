@@ -7,6 +7,8 @@ import SemResult from "../components/SemesterResult/SemResult";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Head from 'next/head';
+import ParentComponent from "../components/Home/Banner";
+import Alert from "../components/Home/Banner";
 // ...import statements
 
 const HomeSemResult = ({ homepage }) => {
@@ -159,6 +161,7 @@ const HomeSemResult = ({ homepage }) => {
             </div>
             <Hr />
             <HomeInfo />
+            <Alert/>
         </>
     );
 };

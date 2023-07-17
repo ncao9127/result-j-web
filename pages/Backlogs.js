@@ -7,6 +7,7 @@ import Backloglist from "../components/Backlog/Backloglist";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Head from 'next/head';
+import Alert from "../components/Home/Banner";
 
 
 const HomeStudentDataCard = ({ homepage }) => {
@@ -109,6 +110,7 @@ const HomeStudentDataCard = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
+      <Alert/>
     </>
   );
 };

@@ -7,6 +7,7 @@ import url from "../components/api/api"
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Head from 'next/head';
+import Banner from "../components/Home/Banner";
 
 const HomeSingle = ({ homepage }) => {
   const router = useRouter();
@@ -36,6 +37,7 @@ const HomeSingle = ({ homepage }) => {
             localStorage.removeItem(htno);
           }
         }
+        // alert("kindly wait for 15 minutes and try again")
         // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
         const url = "/api/single?htno=" + htno;
         const response = await axios.get(url);
@@ -124,6 +126,7 @@ const HomeSingle = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
+      <Banner/>
     </>
   )
 }

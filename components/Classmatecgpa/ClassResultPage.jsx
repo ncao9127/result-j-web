@@ -102,7 +102,7 @@ const AcademicReportPage = () => {
 
 
                 // Fetch data for different roll numbers
-                const url = "https://jntuhresults.up.railway.app/api/classresults?" + '&htnos=';
+                const url = "http://127.0.0.1:8000/api/classresults?" + '&htnos=';
                 // const url = "/api/single?htnos=" ;
                 for (let i = 0; i < roll_last_2.length; i++) {
                     const roll_number = hallticket + roll_last_2[i];

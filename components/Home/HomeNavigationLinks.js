@@ -177,10 +177,10 @@ const HomeNavLinks = () => {
       <footer className="bottom-0 ">
         <div className="md:h-8 ">
           <div className=" md:px-0">
-            <p className="text-center text-sm md:text-lg font-medium">
+            <p className="text-center text-sm md:text-lg font-medium sm:text-[100%]">
               Collaborators:&nbsp;
             </p>
-            <p className="text-center text-sm md:text-lg  ">
+            <p className="text-center text-[67%] sm:text-[100%] ">
               <a href="https://github.com/thilakreddyy" target="_blank" rel="noreferrer">
                 Thilak Reddy&nbsp;,&nbsp;
               </a>

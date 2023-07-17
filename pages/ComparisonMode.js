@@ -7,6 +7,7 @@ import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Cmode from "../components/Comparison/Cmode";
 import Head from 'next/head';
+import Alert from "../components/Home/Banner";
 
 const HomeSingle = ({ homepage }) => {
   const router = useRouter();
@@ -35,8 +36,10 @@ const HomeSingle = ({ homepage }) => {
           }
         }
 
-        const response = await axios.get(url + '/api/cmode?htno1=' + htno1 + '&htno2=' + htno2, { mode: 'cors' });
-
+        // const response = await axios.get(url + '/api/cmode?htno1=' + htno1 + '&htno2=' + htno2, { mode: 'cors' });
+        const url = "/api/single?htnos=" + htno1 + "," + htno2;
+        console.log(url);
+        const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
@@ -120,6 +123,7 @@ const HomeSingle = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
+      <Alert/>
     </>
   )
 }

@@ -10,8 +10,14 @@ import ScrollToTop from "react-scroll-to-top";
 const Cmode = ({ query }) => {
   const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
-  const result1 = query.Result1;
-  const result2 = query.Result2;
+  // use this below objects when use main api calls
+  // const result1 = query.Result1;
+  // const result2 = query.Result2;
+
+  // its just temp
+  const result1 = query[0];
+  const result2 = query[1];
+
 
   // --------------------backlogs---------------------------
 
@@ -35,7 +41,6 @@ const Cmode = ({ query }) => {
                       {result1.Results[val][item]['subject_grade'] === "-" ? "MALPRACTICE" : result1.Results[val][item]['subject_grade']}
                     </th>
                   </tr>
-
                 );
               }
             })}
@@ -226,14 +231,14 @@ const Cmode = ({ query }) => {
                 </tr>
 
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>OverAll CGPA</th>
+                  <th className="bg-gray-200" colSpan={10}>CGPA</th>
                 </tr>
                 <tr>
                   <th>{result1.Results.Total}</th>
                   <th>{result2.Results.Total}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>BTech OverAll Percentage</th>
+                  <th className="bg-gray-200" colSpan={10}>Percentage</th>
                 </tr>
                 <tr>
                   <th>{((result1.Results.Total - 0.5) * 10).toFixed(2)}%</th>

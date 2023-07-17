@@ -7,6 +7,7 @@ import StudentDataCard from "../components/StudentDataCard/StudentDataCard";
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Head from 'next/head';
+import Alert from "../components/Home/Banner";
 
 
 const HomeStudentDataCard = ({ homepage }) => {
@@ -21,6 +22,7 @@ const HomeStudentDataCard = ({ homepage }) => {
       setWarning("");
       homepage(<Loading />);
       try {
+        // localStorage.clear();
         const storedData = localStorage.getItem(htno);
         if (storedData) {
           const parsedData = JSON.parse(storedData);
@@ -109,6 +111,7 @@ const HomeStudentDataCard = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
+      <Alert/>
     </>
   );
 };

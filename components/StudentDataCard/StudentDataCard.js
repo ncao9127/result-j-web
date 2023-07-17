@@ -6,6 +6,7 @@ import Confetti from 'react-dom-confetti';
 import Link from "next/link";
 import Info from '../Home/info';
 import Hr from '../Hr/Hr';
+import Image from 'next/image';
 
 const config = {
   angle: 90,
@@ -58,6 +59,39 @@ const StudentDataCard = ({ query }) => {
   console.log('Passed Subjects:', passedSubjects);
   console.log('Total Credits:', totalCredits);
 
+  // check its final or not 
+  const isFinal = Object.keys(query['Results']).includes("4-2");
+  console.log('isFinal', isFinal);
+
+  const rollNumber = Details['ROLL_NO'];
+
+  // Check if F, Ab, or - grades are present
+  const hasBacklogs = Object.keys(Results).some(val =>
+    val !== 'Total' && Object.keys(Results[val]).some(item =>
+      Results[val][item]['subject_grade'] === 'F' ||
+      Results[val][item]['subject_grade'] === 'Ab' ||
+      Results[val][item]['subject_grade'] === '-'
+    )
+  );
+  console.log('Has Backlogs', hasBacklogs);
+
+  let isFirstClass = false;
+  let isSecondClass = false;
+  let isPassClass = false;
+
+  if (rollNumber[5] === 'A') {
+    // Check if the student is in the first class
+    isFirstClass = Results['Total'] >= 6.5 && Results['Total'] < 8.0;
+    console.log(isFirstClass);
+
+    // Check if the student is in the second class
+    isSecondClass = Results['Total'] >= 5.5 && Results['Total'] < 6.5;
+    console.log(isSecondClass);
+
+    // Check if the student is in the pass class
+    isPassClass = Results['Total'] >= 5.0 && Results['Total'] < 5.5;
+    console.log(isPassClass);
+  }
   return (
     <>
       <br />
@@ -65,7 +99,30 @@ const StudentDataCard = ({ query }) => {
         <p class="font-bold">CGPA Calculator</p></div>
       <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
-          <h1 className="text-xl font-semibold" onClick={handleNameClick}>{Details['NAME']}</h1>
+          <h1 className="text-xl font-semibold" onClick={handleNameClick}><span className="relative">
+            {Details['NAME']}
+            {isFinal && isFirstClass && !hasBacklogs && (
+              <Image
+                src="/firstclass.png"
+                alt="First Class Stamp"
+                className="absolute -top-1.5 -right-7 w-10 h-10"
+              />
+            )}
+            {/* {isSecondClass && !hasBacklogs && (
+              <img
+                src="/secondclass.png"
+                alt="Second Class Stamp"
+                className="absolute -top-2 right-0 w-6 h-6"
+              />
+            )}
+            {isPassClass && !hasBacklogs && (
+              <img
+                src="/passclass.png"
+                alt="Pass Class Stamp"
+                className="absolute -top-2 right-0 w-6 h-6"
+              />
+            )} */}
+          </span></h1>
           <h1 className="text-lg text-black  sm:text-xl">{Details['ROLL_NO']}</h1>
           <hr className="w-full border-gray-700" />
           <Confetti active={isConfettiActive} config={config} />
@@ -75,10 +132,10 @@ const StudentDataCard = ({ query }) => {
         <h1 className="text-blue-500 text-bold text-xl">Overall CGPA</h1>
         <h1 className="text-bold text-2xl">
           {Results['Total']} ({Results['Total'] >= 9.5 ? 'Outstanding' :
-            Results['Total'] >= 8.5 ? 'Excellent' :
-              Results['Total'] >= 7.5 ? 'Very Good' :
-                Results['Total'] >= 6.5 ? 'Good' :
-                  Results['Total'] >= 5.5 ? 'Average' :
+            Results['Total'] >= 8.5 ? 'Outstanding' :
+              Results['Total'] >= 7.5 ? 'Excellent' :
+                Results['Total'] >= 6.5 ? 'Very Good' :
+                  Results['Total'] >= 5.5 ? 'Good' :
                     'Pass'
           })
         </h1>
@@ -106,17 +163,40 @@ const StudentDataCard = ({ query }) => {
             })}
           </tbody>
         </table>
-        <table >
-          <tbody >
-            <tr>
-              <th className="py-2" style={{ width: '75%' }}>Overall CGPA</th>
-              <th>{Results['Total']}</th>
-            </tr>
-            <tr>
-              <th className="py-2" style={{ width: '75%' }}>Overall Percentage</th>
-              <th>{((Results['Total']-0.5)*10).toFixed(2)}%</th></tr>
-          </tbody>
-        </table>
+        <span className="relative">
+          <table >
+            <tbody >
+              <tr>
+                <th className="py-2" style={{ width: '75%' }}>Overall CGPA</th>
+                <th>{Results['Total']}</th>
+              </tr>
+              <tr>
+                <th className="py-2" style={{ width: '75%' }}>Overall Percentage</th>
+                <th>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
+            </tbody>
+          </table>
+          {isFinal && isFirstClass && !hasBacklogs && (
+            <Image
+              src="/firstclass.png"
+              alt="First Class Stamp"
+              className="absolute top-2 right-2 md:right-14 w-10 h-10 "
+            />
+          )}
+          {/* {isSecondClass && !hasBacklogs && (
+            <img
+              src="/secondclass.png"
+              alt="Second Class Stamp"
+              className="absolute top-2 right-16 w-10 h-10"
+            />
+          )}
+          {isPassClass && !hasBacklogs && (
+            <img
+              src="/passclass.png"
+              alt="Pass Class Stamp"
+              className="absolute top-2 right-16 w-10 h-10"
+            />
+          )} */}
+        </span>
       </div>
 
 
@@ -139,26 +219,26 @@ const StudentDataCard = ({ query }) => {
             <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalCredits}</p>
           </a>
         </Link>
-        
-          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
-            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL SUBJECTS</h3>
-            <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalSubjects}</p>
-          </a>
-       
-    
-          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
-            <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
-            <p className='group-hover:text-green-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{passedSubjects}</p>
-          </a>
-        
-        
-          <Link href="/Backlogs">
+
+        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL SUBJECTS</h3>
+          <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalSubjects}</p>
+        </a>
+
+
+        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
+          <p className='group-hover:text-green-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{passedSubjects}</p>
+        </a>
+
+
+        <Link href="/Backlogs">
           <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center '>TOTAL FAILED</h3>
             <p className='group-hover:text-red-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{failedSubjects}</p>
           </a>
-          </Link>
-        
+        </Link>
+
         <Link href="/CreditsCalculator">
           <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>CHECK YOUR CREDITS ELIGIBLILTY</h3>
@@ -255,4 +335,4 @@ const StudentDataCard = ({ query }) => {
     </>
   )
 }
-export default StudentDataCard    
+export default StudentDataCard     
