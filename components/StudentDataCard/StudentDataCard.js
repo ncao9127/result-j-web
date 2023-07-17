@@ -100,38 +100,37 @@ const StudentDataCard = ({ query }) => {
       <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
           <h1 className="text-xl font-semibold" onClick={handleNameClick}>
-            <span className="relative">
             {Details['NAME']}
-            {isFinal && isFirstClass && !hasBacklogs && (
-          <Image
-          src="/firstclass.png"
-          alt="First Class Stamp"
-          className="absolute -top-1.5 -right-7 w-10 h-10"
-          width={40}
-          height={40}
-        />
-          //   <img
-          //   src="/firstclass.png"
-          //   alt="First Class Stamp"
-          //   className="absolute top-2 right-2 md:right-14 w-10 h-10 "
-          // />
-            
-            )}
-            {/* {isSecondClass && !hasBacklogs && (
-              <img
-                src="/secondclass.png"
-                alt="Second Class Stamp"
-                className="absolute -top-2 right-0 w-6 h-6"
-              />
-            )}
-            {isPassClass && !hasBacklogs && (
-              <img
-                src="/passclass.png"
-                alt="Pass Class Stamp"
-                className="absolute -top-2 right-0 w-6 h-6"
-              />
-            )} */}
-          </span></h1>
+            <div className="relative">
+              {isFinal && isFirstClass && !hasBacklogs && (
+                <div className="absolute -top-3.5 -right-4 w-10 h-10">
+                  <Image
+                    src="/firstclass.png"
+                    alt="First Class Stamp"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+              )}
+            </div>
+          </h1>
+                      {/* <div className="relative">
+              {isFinal && isFirstClass && !hasBacklogs && (
+                <div className="absolute -top-1.5 -right-7 w-10 h-10">
+                  <Image
+                    src="/firstclass.png"
+                    alt="First Class Stamp"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+              )}
+              <h1 className="text-xl font-semibold" onClick={handleNameClick}>
+                <span className="relative">
+                  {Details['NAME']}
+                </span>
+              </h1>
+            </div> */}
           <h1 className="text-lg text-black  sm:text-xl">{Details['ROLL_NO']}</h1>
           <hr className="w-full border-gray-700" />
           <Confetti active={isConfettiActive} config={config} />
@@ -172,7 +171,7 @@ const StudentDataCard = ({ query }) => {
             })}
           </tbody>
         </table>
-        <span className="relative">
+        <div className="relative">
           <table >
             <tbody >
               <tr>
@@ -185,30 +184,16 @@ const StudentDataCard = ({ query }) => {
             </tbody>
           </table>
           {isFinal && isFirstClass && !hasBacklogs && (
-           <Image
-           src="/firstclass.png"
-           alt="First Class Stamp"
-           className="absolute -top-1.5 -right-7"
-           width={40} // Adjust the width according to your needs
-           height={40} // Adjust the height according to your needs
-         />
-         
+            <div className="absolute top-4 right-10 w-10 h-10">
+              <Image
+                src="/firstclass.png"
+                alt="First Class Stamp"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           )}
-          {/* {isSecondClass && !hasBacklogs && (
-            <img
-              src="/secondclass.png"
-              alt="Second Class Stamp"
-              className="absolute top-2 right-16 w-10 h-10"
-            />
-          )}
-          {isPassClass && !hasBacklogs && (
-            <img
-              src="/passclass.png"
-              alt="Pass Class Stamp"
-              className="absolute top-2 right-16 w-10 h-10"
-            />
-          )} */}
-        </span>
+        </div>
       </div>
 
 
