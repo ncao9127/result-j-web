@@ -99,14 +99,23 @@ const StudentDataCard = ({ query }) => {
         <p class="font-bold">CGPA Calculator</p></div>
       <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
-          <h1 className="text-xl font-semibold" onClick={handleNameClick}><span className="relative">
+          <h1 className="text-xl font-semibold" onClick={handleNameClick}>
+            <span className="relative">
             {Details['NAME']}
             {isFinal && isFirstClass && !hasBacklogs && (
-              <Image
-                src="/firstclass.png"
-                alt="First Class Stamp"
-                className="absolute -top-1.5 -right-7 w-10 h-10"
-              />
+          <Image
+          src="/firstclass.png"
+          alt="First Class Stamp"
+          className="absolute -top-1.5 -right-7 w-10 h-10"
+          width={40}
+          height={40}
+        />
+          //   <img
+          //   src="/firstclass.png"
+          //   alt="First Class Stamp"
+          //   className="absolute top-2 right-2 md:right-14 w-10 h-10 "
+          // />
+            
             )}
             {/* {isSecondClass && !hasBacklogs && (
               <img
@@ -176,11 +185,14 @@ const StudentDataCard = ({ query }) => {
             </tbody>
           </table>
           {isFinal && isFirstClass && !hasBacklogs && (
-            <Image
-              src="/firstclass.png"
-              alt="First Class Stamp"
-              className="absolute top-2 right-2 md:right-14 w-10 h-10 "
-            />
+           <Image
+           src="/firstclass.png"
+           alt="First Class Stamp"
+           className="absolute -top-1.5 -right-7"
+           width={40} // Adjust the width according to your needs
+           height={40} // Adjust the height according to your needs
+         />
+         
           )}
           {/* {isSecondClass && !hasBacklogs && (
             <img
