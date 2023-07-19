@@ -36,10 +36,9 @@ const HomeSingle = ({ homepage }) => {
           }
         }
 
-        // const response = await axios.get(url + '/api/cmode?htno1=' + htno1 + '&htno2=' + htno2, { mode: 'cors' });
-        const url = "/api/single?htnos=" + htno1 + "," + htno2;
-        console.log(url);
-        const response = await axios.get(url);
+        const response = await axios.get(url + '/api/cmode?htno1=' + htno1 + '&htno2=' + htno2, { mode: 'cors' });
+        // const url = "/api/single?htnos=" + htno1 + "," + htno2;
+        // const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {

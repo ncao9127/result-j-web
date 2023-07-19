@@ -38,9 +38,9 @@ const HomeSingle = ({ homepage }) => {
           }
         }
         // alert("kindly wait for 15 minutes and try again")
-        // const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-        const url = "/api/single?htno=" + htno;
-        const response = await axios.get(url);
+        const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+        // const url = "/api/single?htno=" + htno;
+        // const response = await axios.get(url);
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
