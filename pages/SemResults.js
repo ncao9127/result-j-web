@@ -37,13 +37,20 @@ const HomeSemResult = ({ homepage }) => {
                         localStorage.removeItem(htno + code);
                     }
                 }
+
+                // temp
                 // const url = "/api/single?htno=" + htno + "&code=" + code;
                 // const response = await axios.get(url);
-                const response = await axios.get(
-                    url + "/api/result?htno=" + htno + "&code=" + code,
-                    { mode: "cors" }
-                );
 
+                // main
+                // const response = await axios.get(
+                //     url + "/api/result?htno=" + htno + "&code=" + code,
+                //     { mode: "cors" }
+                // );
+
+                // temp
+                const response = await axios.get(url + '/api/single?htno=' + htno + "&code=" + code , { mode: 'cors' });
+                
                 if (response.status === 500) {
                     homepage(
                         <>

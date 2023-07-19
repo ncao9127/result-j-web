@@ -161,6 +161,12 @@ const SemResult = ({ query }) => {
                     </tbody>
                 </table>
                 {Object.keys(query['Results']).map((semester) => {
+
+                    // Skip rendering the table for the "Total" key just temp else comment it later 
+                    if (semester === "Total") {
+                        return null;
+                    }
+
                     const Results = query['Results'][semester];
 
                     return (
