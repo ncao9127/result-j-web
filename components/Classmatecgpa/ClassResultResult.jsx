@@ -78,7 +78,7 @@ const ClassResultResult = ({ query }) => {
             </div>
             <Info />
             <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]">
-                <b>NOTE :-</b> The CGPA for students who have backlogs is neither calculated or shown, per CGPA calculation guidelines .<br />
+                <b>NOTE :-</b> The CGPA for students who have backlogs is neither calculated or shown, as per CGPA calculation guidelines .<br />
                 However, we calculate the CGPA for the students who have backlogs for their convenience.<br />
                 The CGPA is calculated through the following semester. <a href="/CGPAGuidelines.pdf" className='text-blue-400 hover:text-blue-600'>View CGPA Guidelines</a>
             </div>

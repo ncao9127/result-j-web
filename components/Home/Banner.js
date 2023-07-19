@@ -22,7 +22,7 @@ const Banner = ({ setBanner }) => {
                     If you encounter any difficulties retrieving results, <br />please &ldquo;kindly wait for 15 minutes and try again&rdquo;
                     <br />or reach out to me directly via
                     <Link href="/help">
-                        <strong className="hover:cursor-pointer text-sky-900">&ldquo;Help Desk</strong>
+                        <strong className="hover:cursor-pointer text-sky-900">&ldquo;Help Desk&ldquo;</strong>
                     </Link>
                 </p>
 

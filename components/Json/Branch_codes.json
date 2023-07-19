@@ -48,12 +48,20 @@
         "Code": "14"
     },
     {
+        "Branch": "Electronics and Telematics Engineering",
+        "Code": "17"
+    },
+    {
         "Branch": "Metallurgical and Materials engineering",
         "Code": "18"
     },
     {
         "Branch": "Electronics & Computer Engineering",
         "Code": "19"
+    },
+    {
+        "Branch": "Production Engineering (Mechanical)",
+        "Code": "20"
     },
     {
         "Branch": "Aeronautical Engineering",
@@ -66,6 +74,10 @@
     {
         "Branch": "Bio Technology",
         "Code": "23"
+    },
+    {
+        "Branch": "Automobile Engineering",
+        "Code": "24"
     },
     {
         "Branch": "Mining Engineering",

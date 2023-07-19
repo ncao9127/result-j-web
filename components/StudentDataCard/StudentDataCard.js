@@ -137,13 +137,14 @@ const StudentDataCard = ({ query }) => {
         </div>
       </div>
       <div className="mb-5 text-center">
-        <h1 className="text-blue-500 text-bold text-xl">Overall CGPA</h1>
+        <h1 className="text-blue-500 text-bold text-xl">Final CGPA</h1>
         <h1 className="text-bold text-2xl">
-          {Results['Total']} ({Results['Total'] >= 9.5 ? 'Outstanding' :
-            Results['Total'] >= 8.5 ? 'Outstanding' :
-              Results['Total'] >= 7.5 ? 'Excellent' :
-                Results['Total'] >= 6.5 ? 'Very Good' :
-                  Results['Total'] >= 5.5 ? 'Good' :
+          {/* DECLARED BSASED UPON AWARD CLASS SYSTEM JNTUH */}
+          {Results['Total']} ({Results['Total'] >= 8.0 ? 'Outstanding' :
+            Results['Total'] >= 7.5 ? 'Execellent' :
+              Results['Total'] >= 7.0 ? 'Very Good' :
+                Results['Total'] >= 6.5 ? 'Good' :
+                  Results['Total'] >= 5.5 ? 'Average' :
                     'Pass'
           })
         </h1>
@@ -175,11 +176,11 @@ const StudentDataCard = ({ query }) => {
           <table >
             <tbody >
               <tr>
-                <th className="py-2" style={{ width: '75%' }}>Overall CGPA</th>
+                <th className="py-2" style={{ width: '75%' }}>Cumulative Grade Point Average - CGPA</th>
                 <th>{Results['Total']}</th>
               </tr>
               <tr>
-                <th className="py-2" style={{ width: '75%' }}>Overall Percentage</th>
+                <th className="py-2" style={{ width: '75%' }}>Final Percentage</th>
                 <th>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
             </tbody>
           </table>

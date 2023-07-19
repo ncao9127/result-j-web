@@ -111,6 +111,7 @@ const AcademicReportPage = () => {
                         roll_numbers += roll_number + j.toString() + ",";
                     }
                     roll_numbers = roll_numbers.slice(0, -1);
+                    // localStorage.clear();
                     var storedData = localStorage.getItem(roll_number);
                     if (storedData !== null) {
                         const parsedData = JSON.parse(storedData);

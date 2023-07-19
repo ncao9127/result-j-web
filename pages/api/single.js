@@ -279,6 +279,12 @@ class ResultScraper {
 
 
 export default async function handler(req, res) {
+    // Set CORS headers to allow requests from any origin
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Optionally, you can set other CORS headers if needed
+    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
     const startTime = performance.now();
     const rollNumber = req.query['htno'];
     const htnos = req.query['htnos']; // Parameter for multiple roll numbers separated by commas
