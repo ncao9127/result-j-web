@@ -231,14 +231,14 @@ const Cmode = ({ query }) => {
                 </tr>
 
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>CGPA</th>
+                  <th className="bg-gray-200" colSpan={10}>Final CGPA</th>
                 </tr>
                 <tr>
                   <th>{result1.Results.Total}</th>
                   <th>{result2.Results.Total}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Percentage</th>
+                  <th className="bg-gray-200" colSpan={10}>Final Percentage</th>
                 </tr>
                 <tr>
                   <th>{((result1.Results.Total - 0.5) * 10).toFixed(2)}%</th>

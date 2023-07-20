@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
+import { FiDownload } from 'react-icons/fi';
 import Link from "next/link";
 
 const HomeNavLinks = () => {
@@ -173,11 +174,16 @@ const HomeNavLinks = () => {
           </a>
         </Link>
       </p>
+      {/* <Link href="/download">
+        <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold ">
+          Download App <FiDownload className="w-6 h-6 ml-2" />
+        </div>
+      </Link> */}
       {/* Footer */}
       <footer className="bottom-0 ">
         <div className="md:h-8 ">
           <div className=" md:px-0">
-            <p className="text-center text-sm md:text-lg font-medium sm:text-[100%]">
+            <p className="text-center text-sm sm:text-[100%]">
               Collaborators:&nbsp;
             </p>
             <p className="text-center text-[67%] sm:text-[100%] ">

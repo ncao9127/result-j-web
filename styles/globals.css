@@ -37,6 +37,12 @@ th {
     background-color: #8080800f;
 } */
 
+/* 20072023 */
+.bg-custom-page {
+  background-color: rgb(230, 255, 218);
+}
+
+
 /* CSS code */
 .table-collapse {
   border-collapse: collapse;
