@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import InstallButton from '../components/ui/InstallButton';
 import Link from 'next/link';
 
 
 const Download = () => {
+  // Function to check if the page has been refreshed before
+  const getLastRefreshTime = () => {
+    return localStorage.getItem('lastRefreshTime');
+  };
+
+  // Function to set the last refresh time in localStorage
+  const setLastRefreshTime = () => {
+    localStorage.setItem('lastRefreshTime', Date.now());
+  };
+
+  // Function to clear the last refresh time from localStorage
+  const clearLastRefreshTime = () => {
+    localStorage.removeItem('lastRefreshTime');
+  };
+
+  // useEffect with an empty dependency array to run the refreshPage function once when the component mounts
+  useEffect(() => {
+    const lastRefreshTime = getLastRefreshTime();
+
+    if (!lastRefreshTime || Date.now() - lastRefreshTime >= 5 * 60 * 1000) {
+      console.log('Refreshing the page for a new user.');
+      setLastRefreshTime();
+      window.location.reload();
+    } else {
+      console.log('Existing user, not refreshing the page.');
+    }
+
+    // Set a timer to clear the last refresh time after 5 minutes (300,000 milliseconds)
+    const timer = setTimeout(clearLastRefreshTime, 5 * 60 * 1000);
+
+    // Clean up the timer when the component is unmounted
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <div className="bg-custom-page min-h-screen " style={{
