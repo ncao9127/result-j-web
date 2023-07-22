@@ -26,17 +26,13 @@ import axios from "axios";
 import Link from "next/link";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
 import Marquee from "react-fast-marquee";
-import { BiShareAlt } from 'react-icons/bi';
-import { BiMessageSquare } from "react-icons/bi";
-import { BiBug } from "react-icons/bi";
-import { BiCommentDetail, BiMessageSquareAdd } from "react-icons/bi";
-import { BiHelpCircle } from 'react-icons/bi';
+import { BiCommentDetail, BiHelpCircle, BiShareAlt, BiMessageSquare, BiBug, BiMessageSquareAdd } from "react-icons/bi";
 import StatusPage from "../components/ui/StatusPage";
 import url from "../components/api/api";
 import Head from "next/head";
 import { FiDownload } from 'react-icons/fi';
-
-
+import { BsTelegram } from 'react-icons/bs'
+import HomeFooter from "../components/Home/HomeFooter";
 
 function Home() {
     const [notifications, setNotifications] = useState([]);
@@ -47,8 +43,9 @@ function Home() {
 
     const fetchNotifications = async () => {
         try {
-            const url = "/api/notifications"
-            const response = await axios.get(url);
+            const response = await axios.get(url + '/api/notifications' , { mode: 'cors' });
+            // const url = "/api/notifications"
+            // const response = await axios.get(url);
             const notificationsData = response.data;
             setNotifications(notificationsData);
         } catch (error) {
@@ -80,7 +77,7 @@ function Home() {
             </Link>
             <div className="max-w-xs flex flex-wrap items-center justify-around sm:max-w-4xl mt-6 sm:w-full">
                 <Marquee
-                    className="w-full"
+                    className="w-full z-0"
                     speed={50}
                     gradient={true}
                     pauseOnHover={true}>
@@ -170,19 +167,20 @@ function Home() {
             </div>
             <br />
             <hr className="sm:w-96 w-48 border-gray mb-4" />
-            <Link href="/download">
-                <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold ">
-                    Download App <FiDownload className="w-6 h-6 ml-2" />
-                </div>
-            </Link>
-            <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%]"><p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
-                If you found this app helpful, you can support me by &nbsp;
-                <Link href="https://paytm.me/d-XoZ3L" >
-                    <a className="font-bold text-[#9C1A8B]">
-                        buying me a pizza here.
-                    </a>
+            <div className="z-0 flex space-x-4">
+                <Link href="/download">
+                    <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
+                        Download App <FiDownload className="w-6 h-6 ml-2" />
+                    </div>
                 </Link>
-            </p>
+                <Link href="https://telegram.me/resultsjntuh">
+                    <div className="my-2 bottom-5 right-5 bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
+                        <BsTelegram className="w-6 h-6 ml-2" />&nbsp; Join Us On Telegram
+                    </div>
+                </Link>
+            </div>
+            <div className="mt-2">
+                <HomeFooter />
             </div>
             <div className="mt-1 block text-center text-green-600 mb-4 text-[55%] md:text-[80%]">
                 <Link href="https://resultsjntuhweb.statuspage.io" >

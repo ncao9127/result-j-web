@@ -27,12 +27,16 @@ const InstallButton = () => {
   };
 
   return (
-    <button
-      onClick={handleInstallClick}
-      className="bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-full p-4 shadow-lg z-10 flex items-center font-bold"
-    >
-      Intall App <FiDownload className="w-6 h-6 ml-2" />
-    </button>
+    <>
+      <div>
+        <button
+          onClick={handleInstallClick}
+          className="bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-full p-4 shadow-lg z-10 flex items-center font-bold"
+        >
+          Intall App <FiDownload className="w-6 h-6 ml-2" />
+        </button>
+      </div>
+    </>
 
   );
 };

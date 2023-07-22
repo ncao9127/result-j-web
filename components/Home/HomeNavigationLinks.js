@@ -1,9 +1,23 @@
 import { useState, useEffect } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
 import { FiDownload } from 'react-icons/fi';
+import { BsTelegram } from 'react-icons/bs'
 import Link from "next/link";
+import Qrcode from '../ui/Qrcode';
 
-const HomeNavLinks = () => {
+const HomeNavLinks = () => { 
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  // Function to handle the link click and show the modal
+  const handleLinkClick = () => {
+    setModalVisible(true);
+  };
+
+  // Function to hide the modal
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+  
   const links = [
     {
       route: '/ConsolidatedResult',
@@ -168,12 +182,18 @@ const HomeNavLinks = () => {
       </p>
       <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
         If you found this app helpful, you can support me by &nbsp;
-        <Link href="https://paytm.me/d-XoZ3L" >
-          <a className="font-bold text-[#9C1A8B]">
-            buying me a pizza here.
-          </a>
-        </Link>
+        <a className="font-bold text-[#9C1A8B] cursor-pointer" onClick={handleLinkClick}>
+          buying me a pizza here.
+        </a>
       </p>
+
+      {isModalVisible && <Qrcode onClose={handleCloseModal} />}
+      <Link href="https://telegram.me/resultsjntuh">
+                <div className="my-2 bottom-5 right-5 bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
+                <BsTelegram className="w-6 h-6 ml-2" />&nbsp; Join Us On Telegram 
+                </div>
+            </Link>
+            <br/>
       {/* <Link href="/download">
         <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold ">
           Download App <FiDownload className="w-6 h-6 ml-2" />

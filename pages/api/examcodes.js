@@ -2,6 +2,13 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 export default async function handler(req, res) {
+
+  // Set CORS headers to allow requests from any origin
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Optionally, you can set other CORS headers if needed
+  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   try {
     const examCodes = await getExamCodes();
     res.status(200).json(examCodes);

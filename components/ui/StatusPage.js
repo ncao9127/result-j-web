@@ -17,7 +17,7 @@ function StatusPage() {
       getStatus();
     }, []);
   
-    return <div>S T A T U S <br/>{status}</div>;
+    return <div className='font-bold'>S T A T U S <br/>{status}</div>;
   }
   
   export default StatusPage;

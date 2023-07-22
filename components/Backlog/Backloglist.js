@@ -6,6 +6,7 @@ import Link from "next/link";
 import Info from '../Home/info';
 import Hr from '../Hr/Hr';
 import Jntuh from '../Home/jnuth';
+import HomeFooter from '../Home/HomeFooter';
 
 const Backlogslist = ({ query }) => {
     const Results = query['Results'];
@@ -93,16 +94,7 @@ const Backlogslist = ({ query }) => {
                 </div>
                 <Info />
                 <Hr />
-                <div>
-                    <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
-                        Made with ❤ by &nbsp;
-                        <Link href="" >
-                            <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
-                                MD MOIZ UDDIN
-                            </a>
-                        </Link>
-                    </p>
-                </div>
+                <HomeFooter/>
             </div>
             <PrintButton />
             <ScrollToTop

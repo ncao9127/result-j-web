@@ -7,6 +7,7 @@ import Link from "next/link";
 import Info from '../Home/info';
 import Hr from '../Hr/Hr';
 import Image from 'next/image';
+import HomeFooter from '../Home/HomeFooter';
 
 const config = {
   angle: 90,
@@ -303,16 +304,7 @@ const StudentDataCard = ({ query }) => {
         </div>
         <Info />
         <Hr />
-        <div>
-          <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
-            Made with ❤ by &nbsp;
-            <Link href="https://github.com/khaja-moiz/" >
-              <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
-                MD MOIZ UDDIN
-              </a>
-            </Link>
-          </p>
-        </div>
+        <HomeFooter/>
         {/* <div>
           <table className="w-[100%]">
             <tbody>

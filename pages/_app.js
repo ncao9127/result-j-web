@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout/Layout';
 import { Analytics } from '@vercel/analytics/react';
-import InstallButton from '../components/ui/InstallButton';
 function MyApp({ Component, pageProps }) {
 
 
@@ -10,7 +9,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps}/> 
         <Analytics/>
       </Layout>
-      {/* <InstallButton/> */}
       </>)
 }
 

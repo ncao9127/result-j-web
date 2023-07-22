@@ -6,6 +6,7 @@ import Hr from '../Hr/Hr';
 
 import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
+import HomeFooter from '../Home/HomeFooter';
 
 const Cmode = ({ query }) => {
   const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
@@ -330,16 +331,7 @@ const Cmode = ({ query }) => {
         </div>
         <Info />
         <Hr />
-        <div>
-          <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
-            Made with ❤ by &nbsp;
-
-            <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
-              MD MOIZ UDDIN
-            </a>
-          </p>
-        </div>
-
+        <HomeFooter/>
       </div>
 
       <PrintButton />

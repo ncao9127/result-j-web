@@ -13,6 +13,7 @@
     "type": "image/png"
     }
     ],
+    "version": "24.06.28",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "start_url": "/",

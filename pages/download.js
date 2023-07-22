@@ -67,9 +67,11 @@ const Download = () => {
               </p>
               <br />
               <br />
-              <span className='flex justify-center items-center '>
+              <div>
+             <div className='flex justify-center items-center'>
                 <InstallButton />
-              </span>
+              </div>
+              </div>
             </div>
             <div className="border border-black-400 bg-[#111B21] hover:drop-shadow-sm group text-white shadow-2xl max-w-xs p-6 mt-6 text-center md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-green-600 duration-300">
               <h6 className="text-white mt-2 group-hover:text-black" style={{ fontSize: '12px' }}>

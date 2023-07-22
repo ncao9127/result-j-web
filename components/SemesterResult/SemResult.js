@@ -10,6 +10,7 @@ import mpbranch from '../Json/mpharmbranchcode.json'
 import mbranch from '../Json/mtechbranchcodes.json'
 import Mba from '../Json/mbabranchcode.json'
 import Semcode from './semcode.json'
+import HomeFooter from '../Home/HomeFooter';
 
 
 const SemResult = ({ query }) => {
@@ -221,15 +222,7 @@ const SemResult = ({ query }) => {
 
             <Info />
             <Hr />
-            <div>
-                <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
-                    Made with ❤ by &nbsp;
-                    <a target="_blank" className="font-bold text-red-400 hover:text-red-600" >
-                        MD MOIZ UDDIN
-                    </a>
-                </p>
-            </div>
-
+            <HomeFooter/>
             <PrintButton />
             <ScrollToTop
                 className='scroller'

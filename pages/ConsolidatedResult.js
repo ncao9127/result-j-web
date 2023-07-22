@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import SingleResults from "../components/Single/SingleResults";
 import Loading from "../components/Loading/Loading";
 import { useRouter } from 'next/router'
@@ -23,7 +25,7 @@ const HomeSingle = ({ homepage }) => {
 
         if (storedData) {
           const { data, expiryTimestamp } = JSON.parse(storedData);
-          console.log('Taking From Cache',data);
+          console.log('Taking From Cache', data);
           console.log('Cache expiry ', new Date(expiryTimestamp));
 
           // Compare expiry timestamp with current time
@@ -55,6 +57,7 @@ const HomeSingle = ({ homepage }) => {
           homepage(<SingleResults query={response.data} />);
         }
       } catch {
+        toast.warning("Kindly Wait For 15 minutes And Try Again");
         homepage(<><div
           style={{
             marginTop: 100,
@@ -64,6 +67,18 @@ const HomeSingle = ({ homepage }) => {
             alignItems: 'center',
           }}
         >
+          <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
           <p>500 | Please try again later</p>
           <br />
           <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
@@ -126,7 +141,7 @@ const HomeSingle = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
-      <Banner/>
+      <Banner />
     </>
   )
 }

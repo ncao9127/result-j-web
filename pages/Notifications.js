@@ -99,9 +99,9 @@ function Home() {
     const fetchData = async () => {
       try {
         setIsLoading(true); // Set loading state to true
-        // const response = await axios.get(url + "/api/notifications" , { mode: 'cors' });
-        const url = "/api/notifications";
-        const response = await axios.get(url);
+        const response = await axios.get(url + "/api/notifications" , { mode: 'cors' });
+        // const url = "/api/notifications";
+        // const response = await axios.get(url);
         setNotifications(response.data);
         setIsLoading(false); // Set loading state to false after data is fetched
       } catch (error) {
@@ -139,21 +139,23 @@ function Home() {
         </div>
       </Link>
       <div className="max-w-xs flex flex-wrap items-center justify-around sm:max-w-4xl mt-6 sm:w-full">
-        <Marquee
-          className="w-full"
-          speed={50}
-          gradient={true}
-          pauseOnHover={true}
-        >
-          <span style={{ paddingRight: "700px" }}></span>
-          <h3 className="text-sky-400  font-bold ">
-            {firstNotification?.notification_date} &nbsp;
-          </h3>
-          <h1 className=" text-center">
-            {firstNotification?.notification_description}
-          </h1>
-          <br />
-        </Marquee>
+        <div className="z-0">
+          <Marquee
+            className="w-full"
+            speed={50}
+            gradient={true}
+            pauseOnHover={true}
+          >
+            <span style={{ paddingRight: "700px" }}></span>
+            <h3 className="text-sky-400  font-bold ">
+              {firstNotification?.notification_date} &nbsp;
+            </h3>
+            <h1 className=" text-center">
+              {firstNotification?.notification_description}
+            </h1>
+            <br />
+          </Marquee>
+        </div>
         {notifications.map((item, index) => (
           <div
             key={index}
