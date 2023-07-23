@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
-import { FiDownload } from 'react-icons/fi';
-import { BsTelegram } from 'react-icons/bs'
 import Link from "next/link";
 import Qrcode from '../ui/Qrcode';
+import Telegram from '../ui/Telegram';
 
-const HomeNavLinks = () => { 
+const HomeNavLinks = () => {
   const [isModalVisible, setModalVisible] = useState(false);
 
   // Function to handle the link click and show the modal
@@ -17,7 +16,7 @@ const HomeNavLinks = () => {
   const handleCloseModal = () => {
     setModalVisible(false);
   };
-  
+
   const links = [
     {
       route: '/ConsolidatedResult',
@@ -188,17 +187,8 @@ const HomeNavLinks = () => {
       </p>
 
       {isModalVisible && <Qrcode onClose={handleCloseModal} />}
-      <Link href="https://telegram.me/resultsjntuh">
-                <div className="my-2 bottom-5 right-5 bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
-                <BsTelegram className="w-6 h-6 ml-2" />&nbsp; Join Us On Telegram 
-                </div>
-            </Link>
-            <br/>
-      {/* <Link href="/download">
-        <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold ">
-          Download App <FiDownload className="w-6 h-6 ml-2" />
-        </div>
-      </Link> */}
+      <Telegram />
+      <br />
       {/* Footer */}
       <footer className="bottom-0 ">
         <div className="md:h-8 ">

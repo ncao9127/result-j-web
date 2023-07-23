@@ -8,6 +8,8 @@ import Info from '../Home/info';
 import Hr from '../Hr/Hr';
 import Image from 'next/image';
 import HomeFooter from '../Home/HomeFooter';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const config = {
   angle: 90,
@@ -83,15 +85,24 @@ const StudentDataCard = ({ query }) => {
   if (rollNumber[5] === 'A') {
     // Check if the student is in the first class
     isFirstClass = Results['Total'] >= 6.5 && Results['Total'] < 8.0;
-    console.log(isFirstClass);
+    console.log('isFirstClass',isFirstClass);
+    toast.success('Congratulations 🎉', {
+      toastId: 'success1',
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      newestOnTop: false,
+      rtl: false,
+      theme: "light",
+    });
 
     // Check if the student is in the second class
     isSecondClass = Results['Total'] >= 5.5 && Results['Total'] < 6.5;
-    console.log(isSecondClass);
+    console.log('isSecondClass',isSecondClass);
 
     // Check if the student is in the pass class
     isPassClass = Results['Total'] >= 5.0 && Results['Total'] < 5.5;
-    console.log(isPassClass);
+    console.log('isPassClass',isPassClass);
   }
   return (
     <>
@@ -104,18 +115,19 @@ const StudentDataCard = ({ query }) => {
             {Details['NAME']}
             <div className="relative">
               {isFinal && isFirstClass && !hasBacklogs && (
-                <div className="absolute -top-3.5 -right-4 w-10 h-10">
+                <div className="absolute -top-8 -right-7 w-10 h-10">
                   <Image
                     src="/firstclass.png"
                     alt="First Class Stamp"
                     layout="fill"
                     objectFit="contain"
                   />
+                  <ToastContainer />
                 </div>
               )}
             </div>
           </h1>
-                      {/* <div className="relative">
+          {/* <div className="relative">
               {isFinal && isFirstClass && !hasBacklogs && (
                 <div className="absolute -top-1.5 -right-7 w-10 h-10">
                   <Image
@@ -304,7 +316,7 @@ const StudentDataCard = ({ query }) => {
         </div>
         <Info />
         <Hr />
-        <HomeFooter/>
+        <HomeFooter />
         {/* <div>
           <table className="w-[100%]">
             <tbody>

@@ -167,15 +167,15 @@ function Home() {
             </div>
             <br />
             <hr className="sm:w-96 w-48 border-gray mb-4" />
-            <div className="z-0 flex space-x-4">
+            <div className="z-0 flex space-x-4 m-2">
                 <Link href="/download">
-                    <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
-                        Download App <FiDownload className="w-6 h-6 ml-2" />
+                    <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl px-3 py-2 shadow-lg z-10 flex items-center font-bold text-sm">
+                        Download App <FiDownload className="w-5 h-5 ml-2" />
                     </div>
                 </Link>
                 <Link href="https://telegram.me/resultsjntuh">
-                    <div className="my-2 bottom-5 right-5 bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-xl p-4 shadow-lg z-10 flex items-center font-bold">
-                        <BsTelegram className="w-6 h-6 ml-2" />&nbsp; Join Us On Telegram
+                    <div className="my-2 bottom-5 right-5 bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-xl px-3 py-2 shadow-lg z-10 flex items-center font-bold text-sm">
+                        <BsTelegram className="w-5 h-5" />&nbsp; Join Us On Telegram
                     </div>
                 </Link>
             </div>

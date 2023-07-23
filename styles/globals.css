@@ -46,6 +46,11 @@ th {
   -webkit-backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.5);
 }
+.centered-toast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
