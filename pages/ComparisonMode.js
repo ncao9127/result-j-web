@@ -8,6 +8,8 @@ import HomeInfo from "../components/Home/HomeInfo";
 import Cmode from "../components/Comparison/Cmode";
 import Head from 'next/head';
 import Alert from "../components/Home/Banner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomeSingle = ({ homepage }) => {
   const router = useRouter();
@@ -57,20 +59,32 @@ const HomeSingle = ({ homepage }) => {
           homepage(<Cmode query={responseData} />);
         }
       } catch {
-        homepage(<>
-          <div
-            style={{
-              marginTop: 100,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <p>500 | Please try again later</p>
-            <br />
-            <button onClick={() => window.location.reload()} className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]">Refresh</button>
-          </div>
+        toast.warning("Kindly Wait For 15 minutes And Try Again");
+        homepage(<><div
+          style={{
+            marginTop: 100,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+          <p>500 | Please try again later</p>
+          <br />
+          <button onClick={() => window.location.reload()} className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]">Refresh</button>
+        </div>
         </>);
       }
     }
@@ -93,7 +107,7 @@ const HomeSingle = ({ homepage }) => {
     <>
       <Head>
         <title>
-          JNTUH | RESULTS COMPARISON 
+          JNTUH | RESULTS COMPARISON
         </title>
         <meta
           name="description"
@@ -125,7 +139,7 @@ const HomeSingle = ({ homepage }) => {
       </div>
       <Hr />
       <HomeInfo />
-      <Alert/>
+      <Alert />
     </>
   )
 }

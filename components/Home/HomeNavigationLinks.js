@@ -32,20 +32,20 @@ const HomeNavLinks = () => {
         'Get Results Of Particular Semester',
       ],
     },
-    {
-      route: '/Classresults',
-      desctiption: [
-        'Get Class Results',
-        'Class Results Of A Particular Semester',
-      ],
-    },
-    {
-      route: '/Classmate',
-      desctiption: [
-        'Classmate Results',
-        'Get Results Status Of A Particular Semester',
-      ],
-    },
+    // {
+    //   route: '/Classresults',
+    //   desctiption: [
+    //     'Get Class Results',
+    //     'Class Results Of A Particular Semester',
+    //   ],
+    // },
+    // {
+    //   route: '/Classmate',
+    //   desctiption: [
+    //     'Classmate Results',
+    //     'Get Results Status Of A Particular Semester',
+    //   ],
+    // },
     {
       route: '/CGPACalculator',
       desctiption: [
@@ -74,13 +74,13 @@ const HomeNavLinks = () => {
         'Get Your Overall Backlogs List Here ',
       ],
     },
-    {
-      route: '/Subjectsratio',
-      desctiption: [
-        'Subjects Stats',
-        'Class Peformance Subjects Stats For Particular Semester ',
-      ],
-    },
+    // {
+    //   route: '/Subjectsratio',
+    //   desctiption: [
+    //     'Subjects Stats',
+    //     'Class Peformance Subjects Stats For Particular Semester ',
+    //   ],
+    // },
     {
       route: '/Classmatecgpa',
       desctiption: [
@@ -143,7 +143,7 @@ const HomeNavLinks = () => {
         {links.map((link, idx) => (
           // Check if the link route is '/Classmatecgpa' and the current time is between 6 PM and 12 AM (midnight)
           // If true, render the link
-          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 6 || new Date().getHours() < 0))
+          (link.route === '/Classmatecgpa' && (new Date().getHours() >= 5 || new Date().getHours() < 0))
             ? null
             : (
               <a
@@ -190,7 +190,7 @@ const HomeNavLinks = () => {
       <Telegram />
       <br />
       {/* Footer */}
-      <footer className="bottom-0 ">
+      <footer className="bottom-0 opacity-50">
         <div className="md:h-8 ">
           <div className=" md:px-0">
             <p className="text-center text-sm sm:text-[100%]">

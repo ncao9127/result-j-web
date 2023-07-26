@@ -50,7 +50,8 @@ const AcademicReportPage = () => {
             setWarning("");
         }
         else {
-            setWarning("Results are only available from 12 AM to 12 PM")
+            // setWarning("Results are only available from 12 AM to 12 PM")
+            setWarning("Temporary stopped this service");
         }
 
     }, [])

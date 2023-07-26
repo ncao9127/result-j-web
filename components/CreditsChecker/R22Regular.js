@@ -25,7 +25,7 @@ const R22Regular = ({ query }) => {
 
   switch (lastVal) {
     case '1-1':
-      message = "You are in your Regular 1st Year 1st Semester";
+      message = `You are currently in your 1st Year 2nd Semester and you require ${20 - totalCredits} specific extra credits to meet the eligibility criteria for the 2nd Year 1st Semester`;
       break;
     case '1-2':
       if (totalCredits >= 20) {
@@ -37,7 +37,7 @@ const R22Regular = ({ query }) => {
       }
       break;
     case '2-1':
-      message = "You are in your 2nd Year 2nd Semester";
+      message = `You are currently in your 2nd Year 2nd Semester and you require ${48 - totalCredits} specific extra credits to meet the eligibility criteria for the 3rd Year 1st Semester`;
       break;
     case '2-2':
       if (totalCredits >= 48) {
@@ -49,7 +49,7 @@ const R22Regular = ({ query }) => {
       }
       break;
     case '3-1':
-      message = "You are in your 3rd Year 2nd Semester";
+      message = `You are currently in your 3rd Year 2nd Semester and you require ${72 - totalCredits} specific extra credits to meet the eligibility criteria for the 4th Year 1st Semester`;
       break;
     case '3-2':
       if (totalCredits >= 72) {

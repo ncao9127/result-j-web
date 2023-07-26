@@ -150,7 +150,7 @@ const StudentDataCard = ({ query }) => {
         </div>
       </div>
       <div className="mb-5 text-center">
-        <h1 className="text-blue-500 text-bold text-xl">Final CGPA</h1>
+        <h1 className="text-blue-500 text-bold text-xl">FINAL CGPA</h1>
         <h1 className="text-bold text-2xl">
           {/* DECLARED BSASED UPON AWARD CLASS SYSTEM JNTUH */}
           {Results['Total']} ({Results['Total'] >= 8.0 ? 'Outstanding' :
