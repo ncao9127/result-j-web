@@ -1,5 +1,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const Redis = require('ioredis');
+
+// Create a new Redis client and connect to the Redis server
+const redis = new Redis(process.env.REDIS_URL);
 
 class ResultScraper {
     constructor(rollNumber) {
@@ -280,9 +284,9 @@ class ResultScraper {
 
 export default async function handler(req, res) {
     // Set CORS headers to allow requests from any origin
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://resultsjntuh.vercel.app, https://resultsjntuh.netlify.app, https://resultsjntuhv1.netlify.app, https://resultsjntuhv2.netlify.app, https://resultsjntuhv3.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://resultsjntuh.vercel.app, https://resultsjntuh.netlify.app, https://resultsjntuhv1.netlify.app, https://resultsjntuhv2.netlify.app, https://resultsjntuhv3.netlify.app');
 
     // Optionally, you can set other CORS headers if needed
     // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -334,6 +338,17 @@ export default async function handler(req, res) {
                 // }
                 const endTime = performance.now();
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
+
+                // Set the data in Redis with the specified key and expiration time
+                const jsonString = JSON.stringify(results);
+                redis.set(rollNumber, jsonString, 'EX', 4 * 3600)
+                    .then(() => {
+                        console.log('Data has been set in the Redis cache.');
+                    })
+                    .catch((error) => {
+                        console.error('Error setting data in the Redis cache:', error);
+                    });
+
                 res.status(200).json(results);
             })
             // .then(result => {
@@ -349,6 +364,8 @@ export default async function handler(req, res) {
             .catch(error => {
                 console.error(error);
                 res.status(500).json("Internal Server Error");
+                console.log(htno, "results failed to fetch")
+                res.end();
             });
     } else if (htnos) {
         const rollNumbers = htnos.split(",");

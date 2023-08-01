@@ -4,13 +4,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SingleResults from "../components/Single/SingleResults";
 import Loading from "../components/Loading/Loading";
-import { useRouter } from 'next/router';
-import url from "../components/api/api";
+import { useRouter } from 'next/router'
+import url from "../components/api/api"
 import Hr from "../components/Hr/Hr";
 import HomeInfo from "../components/Home/HomeInfo";
 import Head from 'next/head';
 import Banner from "../components/Home/Banner";
-import redisurl from "../components/api/api2";
 
 const HomeSingle = ({ homepage }) => {
   const router = useRouter();
@@ -23,12 +22,12 @@ const HomeSingle = ({ homepage }) => {
       try {
         // Check if data is available in local storage
         const storedData = localStorage.getItem(htno);
-  
+
         if (storedData) {
           const { data, expiryTimestamp } = JSON.parse(storedData);
           console.log('Taking From Cache', data);
           console.log('Cache expiry ', new Date(expiryTimestamp));
-  
+
           // Compare expiry timestamp with current time
           if (expiryTimestamp && expiryTimestamp > Date.now()) {
             // Data is valid, render SingleResults with stored data
@@ -40,39 +39,10 @@ const HomeSingle = ({ homepage }) => {
             localStorage.removeItem(htno);
           }
         }
-  
-        // Check if data is available in Redis cache
-        try {
-          const redisResponse = await axios.get(redisurl + `/api/redis?htno=` + htno);
-          if (redisResponse.data && redisResponse.data !== "Internal server error" && redisResponse.data !== "Data not found in cache") {
-            // Data is available in Redis, store it in localStorage for future use
-            const expiryDate = new Date();
-            expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
-  
-            const dataToStore = {
-              value: redisResponse.data,
-              expiryTimestamp: expiryDate.getTime(),
-            };
-            localStorage.setItem(htno, JSON.stringify(dataToStore));
-            console.log('Redis Cached Successfully..');
-            console.log('Cache Expiry', new Date(expiryDate));
-  
-            homepage(<SingleResults query={redisResponse.data} />);
-            return;
-          }
-        } catch (error) {
-          console.log('Error fetching data from Redis cache:', error);
-        }
-  
-        // If data is not available in Redis cache or there was an error with Redis, fetch data from the server
-        
         // alert("kindly wait for 15 minutes and try again")
-       
         const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-        
         // const url = "/api/single?htno=" + htno;
         // const response = await axios.get(url);
-        
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
@@ -82,7 +52,7 @@ const HomeSingle = ({ homepage }) => {
           const expiryTimestamp = Date.now() + 10 * 60 * 1000; // Set expiry to 10 minutes
           const dataToStore = { data: response.data, expiryTimestamp };
           localStorage.setItem(htno, JSON.stringify(dataToStore));
-          console.log('New Data Cached Successfully..');
+          console.log('New Data Cached Succesfull..');
           console.log('Cache Expiry', new Date(expiryTimestamp));
           homepage(<SingleResults query={response.data} />);
         }
