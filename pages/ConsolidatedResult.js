@@ -47,8 +47,8 @@ const HomeSingle = ({ homepage }) => {
           if (redisResponse.data && redisResponse.data !== "Internal server error" && redisResponse.data !== "Data not found in cache") {
             // Data is available in Redis, store it in localStorage for future use
             const expiryDate = new Date();
-            // expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
-            expiryDate.setMinutes(expiryDate.getMinutes() + 15);
+            expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
+            // expiryDate.setMinutes(expiryDate.getMinutes() + 15);
             
             const dataToStore = {
               value: redisResponse.data,
