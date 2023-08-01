@@ -1,3 +1,3 @@
-const redisurl = "https://resultsjntuh4.netlify.app"
+const redisurl = "https://resultsjntuhv4.netlify.app"
 
 export default redisurl;
