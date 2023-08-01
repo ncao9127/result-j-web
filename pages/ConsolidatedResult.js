@@ -43,12 +43,13 @@ const HomeSingle = ({ homepage }) => {
   
         // Check if data is available in Redis cache
         try {
-          const redisResponse = await axios.get(redisurl + `/api/redis?htno=` + htno);
+          const redisResponse = await axios.get(redisurl + `/api/redis?htno=` + htno, { mode: 'cors' });
           if (redisResponse.data && redisResponse.data !== "Internal server error" && redisResponse.data !== "Data not found in cache") {
             // Data is available in Redis, store it in localStorage for future use
             const expiryDate = new Date();
-            expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
-  
+            // expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
+            expiryDate.setMinutes(expiryDate.getMinutes() + 15);
+            
             const dataToStore = {
               value: redisResponse.data,
               expiryTimestamp: expiryDate.getTime(),
@@ -72,7 +73,7 @@ const HomeSingle = ({ homepage }) => {
         
         // const url = "/api/single?htno=" + htno;
         // const response = await axios.get(url);
-        
+
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
