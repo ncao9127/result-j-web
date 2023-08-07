@@ -85,7 +85,7 @@ const StudentDataCard = ({ query }) => {
   if (rollNumber[5] === 'A') {
     // Check if the student is in the first class
     isFirstClass = Results['Total'] >= 6.5 && Results['Total'] < 8.0;
-    console.log('isFirstClass',isFirstClass);
+    console.log('isFirstClass', isFirstClass);
     toast.success('Congratulations 🎉', {
       toastId: 'success1',
       position: "bottom-center",
@@ -98,11 +98,11 @@ const StudentDataCard = ({ query }) => {
 
     // Check if the student is in the second class
     isSecondClass = Results['Total'] >= 5.5 && Results['Total'] < 6.5;
-    console.log('isSecondClass',isSecondClass);
+    console.log('isSecondClass', isSecondClass);
 
     // Check if the student is in the pass class
     isPassClass = Results['Total'] >= 5.0 && Results['Total'] < 5.5;
-    console.log('isPassClass',isPassClass);
+    console.log('isPassClass', isPassClass);
   }
   return (
     <>
@@ -223,7 +223,7 @@ const StudentDataCard = ({ query }) => {
         </table>
       </div> */}
 
-      <div className='home-links flex flex-wrap items-center justify-around max-w-4xl mt-5 sm:w-full '>
+      <div className='flex flex-wrap items-center justify-center'>
         <Link href="/CreditsCalculator">
           <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL CREDITS</h3>
@@ -315,6 +315,13 @@ const StudentDataCard = ({ query }) => {
           )}
         </div>
         <Info />
+        {hasBacklogs && (
+          <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%] text-red-600">
+            <b>NOTE :-</b> The SGPA/CGPA for students who have backlogs is neither calculated or shown, as per SGPA/CGPA calculation guidelines .<br />
+            However, we calculate the SGPA/CGPA for the students who have backlogs for their convenience.<br />
+            The SGPA/CGPA is calculated through the following semester. <a href="/CGPAGuidelines.pdf" className='text-blue-400 hover:text-blue-600'>View SGPA/CGPA Guidelines</a>
+          </div>
+        )}
         <Hr />
         <HomeFooter />
         {/* <div>

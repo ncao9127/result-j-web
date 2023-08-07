@@ -10,7 +10,7 @@ import Head from 'next/head';
 import Alert from "../components/Home/Banner";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import redisurl from "../components/api/api2";
 
 const HomeStudentDataCard = ({ homepage }) => {
   const router = useRouter();
@@ -39,21 +39,51 @@ const HomeStudentDataCard = ({ homepage }) => {
             localStorage.removeItem(htno);
           }
         }
+        // Check if data is available in Redis cache
+        try {
+          const redisResponse = await axios.get(redisurl + `/api/redis?htno=` + htno, { mode: 'cors' });
+          if (redisResponse.data && redisResponse.data !== "Internal server error" && redisResponse.data !== "Data not found in cache") {
+            // Data is available in Redis, store it in localStorage for future use
+            const expiryDate = new Date();
+            // expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
+            expiryDate.setMinutes(expiryDate.getMinutes() + 15);
+            const dataToStore = {
+              data: redisResponse.data,
+              expiryTimestamp: expiryDate.getTime(),
+            };
+            localStorage.setItem(htno, JSON.stringify(dataToStore));
+            console.log('Redis Cached Successfully..');
+            console.log('Taken From Redis Cache ..');
+            console.log('Cache Expiry', new Date(expiryDate));
+
+            homepage(<StudentDataCard query={redisResponse.data} />);
+            return;
+          }
+        } catch (error) {
+          console.log('Error fetching data from Redis cache:', error);
+        }
+
+        // If data is not available in Redis cache or there was an error with Redis, fetch data from the server
+
+        // alert("kindly wait for 15 minutes and try again")
+
         const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
+
         // const url = "/api/single?htno=" + htno;
         // const response = await axios.get(url);
+
         if (response.status === 500) {
           homepage(<><div className="text-[300%]">{response.status} | Server Error</div></>);
         } else if (response.status === 404 || response.status === 400) {
           homepage(<><div className="text-[300%]">{response.status} | 404 page Not Found</div></>);
         } else {
-          const responseData = response.data;
-          const expiryTimestamp = Date.now() + 10 * 60 * 1000; // 10 minutes expiry time
-          const dataToStore = JSON.stringify({ data: responseData, expiryTimestamp });
-          console.log('New Data Cached Succesfull..');
+          // Store the response data and expiry timestamp in local storage
+          const expiryTimestamp = Date.now() + 10 * 60 * 1000; // Set expiry to 10 minutes
+          const dataToStore = { data: response.data, expiryTimestamp };
+          localStorage.setItem(htno, JSON.stringify(dataToStore));
+          console.log('New Data Cached Successfully..');
           console.log('Cache Expiry', new Date(expiryTimestamp));
-          localStorage.setItem(htno, dataToStore);
-          homepage(<StudentDataCard query={responseData} />);
+          homepage(<StudentDataCard query={response.data} />);
         }
       } catch {
         toast.warning("Kindly Wait For 15 minutes And Try Again");
@@ -80,9 +110,8 @@ const HomeStudentDataCard = ({ homepage }) => {
           />
           <p>500 | Please try again later</p>
           <br />
-          <button onClick={() => window.location.reload()} className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]">Refresh</button>
-        </div>
-        </>);
+          <button onClick={() => window.location.reload()} className="w-[70px] text-white	bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]" >Refresh</button>
+        </div></>);
       }
     }
   };

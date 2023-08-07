@@ -21,6 +21,17 @@ const SingleResults = ({ query }) => {
   // const branchCode = Details['ROLL_NO'].slice(6, 8);
 
   // const branchName = Branch.find(item => item.Code === branchCode);
+
+  // Check if F, Ab, or - grades are present
+  const hasBacklogs = Object.keys(Results).some(val =>
+    val !== 'Total' && Object.keys(Results[val]).some(item =>
+      Results[val][item]['subject_grade'] === 'F' ||
+      Results[val][item]['subject_grade'] === 'Ab' ||
+      Results[val][item]['subject_grade'] === '-'
+    )
+  );
+  console.log('Has Backlogs', hasBacklogs);
+  
   const rollNumber = Details['ROLL_NO'];
   let branchName;
 
@@ -128,7 +139,7 @@ const SingleResults = ({ query }) => {
           <table>
             <tbody >
               <tr>
-                <th className="py-2" style={{ width: '75%' }}>Total CGPA</th>
+                <th className="py-2" style={{ width: '75%' }}>Cumulative Grade Point Average - CGPA</th>
                 <th>{Results['Total']}</th>
               </tr>
             </tbody>
@@ -136,6 +147,13 @@ const SingleResults = ({ query }) => {
         </div>
       </div>
       <Info />
+      {hasBacklogs && (
+        <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%] text-red-600">
+          <b>NOTE :-</b> The SGPA/CGPA for students who have backlogs is neither calculated or shown, as per SGPA/CGPA calculation guidelines .<br />
+          However, we calculate the SGPA/CGPA for the students who have backlogs for their convenience.<br />
+          The SGPA/CGPA is calculated through the following semester. <a href="/CGPAGuidelines.pdf" className='text-blue-400 hover:text-blue-600'>View SGPA/CGPA Guidelines</a>
+        </div>
+      )}
       <Hr />
       <PrintButton />
       <ScrollToTop
@@ -145,7 +163,7 @@ const SingleResults = ({ query }) => {
         svgPath="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
         style={{ bottom: "30px", opacity: 0.75, backgroundColor: 'grey' }}
       />
-      <HomeFooter/>
+      <HomeFooter />
     </>
   )
 }

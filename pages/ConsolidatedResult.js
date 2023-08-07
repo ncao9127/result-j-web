@@ -23,12 +23,12 @@ const HomeSingle = ({ homepage }) => {
       try {
         // Check if data is available in local storage
         const storedData = localStorage.getItem(htno);
-  
+
         if (storedData) {
           const { data, expiryTimestamp } = JSON.parse(storedData);
           console.log('Taking From Cache', data);
           console.log('Cache expiry ', new Date(expiryTimestamp));
-  
+
           // Compare expiry timestamp with current time
           if (expiryTimestamp && expiryTimestamp > Date.now()) {
             // Data is valid, render SingleResults with stored data
@@ -40,37 +40,36 @@ const HomeSingle = ({ homepage }) => {
             localStorage.removeItem(htno);
           }
         }
-  
+
         // Check if data is available in Redis cache
         try {
           const redisResponse = await axios.get(redisurl + `/api/redis?htno=` + htno, { mode: 'cors' });
           if (redisResponse.data && redisResponse.data !== "Internal server error" && redisResponse.data !== "Data not found in cache") {
             // Data is available in Redis, store it in localStorage for future use
             const expiryDate = new Date();
-            expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
-            // expiryDate.setMinutes(expiryDate.getMinutes() + 15);
-            
+            // expiryDate.setSeconds(expiryDate.getSeconds() + 30); // Set expiry date to 30 seconds from now
+            expiryDate.setMinutes(expiryDate.getMinutes() + 15);
             const dataToStore = {
-              value: redisResponse.data,
+              data: redisResponse.data,
               expiryTimestamp: expiryDate.getTime(),
             };
             localStorage.setItem(htno, JSON.stringify(dataToStore));
             console.log('Redis Cached Successfully..');
             console.log('Cache Expiry', new Date(expiryDate));
-  
+
             homepage(<SingleResults query={redisResponse.data} />);
             return;
           }
         } catch (error) {
           console.log('Error fetching data from Redis cache:', error);
         }
-  
+
         // If data is not available in Redis cache or there was an error with Redis, fetch data from the server
-        
+
         // alert("kindly wait for 15 minutes and try again")
-       
+
         const response = await axios.get(url + '/api/single?htno=' + htno, { mode: 'cors' });
-        
+
         // const url = "/api/single?htno=" + htno;
         // const response = await axios.get(url);
 
