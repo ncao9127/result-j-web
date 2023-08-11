@@ -13,7 +13,6 @@ const Notify = () => {
             // Show the toast only if it hasn't been shown before
             toast(
                 <div className="centered-toast">
-Looks like JNTU servers are down! <br/>
                     <Telegram />
                 </div>,
                 {
