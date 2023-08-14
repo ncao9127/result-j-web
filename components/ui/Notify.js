@@ -11,21 +11,12 @@ const Notify = () => {
         // Check if the toast has already been shown
         if (!toastShown) {
             // Show the toast only if it hasn't been shown before
-            toast(
-                <div className="centered-toast">
-                    <Telegram />
-                </div>,
-                {
-                    toastId: 'success2',
-                    position: "bottom-center",
-                    autoClose: false,
-                    newestOnTop: false,
-                    closeOnClick: true,
-                    rtl: false,
-                    draggable: true,
-                    theme: "light",
-                }
-            );
+
+            // handle promotion
+            toast(<div className="centered-toast"><Telegram /></div>, { toastId: 'success2', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" });
+
+            // Warn the user
+            toast.warning("Looks Like JNTUH Servers Are Down ! Please Try Again After Sometime !", { toastId: 'success3', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" });
 
             // toast.warning("Kindly Wait For 15 minutes And Try Again");
 

@@ -7,8 +7,8 @@ const redis = new Redis(process.env.REDIS_URL);
 
 class ResultScraper {
     constructor(rollNumber) {
-        this.url = 'http://results.jntuh.ac.in/resultAction';
-        // this.url = "http://202.63.105.184/results/resultAction";
+        // this.url = 'http://results.jntuh.ac.in/resultAction';
+        this.url = "http://202.63.105.184/results/resultAction";
         this.rollNumber = rollNumber;
         this.results = { Details: {}, Results: {} };
         this.examCodes = {
@@ -341,7 +341,7 @@ export default async function handler(req, res) {
 
                 // Set the data in Redis with the specified key and expiration time
                 const jsonString = JSON.stringify(results);
-                redis.set(rollNumber, jsonString, 'EX', 4 * 3600)
+                redis.set(rollNumber, jsonString, 'EX', 6 * 3600)
                     .then(() => {
                         console.log('Data has been set in the Redis cache.');
                     })

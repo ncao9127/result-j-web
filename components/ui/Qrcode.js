@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { toJpeg } from 'html-to-image';
 import { saveAs } from 'file-saver';
 import Image from 'next/image';
+import { FaGooglePay } from 'react-icons/fa';
+import { SiPhonepe, SiAmazonpay, SiPaytm } from 'react-icons/si';
 
 const Qrcode = ({ onClose }) => {
     const containerRef = useRef(null);
@@ -46,12 +48,13 @@ const Qrcode = ({ onClose }) => {
 
     return (
         <>
-            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black qr bg-opacity-50">
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black qr bg-opacity-50 z-10">
                 <div className="bg-white p-4 rounded-md border border-black-500 hover:drop-shadow-sm shadow-2xl rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105" ref={containerRef}>
                     <p className="text-center">Scan QR Code To Pay</p>
                     <div className="flex items-center justify-center">
                         <Image src="/qrcode.png" alt="Pizza QR Code" width={200} height={200} />
                     </div>
+                    <div className='items-center justify-center flex'>&nbsp;<SiPhonepe/>&nbsp;<SiAmazonpay/>&nbsp;<SiPaytm/>&nbsp;<FaGooglePay/></div>
                     <p className="text-center">moizadmin@jio</p>
                     {showButton && <div className="flex justify-center"><button onClick={handleDownload} className='hover:text-green-500'>Download QR Code</button></div>}
                 </div>

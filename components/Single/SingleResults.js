@@ -31,7 +31,7 @@ const SingleResults = ({ query }) => {
     )
   );
   console.log('Has Backlogs', hasBacklogs);
-  
+
   const rollNumber = Details['ROLL_NO'];
   let branchName;
 
@@ -148,9 +148,9 @@ const SingleResults = ({ query }) => {
       </div>
       <Info />
       {hasBacklogs && (
-        <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%] text-red-600">
-          <b>NOTE :-</b> The SGPA/CGPA for students who have backlogs is neither calculated or shown, as per SGPA/CGPA calculation guidelines .<br />
-          However, we calculate the SGPA/CGPA for the students who have backlogs for their convenience.<br />
+        <div className="mt-1 block text-center text-[#808080]  mb-4 text-[55%] md:text-[80%] text-red-600 m-6">
+          <b>NOTE :-</b> The SGPA/CGPA for students who have backlogs is neither calculated or shown, as per SGPA/CGPA calculation guidelines .
+          However, we calculate the SGPA/CGPA for the students who have backlogs for their convenience.
           The SGPA/CGPA is calculated through the following semester. <a href="/CGPAGuidelines.pdf" className='text-blue-400 hover:text-blue-600'>View SGPA/CGPA Guidelines</a>
         </div>
       )}

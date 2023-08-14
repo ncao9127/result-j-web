@@ -205,7 +205,8 @@ const SemResult = ({ query }) => {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th style={{ width: '75%' }}>SGPA</th>
+                                        <th 
+                                        style={{ width: '75%' }}>Semester Grade Point Average - SGPA</th>
                                         <th>{Results['SGPA']}</th>
                                     </tr>
                                     <tr>

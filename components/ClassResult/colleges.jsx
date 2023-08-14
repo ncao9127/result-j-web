@@ -512,7 +512,7 @@ const colleges =
     "XG": "Vishwa Bharathi PG College of Engineering & Management",
     "9R": "Vivekananda Group of Institutions",
     "N6": "Vivekananda Institute of Technology & Science",
-    "d2": "Sridevi women's engineering college",
+    "D2": "Sridevi women's engineering college",
     "W7": "St. Mary’s College of Engineering & Technology",
 }
 export default colleges

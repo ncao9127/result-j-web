@@ -30,28 +30,18 @@ const Header = () => {
         <meta property="twitter:title" content="JNTUH RESULTS" />
         <meta property="twitter:description" content="You can find the Results Of Your Entire UG & PG Courses (JNTUH)." />
         <meta property="twitter:image" content="https://resultsjntuh.vercel.app/homepage.jpg" />
-        
+
         <meta name="google-site-verification" content="FUy87m9L-VxJNFarXrOAq8E6TLmFSOFkkeFZsIZEMOk" />
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    // console.log("dark Mode");         
-                }
-                else
-                {
-                  // console.log("light mode");
-                }
-                addEventListener('popstate', (event) => { });
-                onpopstate = (event) => {
-                  console.log("pressed");
-                  window.location.reload();
-                 };
-                  `,
-          }}
-        >
-        </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9108352648701072"
+          crossorigin="anonymous" />
+        {/* <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9108352648701072"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        /> */}
+
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-ST6BWFLTTP"

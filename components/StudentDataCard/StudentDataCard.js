@@ -78,11 +78,17 @@ const StudentDataCard = ({ query }) => {
   );
   console.log('Has Backlogs', hasBacklogs);
 
+  let isFirstClassDistinction = false;
   let isFirstClass = false;
   let isSecondClass = false;
   let isPassClass = false;
 
   if (rollNumber[5] === 'A') {
+
+    // Check if the student is in the First Class Distinction
+    isFirstClassDistinction = Results['Total'] >= 8.0;
+    console.log('isFirstClassDistinction', isFirstClassDistinction);
+
     // Check if the student is in the first class
     isFirstClass = Results['Total'] >= 6.5 && Results['Total'] < 8.0;
     console.log('isFirstClass', isFirstClass);
@@ -104,6 +110,19 @@ const StudentDataCard = ({ query }) => {
     isPassClass = Results['Total'] >= 5.0 && Results['Total'] < 5.5;
     console.log('isPassClass', isPassClass);
   }
+
+  let awardclass;
+
+  if (isFinal && isFirstClass && !hasBacklogs) {
+    awardclass = 'First Class';
+  } else if (isFinal && isSecondClass && !hasBacklogs) {
+    awardclass = 'Second Class';
+  } else if (isFinal && isPassClass && !hasBacklogs) {
+    awardclass = 'Pass Class';
+  } else {
+    awardclass = '';
+  }
+
   return (
     <>
       <br />
@@ -195,6 +214,14 @@ const StudentDataCard = ({ query }) => {
               <tr>
                 <th className="py-2" style={{ width: '75%' }}>Final Percentage</th>
                 <th>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
+              <tr>
+                {!hasBacklogs && (
+                  <>
+                    <th className="py-2" style={{ width: '75%' }}>Award Of Degree</th>
+                    <th>{awardclass}</th>
+                  </>
+                )}
+              </tr>
             </tbody>
           </table>
           {isFinal && isFirstClass && !hasBacklogs && (
