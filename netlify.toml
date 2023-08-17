@@ -1,5 +1,0 @@
-[build]
-  functions = "functions"
-
-[functions]
-  maxDuration = 30  # Set the maximum duration to 30 seconds
