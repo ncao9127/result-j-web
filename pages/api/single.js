@@ -7,8 +7,8 @@ const redis = new Redis(process.env.REDIS_URL);
 
 class ResultScraper {
     constructor(rollNumber) {
-        this.url = 'http://results.jntuh.ac.in/resultAction';
-        // this.url = "http://202.63.105.184/results/resultAction";
+        // this.url = 'http://results.jntuh.ac.in/resultAction';
+        this.url = "http://202.63.105.184/results/resultAction";
         this.rollNumber = rollNumber;
         this.results = { Details: {}, Results: {} };
         this.examCodes = {
@@ -21,10 +21,10 @@ class ResultScraper {
                     '3-1': ['1454', '1491', '1550', '1590', '1626', '1639', '1645', '1655'],
                     '3-2': ['1502', '1555', '1595', '1625', '1638', '1649', '1654'],
                     '4-1': ['1545', '1585', '1624', '1640', '1644', '1653'],
-                    '4-2': ['1580', '1600', '1623', '1672', '1677']
+                    '4-2': ['1580', '1600', '1623', '1672', '1673', '1677']
                 },
                 R22: {
-                    '1-1': ['1662']
+                    '1-1': ['1662'] 
                 }
             },
             bpharmacy: {
