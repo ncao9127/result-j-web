@@ -127,7 +127,7 @@ const SingleResults = ({ query }) => {
                     })}
                     <tr>
                       <th colSpan={5}>SGPA</th>
-                      <th colSpan={4}>{Results[val]['SGPA']}</th>
+                      <th colSpan={4} className={Results[val]['status'] === 'FAILED' ? 'text-red-600' : ''}>{Results[val]['SGPA']}</th>
                     </tr>
                   </>
                 );
@@ -140,7 +140,7 @@ const SingleResults = ({ query }) => {
             <tbody >
               <tr>
                 <th className="py-2" style={{ width: '75%' }}>Cumulative Grade Point Average - CGPA</th>
-                <th>{Results['Total']}</th>
+                <th className={`${hasBacklogs ? 'text-red-600' : ''}`}>{Results['Total']}</th>
               </tr>
             </tbody>
           </table>

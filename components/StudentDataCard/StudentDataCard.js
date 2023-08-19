@@ -113,7 +113,9 @@ const StudentDataCard = ({ query }) => {
 
   let awardclass;
 
-  if (isFinal && isFirstClass && !hasBacklogs) {
+  if (isFinal && isFirstClassDistinction && !hasBacklogs) {
+    awardclass = 'First Class Distinction';
+  } else if (isFinal && isFirstClass && !hasBacklogs) {
     awardclass = 'First Class';
   } else if (isFinal && isSecondClass && !hasBacklogs) {
     awardclass = 'Second Class';
@@ -170,15 +172,24 @@ const StudentDataCard = ({ query }) => {
       </div>
       <div className="mb-5 text-center">
         <h1 className="text-blue-500 text-bold text-xl">FINAL CGPA</h1>
-        <h1 className="text-bold text-2xl">
-          {/* DECLARED BSASED UPON AWARD CLASS SYSTEM JNTUH */}
-          {Results['Total']} ({Results['Total'] >= 8.0 ? 'Outstanding' :
-            Results['Total'] >= 7.5 ? 'Execellent' :
-              Results['Total'] >= 7.0 ? 'Very Good' :
-                Results['Total'] >= 6.5 ? 'Good' :
-                  Results['Total'] >= 5.5 ? 'Average' :
-                    'Pass'
-          })
+        <h1 className={`text-bold text-2xl ${hasBacklogs ? 'text-red-600' : ''}`}>
+          {/* DECLARED BASED UPON AWARD CLASS SYSTEM JNTUH */}
+          {hasBacklogs ? (
+            // Display total results if there are backlogs
+            Results['Total']
+          ) : (
+            // Display total results with grade description if no backlogs
+            <>
+              {Results['Total']} (
+              {Results['Total'] >= 8.0 ? 'Outstanding' :
+                Results['Total'] >= 7.5 ? 'Excellent' :
+                  Results['Total'] >= 7.0 ? 'Very Good' :
+                    Results['Total'] >= 6.5 ? 'Good' :
+                      Results['Total'] >= 5.5 ? 'Average' :
+                        'Pass'
+              })
+            </>
+          )}
         </h1>
       </div>
       <div className='m-4 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
@@ -209,11 +220,11 @@ const StudentDataCard = ({ query }) => {
             <tbody >
               <tr>
                 <th className="py-2" style={{ width: '75%' }}>Cumulative Grade Point Average - CGPA</th>
-                <th>{Results['Total']}</th>
+                <th className={`${hasBacklogs ? 'text-red-600' : ''}`}>{Results['Total']}</th>
               </tr>
               <tr>
                 <th className="py-2" style={{ width: '75%' }}>Final Percentage</th>
-                <th>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
+                <th className={`${hasBacklogs ? 'text-red-600' : ''}`}>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
               <tr>
                 {!hasBacklogs && (
                   <>
