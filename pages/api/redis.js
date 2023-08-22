@@ -5,7 +5,7 @@ let redis = new Redis(process.env.REDIS_URL);
 export default async function handler(req, res) {
 
   // Set CORS headers to allow requests from any origin
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
 
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://resultsjntuh.vercel.app, https://resultsjntuh.netlify.app');
 
