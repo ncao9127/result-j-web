@@ -14,7 +14,7 @@ import HomeFooter from '../Home/HomeFooter';
 
 
 const SemResult = ({ query }) => {
-    if (!query) {
+    if (!query && query.length === 0) {
         // Handle the case when the query is empty or undefined
         return <><div
             style={{
