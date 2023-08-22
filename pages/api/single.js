@@ -24,7 +24,7 @@ class ResultScraper {
                     '4-2': ['1580', '1600', '1623', '1672', '1673', '1677']
                 },
                 R22: {
-                    '1-1': ['1662'] 
+                    '1-1': ['1662']
                 }
             },
             bpharmacy: {
@@ -283,8 +283,32 @@ class ResultScraper {
 
 
 export default async function handler(req, res) {
+
+    // List of allowed origins
+    const allowedOrigins = [
+        "https://resultsjntuh.vercel.app",
+        "https://resultsjntuh.netlify.app",
+        "http://localhost:3000"
+    ];
+
+    // Get the origin of the request
+    const origin = req.headers.origin;
+
+    // Check if the request's origin is in the list of allowed origins
+    if (allowedOrigins.includes(origin)) {
+        // Set the Access-Control-Allow-Origin header to the request's origin
+        res.setHeader("Access-Control-Allow-Origin", origin);
+        console.log('Access Granted')
+    } else {
+        // Origin is not in the list of allowed origins
+        // You can choose to handle this case based on your requirements
+        console.log("Access Denied For This Origin Domain")
+        res.status(403).json("Forbidden");
+        return;
+    }
+
     // Set CORS headers to allow requests from any origin
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Origin', '*');
 
     // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://resultsjntuh.vercel.app, https://resultsjntuh.netlify.app');
 
