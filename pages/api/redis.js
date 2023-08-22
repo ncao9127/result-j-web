@@ -4,8 +4,29 @@ let redis = new Redis(process.env.REDIS_URL);
 
 export default async function handler(req, res) {
 
+  // List of allowed origins
+  const allowedOrigins = [
+    "https://resultsjntuh.vercel.app",
+    "https://resultsjntuh.netlify.app",
+    "http://localhost:3000"
+  ];
+
+  // Get the origin of the request
+  const origin = req.headers.origin;
+
+  // Check if the request's origin is in the list of allowed origins
+  if (allowedOrigins.includes(origin)) {
+    // Set the Access-Control-Allow-Origin header to the request's origin
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  } else {
+    // Origin is not in the list of allowed origins
+    // You can choose to handle this case based on your requirements
+    res.status(403).json("Forbidden");
+    return;
+  }
+
   // Set CORS headers to allow requests from any origin
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
 
   // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://resultsjntuh.vercel.app, https://resultsjntuh.netlify.app');
 

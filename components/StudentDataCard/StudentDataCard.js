@@ -83,7 +83,7 @@ const StudentDataCard = ({ query }) => {
   let isSecondClass = false;
   let isPassClass = false;
 
-  if (rollNumber[5] === 'A') {
+  if (rollNumber[5] === 'A' || rollNumber[5] === 'R') {
 
     // Check if the student is in the First Class Distinction
     isFirstClassDistinction = Results['Total'] >= 8.0;
@@ -226,7 +226,7 @@ const StudentDataCard = ({ query }) => {
                 <th className="py-2" style={{ width: '75%' }}>Final Percentage</th>
                 <th className={`${hasBacklogs ? 'text-red-600' : ''}`}>{((Results['Total'] - 0.5) * 10).toFixed(2)}%</th></tr>
               <tr>
-                {!hasBacklogs && (
+                {!hasBacklogs && isFinal && (
                   <>
                     <th className="py-2" style={{ width: '75%' }}>Award Of Degree</th>
                     <th>{awardclass}</th>
