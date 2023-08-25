@@ -75,6 +75,13 @@ const HomeNavLinks = () => {
         'Get Your Overall Backlogs List Here ',
       ],
     },
+    {
+      route: '/Backlogsoverview',
+      desctiption: [
+        'Backlogs OverView',
+        'Supplementary Exams on Overall Results',
+      ],
+    },
     // {
     //   route: '/Subjectsratio',
     //   desctiption: [
