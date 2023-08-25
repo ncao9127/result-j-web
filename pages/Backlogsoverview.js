@@ -24,7 +24,7 @@ const Backlogsoverview = ({ homepage }) => {
         } else {
             homepage(<Loading />);
             try {
-                localStorage.clear();
+                // localStorage.clear();
                 const storedData = localStorage.getItem(htno + code);
 
                 if (storedData) {
