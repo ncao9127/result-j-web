@@ -78,7 +78,7 @@ const HomeStudentDataCard = ({ homepage }) => {
           homepage(<><div className="text-[300%]">{response.status} | 404 page Not Found</div></>);
         } else {
           // Store the response data and expiry timestamp in local storage
-          const expiryTimestamp = Date.now() + 10 * 60 * 1000; // Set expiry to 10 minutes
+          const expiryTimestamp = Date.now() + 15 * 60 * 1000; // Set expiry to 10 minutes
           const dataToStore = { data: response.data, expiryTimestamp };
           localStorage.setItem(htno, JSON.stringify(dataToStore));
           console.log('New Data Cached Successfully..');

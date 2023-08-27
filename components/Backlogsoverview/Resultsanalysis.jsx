@@ -10,6 +10,7 @@ import mpbranch from '../Json/mpharmbranchcode.json'
 import mbranch from '../Json/mtechbranchcodes.json'
 import Mba from '../Json/mbabranchcode.json'
 import HomeFooter from '../Home/HomeFooter';
+import TypingAnimation from '../ui/TypingAnimation';
 
 
 const Resultsanalysis = ({ query }) => {
@@ -74,10 +75,45 @@ const Resultsanalysis = ({ query }) => {
 
     const collegeName = College.find(item => item.Code === collegeCode);
     const semesterCode = Object.keys(query['Results'])[0]; // Extracting the semester code
-
-
     const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
+    // Check if there are F, Ab, or - grades present
+    const hasBacklogs = Object.keys(query['Results']).some((semesterKey) => {
+        const semesterResults = query['Results'][semesterKey];
+        return Object.keys(semesterResults).some((examKey) => {
+            const examResults = semesterResults[examKey];
+            return Object.keys(examResults).some((subjectCode) => {
+                const subject = examResults[subjectCode];
+                const grade = subject['subject_grade'];
+                return grade === 'F' || grade === 'Ab' || grade === '-';
+            });
+        });
+    });
+    console.log("hasbacklogs", hasBacklogs);
+    const animatedText = `You haven't written any ${semesterCode} supplementary exams ...`;
+
+    if (!hasBacklogs) {
+        return (
+            <div
+                style={{
+                    marginTop: 100,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <p className="capitalize">Hey! <b>{detailed['NAME']} </b><br /><TypingAnimation text={animatedText} /> </p>
+                <br />
+                <button
+                    onClick={() => window.location.reload()}
+                    className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]"
+                >
+                    Refresh
+                </button>
+            </div>
+        );
+    }
     return (
         <>
             <div className="items-center justify-center text-center mt-10 ">

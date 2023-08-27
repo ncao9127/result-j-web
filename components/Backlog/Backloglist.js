@@ -7,15 +7,47 @@ import Info from '../Home/info';
 import Hr from '../Hr/Hr';
 import Jntuh from '../Home/jnuth';
 import HomeFooter from '../Home/HomeFooter';
+import TypingAnimation from '../ui/TypingAnimation';
 
 const Backlogslist = ({ query }) => {
     const Results = query['Results'];
     const Details = query['Details'];
-    const grades = ['O', 'A+', 'A', 'B+', 'B', 'C'];
+    const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
 
-    Object.keys(Results).map((val) => {
+    // Check if F, Ab, or - grades are present
+    const hasBacklogs = Object.keys(Results).some(val =>
+        val !== 'Total' && Object.keys(Results[val]).some(item =>
+            Results[val][item]['subject_grade'] === 'F' ||
+            Results[val][item]['subject_grade'] === 'Ab' ||
+            Results[val][item]['subject_grade'] === '-'
+        )
+    );
+    console.log('Has Backlogs', hasBacklogs);
+    const animatedText = `You Don't have any supplementary exams here...`;
 
-    });
+    if (!hasBacklogs) {
+        return (
+            <div
+                style={{
+                    marginTop: 100,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <p className="capitalize">Hey! <b>{Details['NAME']} </b><br /><TypingAnimation text={animatedText} /> </p>
+                <br />
+                <button
+                    onClick={() => window.location.reload()}
+                    className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]"
+                >
+                    Refresh
+                </button>
+            </div>
+        );
+    }
+
     return (
         <>
             <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
@@ -35,7 +67,6 @@ const Backlogslist = ({ query }) => {
                     </tbody>
                 </table>
             </div>
-          
 
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <div id='1'>
@@ -94,7 +125,7 @@ const Backlogslist = ({ query }) => {
                 </div>
                 <Info />
                 <Hr />
-                <HomeFooter/>
+                <HomeFooter />
             </div>
             <PrintButton />
             <ScrollToTop

@@ -21,7 +21,10 @@ const HomeSemResult = ({ homepage }) => {
 
     const submits = async () => {
         if (htno.length !== 10) {
-            setWarning("The Hall Ticket Should be 10 digits");
+            setWarning(<span style={{ color: 'red', fontSize: '12px' }}>The Hall Ticket Should be 10 digits</span>);
+        } else if (code === "") {
+            setWarning(<span style={{ color: 'red', fontSize: '12px' }}>Select any one semester</span>);
+            alert("select any one semesters");
         } else {
             homepage(<Loading />);
             try {
