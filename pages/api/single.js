@@ -302,7 +302,7 @@ export default async function handler(req, res) {
     } else {
         // Origin is not in the list of allowed origins
         // You can choose to handle this case based on your requirements
-        console.log("Access Denied For This Origin Domain")
+        console.log("Access Denied For This Origin Domain: " + origin);
         res.status(403).json("Forbidden");
         return;
     }

@@ -8,11 +8,6 @@ export default async function handler(req, res) {
   const allowedOrigins = [
     "https://resultsjntuh.vercel.app",
     "https://resultsjntuh.netlify.app",
-    "https://resultsjntuhv0.netlify.app",
-    "https://resultsjntuhv1.netlify.app",
-    "https://resultsjntuhv2.netlify.app",
-    "https://resultsjntuhv3.netlify.app",
-    "https://resultsjntuhv4.netlify.app",
     "http://localhost:3000"
   ];
 
@@ -27,7 +22,7 @@ export default async function handler(req, res) {
   } else {
     // Origin is not in the list of allowed origins
     // You can choose to handle this case based on your requirements
-    console.log("Access Denied For This Origin Domain")
+    console.log("Access Denied For This Origin Domain: " + origin);
     res.status(403).json("Forbidden");
     return;
   }
