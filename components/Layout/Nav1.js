@@ -13,6 +13,7 @@ import { LuStretchVertical, LuGraduationCap } from 'react-icons/lu';
 import { FaUserGraduate } from 'react-icons/fa';
 import { CgNotifications } from 'react-icons/cg'
 import Link from 'next/link';
+import Darkmode from "../ui/Darkmode";
 
 function SideNavbar() {
     return (
@@ -27,8 +28,10 @@ function SideNavbar() {
                 <div className="p-6 w-1/2 h-screen bg-white z-20 fixed top-0 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200 overflow-y-auto">
                     <div className="flex flex-col justify-start item-center">
                         <Link href="/">
-                            <h1 className="text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
+                            <h1 className="flex items-center justify-between text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
                                 JNTUH RESULTS
+                                <Darkmode className="inline-block absolute right-0" />
+                                {/* bug here whn darmode clicks its refresh the site here  */}
                             </h1>
                         </Link>
                         <div className=" my-4 border-b border-gray-100 pb-4">

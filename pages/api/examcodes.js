@@ -28,6 +28,7 @@ async function getExamCodes() {
 
   const examCodes = {
     btech: {
+      R16: {},
       R18: {},
       R22: {},
     },

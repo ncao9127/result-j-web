@@ -4,7 +4,7 @@ import Link from "next/link";
 import Qrcode from '../ui/Qrcode';
 import Telegram from '../ui/Telegram';
 import Contribute from '../ui/Contribute';
-
+import Darkmode from '../ui/Darkmode';
 const HomeNavLinks = () => {
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -139,7 +139,7 @@ const HomeNavLinks = () => {
       <p className='description' >
         Examination Results Portal {' '}
         <br />
-        <code className='code' >Jawaharlal Nehru Technological University Hyderabad</code>
+        <code className='code dark:bg-slate-800' >Jawaharlal Nehru Technological University Hyderabad</code>
       </p>
       <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
         Get all your results in one place.{' '}
@@ -200,6 +200,7 @@ const HomeNavLinks = () => {
       {/* Footer */}
       <Contribute />
       <br />
+      {/* <Darkmode /> */}
     </>
   );
 };
