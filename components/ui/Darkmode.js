@@ -11,12 +11,12 @@ const Darkmode = () => {
             onClick={() =>
                 theme === 'dark' ? setTheme('light') : setTheme('dark')
             }
-            className="bg-gray-800 dark:bg-gray-50 hover:bg-gray-600 dark:hover:bg-gray-300 transition-all duration-100 text-white dark:text-gray-800 px-2 py-2 text-2xl md:text-4xl rounded-xl"
+            className="bg-gray-800 dark:bg-gray-50 hover:bg-gray-600 dark:hover:bg-gray-300 transition-all duration-100 text-white dark:text-gray-800 px-2 py-2 rounded-xl"
         >
             {theme === 'dark' ? (
-                <IoIosSunny className="w-3 h-3" />
+                <IoIosSunny className="w-4 h-4" />
             ) : (
-                <IoIosMoon className="w-3 h-3"/>
+                <IoIosMoon className="w-4 h-4"/>
             )}
         </button>
     );

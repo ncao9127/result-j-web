@@ -27,13 +27,14 @@ function SideNavbar() {
         </Disclosure.Button> */}
                 <div className="p-6 w-1/2 h-screen bg-white z-20 fixed top-0 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200 overflow-y-auto">
                     <div className="flex flex-col justify-start item-center">
-                        <Link href="/">
-                            <h1 className="flex items-center justify-between text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
+
+                        <h1 className="flex items-center gap-3 text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
+                            <Link href="/">
                                 JNTUH RESULTS
-                                <Darkmode className="inline-block absolute right-0" />
-                                {/* bug here whn darmode clicks its refresh the site here  */}
-                            </h1>
-                        </Link>
+                            </Link>
+                            <Darkmode />
+                        </h1>
+
                         <div className=" my-4 border-b border-gray-100 pb-4">
                             <Link href='/'>
                                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
