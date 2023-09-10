@@ -118,7 +118,7 @@ const ClassResultResult = ({ query, semester }) => {
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <table className='my-1'>
                     <tbody>
-                        <tr className="mx-auto w-max bg-gray-200">
+                        <tr className="mx-auto w-max bg-gray-200 dark:bg-slate-900">
                             <th>SUBJECT CODE</th>
                             <th>SUBJECT NAME</th>
                             <th>PASS<sub style={{ fontSize: '5px' }}>(STUDS)</sub></th>

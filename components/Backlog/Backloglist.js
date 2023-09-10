@@ -55,7 +55,7 @@ const Backlogslist = ({ query }) => {
                 {/* <Jntuh /> */}
                 <table className="my-1" key="Details">
                     <tbody>
-                        <tr class="bg-gray-200">
+                        <tr class="bg-gray-200 dark:bg-slate-900">
                             <th>NAME</th>
                             <th>ROLL NO</th>
                             <th>COLLEGE CODE</th>
@@ -74,7 +74,7 @@ const Backlogslist = ({ query }) => {
 
                         <table>
                             <thead>
-                                <tr class="bg-gray-200">
+                                <tr class="bg-gray-200 dark:bg-slate-900">
                                     <th colspan={10}>BACKLOGS LIST</th>
                                 </tr>
                                 <tr >
@@ -94,7 +94,7 @@ const Backlogslist = ({ query }) => {
                                         if (subjects.length > 0) {
                                             return (
                                                 <>
-                                                    <tr class="mx-auto w-max bg-gray-200">
+                                                    <tr class="mx-auto w-max bg-gray-200 dark:bg-slate-900">
                                                         <th colspan={10}>{val} Results</th>
                                                     </tr>
                                                     {Object.keys(Results[val]).map(function (item, index) {

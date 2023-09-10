@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import menu2Fill from '@iconify/icons-eva/menu-2-fill';
 import Nav1 from './Nav1';
+import { useTheme } from 'next-themes';
 
 const NavBarComponent = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [startX, setStartX] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleTouchStart = (event) => {
@@ -47,6 +49,9 @@ const NavBarComponent = () => {
     };
   }, [showPopup, startX]);
 
+  // Define the image source based on the current theme
+  const logoSrc = theme === 'dark' ? '/logodark.png' : '/logo.png';
+
   return (
     <>
       {showPopup && <Nav1 />}
@@ -55,8 +60,8 @@ const NavBarComponent = () => {
           <Link href="/">
             <a>
               <Image
-                src="/logo.png"
-                alt="Logo"
+                src={logoSrc} // Use the dynamically determined image source
+                alt="Results Jntuh Logo"
                 width={70}
                 height={50}
               />
@@ -68,7 +73,7 @@ const NavBarComponent = () => {
         >
           <Icon
             icon={menu2Fill}
-            className="w-7 h-7 menu-icon"
+            className="w-7 h-7 menu-icon dark:text-white"
             style={{ cursor: 'pointer' }}
           />
         </div>

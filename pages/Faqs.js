@@ -258,7 +258,7 @@ const Faq = () => {
             <center><hr className="sm:w-96 w-48 border-gray-700 mb-6 " /></center>
             <div className="grid gap-4">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="bg-white shadow-md rounded-md p-6">
+                    <div key={index} className="bg-white dark:bg-slate-800 shadow-md rounded-md p-6">
                         <div className="flex items-center cursor-pointer mb-4" onClick={() => toggleFaq(index)}>
                             <div className="flex-1">
                                 <h2 className="text-lg font-bold">{faq.question}</h2>

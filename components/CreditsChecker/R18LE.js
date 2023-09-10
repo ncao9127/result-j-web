@@ -79,7 +79,7 @@ const R18LE = ({ query }) => {
       <div className='m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
       <table>
         <tbody>
-          <tr class="mx-auto w-max bg-gray-200">
+          <tr class="mx-auto w-max bg-gray-200 dark:bg-slate-900">
             <th>SEMESTER</th>
             <th>CREDITS</th>
           </tr>

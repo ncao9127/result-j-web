@@ -165,7 +165,7 @@ const StudentDataCard = ({ query }) => {
                 </span>
               </h1>
             </div> */}
-          <h1 className="text-lg text-black  sm:text-xl">{Details['ROLL_NO']}</h1>
+          <h1 className="text-lg text-black dark:text-white sm:text-xl">{Details['ROLL_NO']}</h1>
           <hr className="w-full border-gray-700" />
           <Confetti active={isConfettiActive} config={config} />
         </div>
@@ -195,7 +195,7 @@ const StudentDataCard = ({ query }) => {
       <div className='m-4 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]'>
         <table >
           <tbody>
-            <tr class="bg-gray-200">
+            <tr class="bg-gray-200 dark:bg-slate-900">
               <th>SEMESTER</th>
               <th>CREDITS</th>
               <th>SGPA</th>
@@ -263,33 +263,33 @@ const StudentDataCard = ({ query }) => {
 
       <div className='flex flex-wrap items-center justify-center'>
         <Link href="/CreditsCalculator">
-          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL CREDITS</h3>
             <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalCredits}</p>
           </a>
         </Link>
 
-        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
           <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL SUBJECTS</h3>
           <p className='group-hover:text-black text-slate-500 mt-2 text-base sm:text-2xl text-center text-black'>{totalSubjects}</p>
         </a>
 
 
-        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+        <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
           <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>TOTAL PASSED</h3>
           <p className='group-hover:text-green-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{passedSubjects}</p>
         </a>
 
 
         <Link href="/Backlogs">
-          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4 '>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center '>TOTAL FAILED</h3>
             <p className='group-hover:text-red-600 text-slate-500 mt-2 text-base sm:text-2xl text-center '>{failedSubjects}</p>
           </a>
         </Link>
 
         <Link href="/CreditsCalculator">
-          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
+          <a target="_blank" className='border-2 border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-2 mt-6 md:w-36 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-gray-300 duration-300 m-4'>
             <h3 className='group-hover:text-black text-lg sm:text-xl font-bold text-center'>CHECK YOUR CREDITS ELIGIBLILTY</h3>
           </a>
         </Link>
@@ -303,7 +303,7 @@ const StudentDataCard = ({ query }) => {
           {Object.keys(Results).some(val => val !== 'Total' && Object.keys(Results[val]).some(item => Results[val][item]['subject_grade'] === 'F' || Results[val][item]['subject_grade'] === 'Ab' || Results[val][item]['subject_grade'] === '-')) && (
             <table>
               <thead>
-                <tr class="bg-gray-200">
+                <tr class="bg-gray-200 dark:bg-slate-900">
                   <th colspan={10}>BACKLOGS LIST</th>
                 </tr>
                 <tr >
@@ -323,7 +323,7 @@ const StudentDataCard = ({ query }) => {
                     if (subjects.length > 0) {
                       return (
                         <>
-                          <tr class="mx-auto w-max bg-gray-200">
+                          <tr class="mx-auto w-max bg-gray-200 dark:bg-slate-900">
                             <th colspan={10}>{val} Results</th>
                           </tr>
                           {Object.keys(Results[val]).map(function (item, index) {

@@ -62,7 +62,7 @@ const ClassResultResult = ({ query, semester }) => {
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <table className="w-[100%] my-1">
                     <tbody>
-                        <tr className="bg-gray-300">
+                        <tr className="bg-gray-300 dark:bg-slate-900">
                             <th>ROLL NO</th>
                             <th>NAME</th>
                             <th>CREDITS</th>
@@ -91,7 +91,7 @@ const ClassResultResult = ({ query, semester }) => {
                 </table>
                 <table>
                     <tbody>
-                        <tr className='bg-gray-300'><th>TOTAL STUDENTS</th><th>PASSED</th><th>FAILED</th></tr>
+                        <tr className='bg-gray-300 dark:bg-slate-900'><th>TOTAL STUDENTS</th><th>PASSED</th><th>FAILED</th></tr>
                         <tr><th>{totalStudents}</th><th>{passedStudents} ({totalStudents > 0 ? ((passedStudents / totalStudents) * 100).toFixed(2) : 0}%)</th>
                             <th>{failedStudents} ({totalStudents > 0 ? ((failedStudents / totalStudents) * 100).toFixed(2) : 0}%)</th>
                         </tr>

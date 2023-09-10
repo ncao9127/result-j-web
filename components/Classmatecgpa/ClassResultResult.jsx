@@ -41,7 +41,7 @@ const ClassResultResult = ({ query }) => {
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <table className="w-[100%] my-1">
                     <tbody>
-                        <tr className="bg-gray-300">
+                        <tr className="bg-gray-300 dark:bg-slate-900">
                             <th>ROLL NO</th>
                             <th>NAME</th>
                             <th>CREDITS</th>

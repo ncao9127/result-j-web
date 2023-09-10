@@ -48,11 +48,9 @@ const Download = () => {
         </Head>
         <div>
           <br />
-          <br />
-          <br />
           <div className='m-6'>
-            <h1 style={{ fontSize: '40px' }}>Download <br /> ResultsJntuh App</h1>
-            <p>Stay connected on Resultsjntuh App across your devices, so you can pick up any results when you required.</p>
+            <h1 style={{ fontSize: '40px' }} className='dark:text-black '>Download <br /> ResultsJntuh App</h1>
+            <p className='dark:text-black'>Stay connected on Resultsjntuh App across your devices, so you can pick up any results when you required.</p>
           </div>
           <div className="flex flex-wrap items-center justify-around mt-6 ">
             <div className="border border-black-400 bg-[#111B21] hover:drop-shadow-sm group text-white shadow-2xl max-w-xs p-6 mt-6 text-center md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-green-600 duration-300">

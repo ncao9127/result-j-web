@@ -184,7 +184,7 @@ const Cmode = ({ query }) => {
         <br />
         <table className="w-[100%] my-1">
           <tbody>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray-200 dark:bg-slate-900">
               <th>Results Comparison View</th>
             </tr>
           </tbody>
@@ -195,28 +195,28 @@ const Cmode = ({ query }) => {
             <table className="my- w-[100%]">
               <tbody>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>NAME</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>NAME</th>
                 </tr>
                 <tr>
                   <th>{result1.Details.NAME}</th>
                   <th>{result2.Details.NAME}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>ROLL NO</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>ROLL NO</th>
                 </tr>
                 <tr>
                   <th>{result1.Details.ROLL_NO}</th>
                   <th>{result2.Details.ROLL_NO}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>FATHER NAME</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>FATHER NAME</th>
                 </tr>
                 <tr>
                   <th>{result1.Details.FATHER_NAME}</th>
                   <th>{result2.Details.FATHER_NAME}</th>
                 </tr>
                 <tr>
-                  {(branchName !== null || bn2 !== null) && <th className="bg-gray-200" colSpan={10}>Branch</th>}
+                  {(branchName !== null || bn2 !== null) && <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Branch</th>}
                 </tr>
                 <tr>
                   {branchName !== null && <th>{branchName}</th>}
@@ -224,7 +224,7 @@ const Cmode = ({ query }) => {
                 </tr>
 
                 <tr>
-                  {(Cname1 !== null || Cname2 !== null) && <th className="bg-gray-200" colSpan={10}>College NAME</th>}
+                  {(Cname1 !== null || Cname2 !== null) && <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>College NAME</th>}
                 </tr>
                 <tr>
                   {Cname1 !== null && <th className="uppercase">{Cname1}</th>}
@@ -232,42 +232,42 @@ const Cmode = ({ query }) => {
                 </tr>
 
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Final CGPA</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Final CGPA</th>
                 </tr>
                 <tr>
                   <th>{result1.Results.Total}</th>
                   <th>{result2.Results.Total}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Final Percentage</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Final Percentage</th>
                 </tr>
                 <tr>
                   <th>{((result1.Results.Total - 0.5) * 10).toFixed(2)}%</th>
                   <th>{((result2.Results.Total - 0.5) * 10).toFixed(2)}%</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Total Gained Credits</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Total Gained Credits</th>
                 </tr>
                 <tr>
                   <th>{tcr1}</th>
                   <th>{tcr2}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Total Subjects</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Total Subjects</th>
                 </tr>
                 <tr>
                   <th>{tsr1}</th>
                   <th>{tsr2}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Total Passed Subjects</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Total Passed Subjects</th>
                 </tr>
                 <tr>
                   <th>{psr1}</th>
                   <th>{psr2}</th>
                 </tr>
                 <tr>
-                  <th className="bg-gray-200" colSpan={10}>Total Failed Subjects</th>
+                  <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Total Failed Subjects</th>
                 </tr>
                 <tr>
                   <th>{fsr1}</th>
@@ -282,7 +282,7 @@ const Cmode = ({ query }) => {
           <table className="my-1 w-[100%]">
             <tbody>
               <tr>
-                <th className="bg-gray-200" colSpan={10}>OverAll Results Score</th>
+                <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>OverAll Results Score</th>
               </tr>
               <tr>
                 <th>
@@ -308,7 +308,7 @@ const Cmode = ({ query }) => {
           <table className="my-1 w-[100%]">
             <tbody>
               <tr>
-                <th className="bg-gray-200" colSpan={10}>Backlogs</th>
+                <th className="bg-gray-200 dark:bg-slate-900" colSpan={10}>Backlogs</th>
               </tr>
               <tr>
                 <th>

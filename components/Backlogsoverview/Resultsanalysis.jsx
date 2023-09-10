@@ -124,7 +124,7 @@ const Resultsanalysis = ({ query }) => {
             <div className="m-2 text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%]">
                 <table className="w-[100%] mt-1 my-1">
                     <tbody>
-                        <tr class="bg-gray-200">
+                        <tr class="bg-gray-200 dark:bg-slate-900">
                             <th>ROLL NO</th><th>NAME</th>
                             <th>FATHER NAME</th><th>BRANCH</th>
                             <th>SEMESTER</th>
@@ -140,7 +140,7 @@ const Resultsanalysis = ({ query }) => {
                 </table>
                 <table className="w-[100%] my-1">
                     <tbody>
-                        <tr class="mx-auto w-max bg-gray-200">
+                        <tr class="mx-auto w-max bg-gray-200 dark:bg-slate-900">
                             <th>COLLEGE CODE</th><th>COLLEGE NAME</th>
                         </tr>
                         <tr>
@@ -163,7 +163,7 @@ const Resultsanalysis = ({ query }) => {
                                         </div>
                                         <table className="w-full my-1">
                                             <thead>
-                                                <tr className="bg-gray-200">
+                                                <tr className="bg-gray-200 dark:bg-slate-900">
                                                     <th>SUBJECT CODE</th>
                                                     <th>SUBJECT NAME</th>
                                                     <th>INTERNAL</th>

@@ -25,10 +25,10 @@ function SideNavbar() {
             aria-hidden="true"
           />
         </Disclosure.Button> */}
-                <div className="p-6 w-1/2 h-screen bg-white z-20 fixed top-0 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200 overflow-y-auto">
+                <div className="p-6 w-1/2 h-screen bg-white dark:bg-slate-800 z-20 fixed top-0 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200 overflow-y-auto">
                     <div className="flex flex-col justify-start item-center">
 
-                        <h1 className="flex items-center gap-3 ml-2 text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
+                        <h1 className="flex items-center gap-3 ml-2 text-base text-center cursor-pointer font-bold text-blue-900 dark:text-white border-b border-gray-100 pb-4 w-full">
                             <Link href="/">
                                 JNTUH RESULTS
                             </Link>
@@ -38,80 +38,80 @@ function SideNavbar() {
                         <div className=" my-4 border-b border-gray-100 pb-4">
                             <Link href='/'>
                                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BiHomeHeart className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BiHomeHeart className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Home
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/ConsolidatedResult'>
                                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <FaUserGraduate className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <FaUserGraduate className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Consolidated Results
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/SemResults'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BsCardText className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BsCardText className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Semester Result
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/Classresults'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BsListUl className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BsListUl className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Class Results
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/Classmate'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BsListNested className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BsListNested className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Classmate Results
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/CGPACalculator'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BsClipboardData className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BsClipboardData className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Get Your CGPA
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/CreditsCalculator'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <MdCreditScore className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <MdCreditScore className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Credits Check
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/ComparisonMode'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <LuStretchVertical className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <LuStretchVertical className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Results Comparison
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/Backlogs'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <BsCardChecklist className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <BsCardChecklist className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Check Backlogs
                                     </h3>
                                 </div>
                             </Link>
                             <Link href='/Subjectsratio'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <MdSubject className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <MdSubject className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 v group-hover:text-white font-semibold ">
                                         Subjects Stats
                                     </h3>
                                 </div>
@@ -119,8 +119,8 @@ function SideNavbar() {
 
                             <Link href='/Notifications'>
                                 <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <CgNotifications className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <CgNotifications className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         Notifications
                                     </h3>
                                 </div>
@@ -145,8 +145,8 @@ function SideNavbar() {
                             navigator.share({ url, title, text });
                         }}>
                             <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                <BiShareAlt className="text-2xl text-gray-600 group-hover:text-white " />
-                                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                <BiShareAlt className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                     Share
                                 </h3>
                             </div>
@@ -154,8 +154,8 @@ function SideNavbar() {
                         <Link href='/help'>
                             <div className=" my-2">
                                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                                    <MdOutlineMoreHoriz className="text-2xl text-gray-600 group-hover:text-white " />
-                                    <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                                    <MdOutlineMoreHoriz className="text-2xl text-gray-600 dark:text-white group-hover:text-white " />
+                                    <h3 className="text-base text-gray-800 dark:text-white group-hover:text-white font-semibold ">
                                         More
                                     </h3>
                                 </div>

@@ -64,7 +64,12 @@ th {
 }
 
 tr:hover {
-  background-color: rgb(227, 236, 239);
+  background-color: rgb(227, 236, 239); /* Default background color on hover */
+}
+
+/* Dark mode background color */
+.dark tr:hover {
+  background-color: rgba(15, 23, 42, 0.60) ; /* Replace with your desired dark mode color */
 }
 
 @media print {
@@ -148,6 +153,7 @@ tr:hover {
   white-space: pre-line;
 }
 /* added */
+/* Light mode styles for the navigation bar */
 .nav {
   position: sticky;
   top: 0;
@@ -156,8 +162,13 @@ tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 1;
   transition: all 0.9s ease;
-  /* adds a smooth transition to all CSS changes */
 }
+
+/* Dark mode styles for the navigation bar */
+.dark .nav {
+  background-color: rgba(15, 23, 42, 0.5); /* Replace with your desired dark mode background color */
+}
+
 @layer base{
   body {
       @apply dark:bg-slate-800 bg-white

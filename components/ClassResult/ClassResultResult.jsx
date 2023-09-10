@@ -43,7 +43,7 @@ const ClassResultResult = ({ query, semester }) => {
 
                 <table className="w-[100%]">
                     <tbody>
-                        <tr className="bg-gray-300 md:bg-white">
+                        <tr className="bg-gray-300 dark:bg-slate-900 md:bg-white">
                             <th>{semester} Results</th>
                         </tr>
                     </tbody>
@@ -59,7 +59,7 @@ const ClassResultResult = ({ query, semester }) => {
 
                         <table className="w-[100%] mt-2 my-1">
                             <tbody>
-                                <tr class="bg-gray-200">
+                                <tr class="bg-gray-200 dark:bg-slate-900">
                                     <th>ROLL NO</th>
                                     <th>NAME</th>
                                     <th>FATHER NAME</th>
@@ -82,7 +82,7 @@ const ClassResultResult = ({ query, semester }) => {
 
                                         <table>
                                             <tbody>
-                                                <tr class="mx-auto w-max bg-gray-200">
+                                                <tr class="mx-auto w-max bg-gray-200 dark:bg-slate-900">
                                                     <th>SUBJECT CODE</th>
                                                     <th>SUBJECT NAME</th>
                                                     <th>INTERNAL</th>

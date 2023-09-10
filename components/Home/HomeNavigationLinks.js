@@ -126,22 +126,19 @@ const HomeNavLinks = () => {
       <br />
       <h1 className='title font-bold'>
         Welcome to{' '}
-        <a
+        <span
           className='text-blue-400 hover:text-blue-600'
-          href=''
-          target='_blank'
-          rel="noreferrer"
           onClick={() => window.location.reload()}
         >
           JNTUH Results
-        </a>
+        </span>
       </h1>
       <p className='description' >
         Examination Results Portal {' '}
         <br />
-        <code className='code dark:bg-slate-800' >Jawaharlal Nehru Technological University Hyderabad</code>
+        <code className='code dark:bg-slate-900' >Jawaharlal Nehru Technological University Hyderabad</code>
       </p>
-      <p className='home-header-caption text-black text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
+      <p className='home-header-caption text-black dark:text-white text-base sm:text-xl mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]'>
         Get all your results in one place.{' '}
         <i>
           Just your <b>hallticket</b>, to rule them all.
@@ -157,7 +154,7 @@ const HomeNavLinks = () => {
               <a
                 href={link.route}
                 key={idx}
-                className="border border-gray-100 hover:drop-shadow-sm group text-black shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300"
+                className="border border-gray-100 hover:drop-shadow-sm group text-black dark:text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300"
                 onMouseEnter={() => setHoveredLink(idx)}
                 onMouseLeave={() => setHoveredLink(null)}
               >
@@ -189,9 +186,9 @@ const HomeNavLinks = () => {
       </p>
       <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
         If you found this app helpful, you can support me by &nbsp;
-        <a className="font-bold text-[#9C1A8B] cursor-pointer" onClick={handleLinkClick}>
+        <span className="font-bold text-[#9C1A8B] cursor-pointer" onClick={handleLinkClick}>
           buying me a pizza here.
-        </a>
+        </span>
       </p>
 
       {isModalVisible && <Qrcode onClose={handleCloseModal} />}
