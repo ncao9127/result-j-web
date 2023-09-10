@@ -33,9 +33,12 @@ import Head from "next/head";
 import { FiDownload } from 'react-icons/fi';
 import { BsTelegram } from 'react-icons/bs';
 import HomeFooter from "../components/Home/HomeFooter";
+import Darkmode from "../components/ui/Darkmode";
+import { useTheme } from 'next-themes';
 
 function Home() {
     const [notifications, setNotifications] = useState([]);
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         fetchNotifications();
@@ -43,7 +46,7 @@ function Home() {
 
     const fetchNotifications = async () => {
         try {
-            const response = await axios.get(url + '/api/notifications' , { mode: 'cors' });
+            const response = await axios.get(url + '/api/notifications', { mode: 'cors' });
             // const url = "/api/notifications"
             // const response = await axios.get(url);
             const notificationsData = response.data;
@@ -182,6 +185,18 @@ function Home() {
             <div className="mt-2">
                 <HomeFooter />
             </div>
+            <div >
+                {theme === 'light' ? (
+                    <>
+                        <Darkmode /> Light Mode
+                    </>
+                ) : (
+                    <>
+                        <Darkmode /> Dark Mode
+                    </>
+                )}
+            </div>
+            <br />
             <div className="mt-1 block text-center text-green-600 mb-4 text-[55%] md:text-[80%]">
                 <Link href="https://resultsjntuhweb.statuspage.io" >
                     <a >

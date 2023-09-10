@@ -106,7 +106,7 @@ const Download = () => {
           </div>
           <br />
           <div className='flex justify-center items-center'>
-            <p className='justify-center items-center mt-4 p-2 m-4'>
+            <p className='justify-center items-center mt-4 p-2 m-4 dark:text-black'>
               Visit <a href="https://resultsjntuh.vercel.app/download" target="_blank" rel="noopener noreferrer">&nbsp;
                 <span className='underline text-blue-500'>resultsjntuh.vercel.app/download</span>
               </a> &nbsp; on your mobile phone to install
