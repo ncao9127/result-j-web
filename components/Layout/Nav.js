@@ -56,16 +56,14 @@ const NavBarComponent = () => {
     <>
       {showPopup && <Nav1 />}
       <nav className="nav shadow-xl h-16 flex items-center px-4 lg:p-8 border-b-[0.1px] sticky">
-        <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] mt-1">
+        <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] mt-1 cursor-pointer">
           <Link href="/">
-            <a>
-              <Image
-                src={logoSrc} // Use the dynamically determined image source
-                alt="Results Jntuh Logo"
-                width={70}
-                height={50}
-              />
-            </a>
+            <Image
+              src={logoSrc} // Use the dynamically determined image source
+              alt="Results Jntuh Logo"
+              width={70}
+              height={50}
+            />
           </Link>
         </h1>
         <div

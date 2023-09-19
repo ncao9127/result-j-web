@@ -1,8 +1,8 @@
-// give alerts and updates to users
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Telegram from './Telegram';
+import Whatsapp from './Whatsapp';
 
 const Notify = () => {
     const [toastShown, setToastShown] = useState(false);
@@ -10,13 +10,24 @@ const Notify = () => {
     useEffect(() => {
         // Check if the toast has already been shown
         if (!toastShown) {
-            // Show the toast only if it hasn't been shown before
+            // Get the current time
+            const currentTime = new Date().getHours();
 
-            // handle promotion
-            toast(<div className="centered-toast"><Telegram /></div>, { toastId: 'success2', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" });
-
+            if (currentTime >= 6 && currentTime < 18) {
+                // Show the WhatsApp toast from 6 AM to 6 PM
+                toast(
+                    <div className="centered-toast"><Whatsapp /></div>,
+                    { toastId: 'success4', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" }
+                );
+            } else {
+                // Show the Telegram toast from 6 PM to 6 AM
+                toast(
+                    <div className="centered-toast"><Telegram /></div>,
+                    { toastId: 'success2', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" }
+                );
+            }
             // Warn the user
-            toast.warning("Looks Like JNTUH Servers Are Down ! Please Try Again After Sometime !", { toastId: 'success3', position: "bottom-center", autoClose: false, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" });
+            toast.warning("Looks Like JNTUH Servers Are Down ! Please Try Again After Sometime !", { toastId: 'success3', position: "bottom-center", autoClose: true, newestOnTop: false, closeOnClick: true, rtl: false, draggable: true, theme: "light" });
 
             // toast.warning("Kindly Wait For 15 minutes And Try Again");
 
