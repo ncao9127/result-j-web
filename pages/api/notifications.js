@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       const date = title.substring(dateStartIndex, dateEndIndex);
       const cleanTitle = title.replace(`(${date})`, '').replace('*', '').trim();
 
-      if (/b\.tech|b\.pharmacy|b\.pharm|m\.tech|m\.pharm|m\'pharmacy|mba/i.test(cleanTitle)) {
+      if (/b\.tech|b\.pharmacy|b\.pharm|m\.tech|m\.pharm|m\.pharmacy|mba/i.test(cleanTitle)) {
         notificationData.notification_description = cleanTitle;
         notificationData.notification_date = date;
         results.push(notificationData);

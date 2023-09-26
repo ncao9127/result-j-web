@@ -159,7 +159,7 @@ const Resultsanalysis = ({ query }) => {
                                 return (
                                     <div key={examKey}>
                                         <div className="items-center justify-center text-center mt-8">
-                                            <h1 className="text-sm font-semibold font-sans text-green-600 text-bold md:text-xl">{examKey}</h1>
+                                            <h1 className="text-sm font-semibold font-sans text-green-600 text-bold md:text-xl">{examKey.replace(/_[\d.]+$/, '')}</h1>
                                         </div>
                                         <table className="w-full my-1">
                                             <thead>

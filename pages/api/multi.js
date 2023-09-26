@@ -36,7 +36,7 @@ class ResultScraper {
                     '3-1': ['597', '633', '668', '712', '759', '799', '837', '873'],
                     '3-2': ['655', '660', '688', '710', '764', '804', '841', '869', '877'],
                     '4-1': ['663', '705', '754', '794', '832', '836', '865'],
-                    '4-2': ['678', '700', '789', '809', '861']
+                    '4-2': ['678', '700', '789', '809', '861', '878']
                 },
                 R22: {
                     '1-1': ['859']
@@ -137,11 +137,11 @@ class ResultScraper {
             const subjectExternal = $(resultSubject).find('td').eq(subjectExternalIndex).text();
             const subjectTotal = $(resultSubject).find('td').eq(subjectTotalIndex).text();
 
-            if (subjectCode in this.results.Results[semesterCode] &&
-                this.results.Results[semesterCode][subjectCode].subject_grade !== 'F' &&
-                this.results.Results[semesterCode][subjectCode].subject_grade !== 'Ab' &&
-                this.results.Results[semesterCode][subjectCode].subject_grade !== '-' &&
-                this.gradesToGPA[this.results.Results[semesterCode][subjectCode].subject_grade] > this.gradesToGPA[subjectGrade]) {
+            if (subjectCode in this.results.Results[semesterCode][session_name] &&
+                this.results.Results[semesterCode][session_name][subjectCode].subject_grade !== 'F' &&
+                this.results.Results[semesterCode][session_name][subjectCode].subject_grade !== 'Ab' &&
+                this.results.Results[semesterCode][session_name][subjectCode].subject_grade !== '-' &&
+                this.gradesToGPA[this.results.Results[semesterCode][session_name][subjectCode].subject_grade] > this.gradesToGPA[subjectGrade]) {
                 return;
             }
 
@@ -217,7 +217,9 @@ class ResultScraper {
                 for (const response of responses) {
                     if (!response.includes('Enter HallTicket Number')) {
                         const $ = cheerio.load(response);
-                        const session_name = $('h6').text();
+                        // Get the current timestamp in milliseconds
+                        const timestamp = performance.now();
+                        const session_name = $('h6').text() + '_' + timestamp;
                         this.scrapeResults(examCode, session_name, response);
                     }
                 }
@@ -321,14 +323,14 @@ export default async function handler(req, res) {
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
 
                 // Set the data in Redis with the specified key and expiration time
-                const jsonString = JSON.stringify(results);
-                redis.set(rollNumber, jsonString, 'EX', 6 * 3600)
-                    .then(() => {
-                        console.log('Data has been set in the Redis cache.');
-                    })
-                    .catch((error) => {
-                        console.error('Error setting data in the Redis cache:', error);
-                    });
+                // const jsonString = JSON.stringify(results);
+                // redis.set(rollNumber, jsonString, 'EX', 6 * 3600)
+                //     .then(() => {
+                //         console.log('Data has been set in the Redis cache.');
+                //     })
+                //     .catch((error) => {
+                //         console.error('Error setting data in the Redis cache:', error);
+                //     });
 
                 res.status(200).json(results);
             })

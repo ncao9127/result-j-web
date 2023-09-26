@@ -52,7 +52,7 @@ const ExamTable = () => {
         <>
           <div style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold' }}>
             <h1>EXAMSCODES</h1>
-            
+
           </div>
           <div className='current-date-time' style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold' }}>
             {currentDateTime}
@@ -64,7 +64,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -102,7 +102,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -114,53 +114,17 @@ const ExamTable = () => {
               ))}
             </tbody>
           </table>
-          {/* B.pharmacy R22 Table */} 
-           <table> 
-             <caption>B.pharmacy R22</caption> 
-             <thead> 
-               <tr> 
-                 <th>Semester</th> 
-                 <th>Course Codes</th> 
-               </tr> 
-             </thead> 
-             <tbody> 
-               {Object.entries(examData.bpharmacy.R22).map(([semester, codes]) => ( 
-                 <tr key={semester}> 
-                   <th>{semester}</th> 
-                   <th>{codes.join(', ')}</th> 
-                 </tr> 
-               ))} 
-             </tbody> 
-           </table>
-          {/* M.Pharmacy R19 Table */}
-          <table className='my-4'>
-            <caption>M.Pharmacy R19</caption>
+          {/* B.pharmacy R22 Table */}
+          <table>
+            <caption>B.pharmacy R22</caption>
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
-              {Object.entries(examData.mpharmacy.R19).map(([semester, codes]) => (
-                <tr key={semester}>
-                  <th>{semester}</th>
-                  <th>{codes.join(', ')}</th>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {/* M.Pharmacy R22 Table */}
-          <table className='my-4'>
-            <caption>M.Pharmacy R22</caption>
-            <thead>
-              <tr>
-                <th>Semester</th>
-                <th>Course Codes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(examData.mpharmacy.R22).map(([semester, codes]) => (
+              {Object.entries(examData.bpharmacy.R22).map(([semester, codes]) => (
                 <tr key={semester}>
                   <th>{semester}</th>
                   <th>{codes.join(', ')}</th>
@@ -174,7 +138,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -192,11 +156,47 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
               {Object.entries(examData.mtech.R22).map(([semester, codes]) => (
+                <tr key={semester}>
+                  <th>{semester}</th>
+                  <th>{codes.join(', ')}</th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* M.Pharmacy R19 Table */}
+          <table className='my-4'>
+            <caption>M.Pharmacy R19</caption>
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Exam Codes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(examData.mpharmacy.R19).map(([semester, codes]) => (
+                <tr key={semester}>
+                  <th>{semester}</th>
+                  <th>{codes.join(', ')}</th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* M.Pharmacy R22 Table */}
+          <table className='my-4'>
+            <caption>M.Pharmacy R22</caption>
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Exam Codes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(examData.mpharmacy.R22).map(([semester, codes]) => (
                 <tr key={semester}>
                   <th>{semester}</th>
                   <th>{codes.join(', ')}</th>
@@ -210,7 +210,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -228,7 +228,7 @@ const ExamTable = () => {
             <thead>
               <tr>
                 <th>Semester</th>
-                <th>Course Codes</th>
+                <th>Exam Codes</th>
               </tr>
             </thead>
             <tbody>
@@ -241,11 +241,11 @@ const ExamTable = () => {
             </tbody>
           </table>
           <a
-          className='text-blue-400 hover:text-blue-600 text-center'
-          href='/api/examcodes'
-          target='_blank'
-          rel="noreferrer"
-        >Click Here To View JSON</a>
+            className='text-blue-400 hover:text-blue-600 text-center'
+            href='/api/examcodes'
+            target='_blank'
+            rel="noreferrer"
+          >Click Here To View JSON</a>
         </>
       )}
     </div>

@@ -68,7 +68,7 @@ const R18LE = ({ query }) => {
       <div className="flex flex-col items-center justify-center text-center ">
         <div className="p-6">
           <h1 className="text-xl font-semibold">{Details['NAME']}</h1>
-          <h1 className="text-lg text-black sm:text-xl">{Details['ROLL_NO']}</h1>
+          <h1 className="text-lg text-black dark:text-white sm:text-xl">{Details['ROLL_NO']}</h1>
           <hr className="w-full border-gray-700" />
         </div>
       </div>

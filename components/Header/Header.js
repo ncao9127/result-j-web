@@ -32,6 +32,7 @@ const Header = () => {
         <meta property="twitter:image" content="https://resultsjntuh.vercel.app/homepage.jpg" />
 
         <meta name="google-site-verification" content="FUy87m9L-VxJNFarXrOAq8E6TLmFSOFkkeFZsIZEMOk" />
+        <meta name="google-site-verification" content="X-27vuj4pnzcfKdACcAjKrXYJh63dK_D0NZe6zNJdlo" />
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9108352648701072"
           crossorigin="anonymous" />
