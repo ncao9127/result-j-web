@@ -1,6 +1,6 @@
 const urll = "https://jntuhresults.up.railway.app"
 const urlQ = "http://127.0.0.1:8000/"
-const url = "https://resultsjntuhv10.netlify.app"
+const url = "https://resultsjntuhv20.netlify.app"
 const urla = "https://resultsjntuhv0.vercel.app"
 const urlr = "https://jntuhresults.herokuapp.com"
 const urlrr = "https://jntuhresults.up.railway.app"
