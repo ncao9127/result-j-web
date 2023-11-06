@@ -329,13 +329,14 @@ export default async function handler(req, res) {
     if (examCode) {
         scraper.scrapeAllResults(examCode) // Call the new method
             .then(results => {
-                // const rollResult = results["Results"];
-                // const totalResult = rollResult["Total"];
-                // if (!totalResult || Object.keys(totalResult).length === 0) {
-                //     // Skip this result if it is empty and return null
-                //     console.log(rollNumber, 'Empty result');
-                //     return null;
-                // }
+                const rollResult = results["Results"];
+                const totalResult = rollResult["Total"];
+                if (!totalResult || Object.keys(totalResult).length === 0) {
+                    // Skip this result if it is empty and return null
+                    console.log(rollNumber, 'Empty result');
+                    res.status(500).json("Internal Server Error - 500");
+                    return null;
+                }
                 const endTime = performance.now();
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
                 res.status(200).json(results);
@@ -357,13 +358,14 @@ export default async function handler(req, res) {
     } else if (rollNumber) {
         scraper.run()
             .then(results => {
-                // const rollResult = results["Results"];
-                // const totalResult = rollResult["Total"];
-                // if (!totalResult || Object.keys(totalResult).length === 0) {
-                //     // Skip this result if it is empty and return null
-                //     console.log(rollNumber, 'Empty result');
-                //     return null;
-                // }
+                const rollResult = results["Results"];
+                const totalResult = rollResult["Total"];
+                if (!totalResult || Object.keys(totalResult).length === 0) {
+                    // Skip this result if it is empty and return null
+                    console.log(rollNumber, 'Empty result');
+                    res.status(500).json("Internal Server Error - 500");
+                    return null;
+                }
                 const endTime = performance.now();
                 console.log(rollNumber, 'Time taken:', endTime - startTime, 'seconds');
 
@@ -392,7 +394,7 @@ export default async function handler(req, res) {
             .catch(error => {
                 console.error(error);
                 res.status(500).json("Internal Server Error");
-                console.log(htno, "results failed to fetch")
+                console.log(rollNumber, "results failed to fetch")
                 res.end();
             });
     } else if (htnos) {

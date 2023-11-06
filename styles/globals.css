@@ -153,6 +153,10 @@ tr:hover {
   white-space: pre-line;
 }
 /* added */
+.no-hover {
+    pointer-events: none;
+}
+
 /* Light mode styles for the navigation bar */
 .nav {
   position: sticky;

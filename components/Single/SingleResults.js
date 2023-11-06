@@ -3,7 +3,6 @@ import PrintButton from '../ui/PrintButton';
 import ScrollToTop from "react-scroll-to-top";
 import HomeFooter from '../Home/HomeFooter';
 import Hr from '../Hr/Hr';
-import Footer from '../Home/Footer';
 import Info from '../Home/info';
 import Branch from '../Json/Branch_codes.json';
 import College from '../Json/college_codes.json';

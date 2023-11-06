@@ -1,0 +1,159 @@
+[
+    {
+       "Branch Code": "ANE",
+       "Branch Name": "AERONAUTICAL ENGINEERING"
+    },
+    {
+       "Branch Code": "ARB",
+       "Branch Name": "AUTOMATION AND ROBOTICS"
+    },
+    {
+       "Branch Code": "AUT",
+       "Branch Name": "AUTOMOBILE ENGINEERING"
+    },
+    {
+       "Branch Code": "CIV",
+       "Branch Name": "CIVIL ENGINEERING"
+    },
+    {
+       "Branch Code": "IPE",
+       "Branch Name": "INDUSTRIAL PRODUCTION ENGINEERING"
+    },
+    {
+       "Branch Code": "MCT",
+       "Branch Name": "MECHANICAL (MECHTRONICS) ENGINEERING"
+    },
+    {
+       "Branch Code": "MEC",
+       "Branch Name": "MECHANICAL ENGINEERING"
+    },
+    {
+       "Branch Code": "MET",
+       "Branch Name": "METALLURGICAL ENGINEERING"
+    },
+    {
+       "Branch Code": "MMT",
+       "Branch Name": "METALLURGICAL AND MATERIALS ENGINEERING"
+    },
+    {
+       "Branch Code": "CHE",
+       "Branch Name": "CHEMICAL ENGINEERING"
+    },
+    {
+       "Branch Code": "GEO",
+       "Branch Name": "GEO INFORMATICS"
+    },
+    {
+       "Branch Code": "MIN",
+       "Branch Name": "MINING ENGINEERING"
+    },
+    {
+       "Branch Code": "TEX",
+       "Branch Name": "TEXTILE TECHNOLOGY/TEXTILE ENGINEERING"
+    },
+    {
+       "Branch Code": "CME",
+       "Branch Name": "COMPUTER ENGINEERING"
+    },
+    {
+       "Branch Code": "CSG",
+       "Branch Name": "COMPUTER SCIENCE & DESIGN"
+    },
+    {
+       "Branch Code": "CSN",
+       "Branch Name": "COMPUTER SCIENCE & ENGINEERING (NETWORKS)"
+    },
+    {
+       "Branch Code": "CSO",
+       "Branch Name": "COMPUTER SCIENCE AND ENGINEERING (IOT)"
+    },
+    {
+       "Branch Code": "CST",
+       "Branch Name": "COMPUTER SCIENCE AND TECHNOLOGY"
+    },
+    {
+       "Branch Code": "CSW",
+       "Branch Name": "COMPUTER ENGINEERING(SOFTWARE ENGINEERING)"
+    },
+    {
+       "Branch Code": "INF",
+       "Branch Name": "INFORMATION TECHNOLOGY"
+    },
+    {
+       "Branch Code": "ITE",
+       "Branch Name": "INFORMATION TECHNOLOGY AND ENGINEERING"
+    },
+    {
+       "Branch Code": "AI",
+       "Branch Name": "ARTIFICIAL INTELLIGENCE"
+    },
+    {
+       "Branch Code": "AID",
+       "Branch Name": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE"
+    },
+    {
+       "Branch Code": "AIM",
+       "Branch Name": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING"
+    },
+    {
+       "Branch Code": "CIC",
+       "Branch Name": "CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY)"
+    },
+    {
+       "Branch Code": "CSB",
+       "Branch Name": "COMPUTER SCIENCE AND BUSINESS SYSTEM"
+    },
+    {
+       "Branch Code": "CSC",
+       "Branch Name": "COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)"
+    },
+    {
+       "Branch Code": "CSD",
+       "Branch Name": "COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)"
+    },
+    {
+       "Branch Code": "CSE",
+       "Branch Name": "COMPUTER SCIENCE AND ENGINEERING"
+    },
+    {
+       "Branch Code": "CSI",
+       "Branch Name": "COMPUTER SCIENCE AND INFORMATION TECHNOLOGY"
+    },
+    {
+       "Branch Code": "CSM",
+       "Branch Name": "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)"
+    },
+    {
+       "Branch Code": "BME",
+       "Branch Name": "BIO-MEDICAL ENGINEERING"
+    },
+    {
+       "Branch Code": "ECE",
+       "Branch Name": "ELECTRONICS AND COMMUNICATION ENGINEERING"
+    },
+    {
+       "Branch Code": "ECI",
+       "Branch Name": "ELECTRONICS COMMUNICATION AND INSTRUMENTATION ENGINEERING"
+    },
+    {
+       "Branch Code": "ECM",
+       "Branch Name": "ELECTRONICS AND COMPUTER ENGINEERING"
+    },
+    {
+       "Branch Code": "EEE",
+       "Branch Name": "ELECTRICAL AND ELECTRONICS ENGINEERING"
+    },
+    {
+       "Branch Code": "EIE",
+       "Branch Name": "ELECTRONICS AND INSTRUMENTATION ENGINEERING"
+    },
+    {
+       "Branch Code": "ETM",
+       "Branch Name": "ELECTRONICS AND TELEMATICS"
+    },
+    {
+       "Branch Code": "PHM",
+       "Branch Name": "B. PHARMACY"
+    }
+ ]
+ 

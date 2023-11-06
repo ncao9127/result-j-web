@@ -1,0 +1,156 @@
+[
+   {
+    "Btech": "R18",
+    "Regular": [
+      {
+        "semester": "1-1",
+        "secured_credits": "18",
+        "out_of": ""
+      },
+      {
+        "semester": "1-2",
+        "secured_credits": "18",
+        "out_of": "37"
+      },
+      {
+        "semester": "2-1",
+        "secured_credits": "47",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "47",
+        "out_of": "79"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "73",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "73",
+        "out_of": "123"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ],
+    "LE": [
+      {
+        "semester": "2-1",
+        "secured_credits": "25",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "25",
+        "out_of": "42"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "51",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "51",
+        "out_of": "86"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ]
+  },
+  {
+    "Btech": "R22",
+    "Regular": [
+      {
+        "semester": "1-1",
+        "secured_credits": "20",
+        "out_of": ""
+      },
+      {
+        "semester": "1-2",
+        "secured_credits": "20",
+        "out_of": "40"
+      },
+      {
+        "semester": "2-1",
+        "secured_credits": "48",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "48",
+        "out_of": "80"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "72",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "72",
+        "out_of": "120"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ],
+    "LE": [
+      {
+        "semester": "2-1",
+        "secured_credits": "24",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "24",
+        "out_of": "40"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "48",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "48",
+        "out_of": "80"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ]
+  }
+]

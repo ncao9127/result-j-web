@@ -103,6 +103,13 @@ const HomeNavLinks = () => {
         'Get All The Latest Notifications From JNTUH.',
       ],
     },
+    {
+      route: '/More',
+      desctiption: [
+        'More Features',
+        'Check Out The New Features Here',
+      ],
+    },
     // {
     //   route: '/OldVersion',
     //   desctiption: [

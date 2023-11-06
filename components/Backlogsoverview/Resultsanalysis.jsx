@@ -92,6 +92,18 @@ const Resultsanalysis = ({ query }) => {
     console.log("hasbacklogs", hasBacklogs);
     const animatedText = `You haven't written any ${semesterCode} supplementary exams ...`;
 
+    const hasBacklogsInLastSemester = Object.keys(query['Results']).some(semesterKey => {
+        const semesterResults = query['Results'][semesterKey];
+        return Object.keys(semesterResults).slice(-1).some(examKey => {
+            const examResults = semesterResults[examKey];
+            return Object.keys(examResults).some(subjectCode => {
+                const subject = examResults[subjectCode];
+                return subject['subject_grade'] === 'F' || subject['subject_grade'] === 'Ab' || subject['subject_grade'] === '-';
+            });
+        });
+    });
+    console.log("hasBacklogsInLastSemester", hasBacklogsInLastSemester)
+
     if (!hasBacklogs) {
         return (
             <div
@@ -103,7 +115,28 @@ const Resultsanalysis = ({ query }) => {
                     alignItems: 'center',
                 }}
             >
-                <p className="capitalize">Hey! <b>{detailed['NAME']} </b><br /><TypingAnimation text={animatedText} /> </p>
+                <p className="capitalize">Hello! <b>{detailed['NAME']} </b><br /><TypingAnimation text={animatedText} /> </p>
+                <br />
+                <button
+                    onClick={() => window.location.reload()}
+                    className="w-[70px] text-white bg-blue-700 rounded text-[60%] hover:bg-yellow-400 py-[0.15em] px-[1.2em] sm:w-[100px] sm:text-[100%]"
+                >
+                    Refresh
+                </button>
+            </div>
+        );
+    } else if (!hasBacklogsInLastSemester) {
+        return (
+            <div
+                style={{
+                    marginTop: 100,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <p className="capitalize">Hello! <b>{detailed['NAME']} </b><br /><TypingAnimation text={animatedText} /> </p>
                 <br />
                 <button
                     onClick={() => window.location.reload()}
