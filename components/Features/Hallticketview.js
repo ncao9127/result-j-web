@@ -29,7 +29,7 @@ const Hallticketview = ({ query, onClose }) => {
             setDownloadUrl(null);
             setShowButton(true);
         }
-    }, [downloadUrl, Details.NAME]);
+    }, [downloadUrl]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
