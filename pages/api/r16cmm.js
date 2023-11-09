@@ -133,7 +133,7 @@ class ResultScraper {
         var examCodes = {}
         if (this.rollNumber[5] === 'A') {
             payloads = this.payloads.btech;
-            examCodes = this.examCodes.btech[this.rollNumber.startsWith('22') && this.rollNumber[4] !== '5' ? 'R22' : 'R16'];
+            examCodes = this.examCodes.btech[this.rollNumber.startsWith('22') && this.rollNumber[4] !== '5' ? 'R16' : 'R16'];
         } else if (this.rollNumber[5] === 'R') {
             payloads = this.payloads.bpharmacy;
             examCodes = this.examCodes.bpharmacy[this.rollNumber.startsWith('22') && this.rollNumber[4] !== '5' ? 'R22' : 'R17'];
