@@ -1,3 +1,7 @@
+old method pwa 
+
+sw.js
+-------------------
 importScripts(
   'https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js'
 )
@@ -32,3 +36,21 @@ self.addEventListener('fetch', (event) => {
     }
   });
   
+
+
+next.config.js
+----------------------------------
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  pwa: {
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development',
+  },
+  images: {
+    domains: ['www.gstatic.com'],
+  },
+}
+
+module.exports = nextConfig;
