@@ -35,10 +35,23 @@ import { BsTelegram } from 'react-icons/bs';
 import HomeFooter from "../components/Home/HomeFooter";
 import Darkmode from "../components/ui/Darkmode";
 import { useTheme } from 'next-themes';
+import { IoSettingsOutline } from 'react-icons/io5';
+import Settings from "../components/ui/Settings";
 
 function Home() {
+
+    const [isModalVisible, setModalVisible] = useState(false);
     const [notifications, setNotifications] = useState([]);
     const { theme, setTheme } = useTheme();
+
+        // Function to handle the link click and show the modal
+        const handleLinkClick = () => {
+            setModalVisible(true);
+        };
+        // Function to hide the modal
+        const handleCloseModal = () => {
+            setModalVisible(false);
+        };
 
     useEffect(() => {
         fetchNotifications();
@@ -170,7 +183,11 @@ function Home() {
             </div>
             <br />
             <hr className="sm:w-96 w-48 border-gray mb-4" />
-            <div className="z-0 flex space-x-4 m-2">
+            <div onClick={handleLinkClick} className="flex items-center cursor-pointer mb-4 mt-2 rounded-xl px-3 py-2 hover:font-medium hover:bg-gray-100 shadow-lg dark:hover:bg-gray-600">
+                    <IoSettingsOutline/>&nbsp;Settings
+            </div>
+            {isModalVisible && <Settings onClose={handleCloseModal} />}
+            <div className="z-0 flex space-x-4 m-2 cursor-pointer">
                 <Link href="/download">
                     <div className="my-2 bottom-5 right-5 bg-green-500 hover:bg-white text-white hover:text-green-500 rounded-xl px-3 py-2 shadow-lg flex items-center font-bold text-sm">
                         Download App <FiDownload className="w-5 h-5 ml-2" />
@@ -185,7 +202,7 @@ function Home() {
             <div className="mt-2">
                 <HomeFooter />
             </div>
-            <div >
+            {/* <div >
                 {theme === 'light' ? (
                     <>
                         <Darkmode /> Light Mode
@@ -195,7 +212,7 @@ function Home() {
                         <Darkmode /> Dark Mode
                     </>
                 )}
-            </div>
+            </div> */}
             <br />
             <div className="mt-1 block text-center text-green-600 mb-4 text-[55%] md:text-[80%]">
                 <Link href="https://resultsjntuhweb.statuspage.io" >
