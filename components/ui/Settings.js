@@ -109,7 +109,7 @@ const Settings = ({ onClose }) => {
                             <br />
                             <br />
                             <div className='opacity-25 text-center mt-8 text-[35%]'>
-                                <span className='rounded-xl px-2 py-1 bg-gray-100 font-bold'>Ver - 2023.09.10L</span>
+                                <span className='rounded-xl px-2 py-1 bg-gray-100 font-bold'>Ver - v23.09.10L</span>
                             </div>
                         </div>
                         }
