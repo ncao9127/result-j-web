@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FaGooglePay } from 'react-icons/fa';
 import { SiPhonepe, SiAmazonpay, SiPaytm } from 'react-icons/si';
 
-const Qrcode = ({ onClose }) => {
+const Qrcode = ({ onClose }) => { 
     const containerRef = useRef(null);
     const [downloadUrl, setDownloadUrl] = useState(null);
     const [showButton, setShowButton] = useState(true); // State to control the visibility of the button
@@ -49,7 +49,7 @@ const Qrcode = ({ onClose }) => {
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black qr bg-opacity-50 z-10">
-                <div className="bg-white dark:text-black p-4 rounded-md border border-black-500 hover:drop-shadow-sm shadow-2xl rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105" ref={containerRef}>
+                <div className="bg-white dark:text-black p-4 border border-black-500 hover:drop-shadow-sm shadow-2xl rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105" ref={containerRef}>
                     <p className="text-center">Scan QR Code To Pay</p>
                     <div className="flex items-center justify-center">
                         <Image src="/qrcode.png" alt="Pizza QR Code" width={200} height={200} />

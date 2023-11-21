@@ -37,11 +37,11 @@ export default function More() {
                 <div className="flex-col flex items-center justify-center">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
                         {/* Grid elements */}
-                        <GridItem
+                        {/* <GridItem
                             title="Exam Results"
                             description="Get here present examination results"
                             link="/features/Examresults"
-                        />
+                        /> */}
                         <GridItem
                             title="Backlogs Fee"
                             description="get here the complete fee estimation"
@@ -56,6 +56,11 @@ export default function More() {
                             title="Institutes Profile"
                             description="get here the complete fee estimation"
                             link="/features/Institutes"
+                        />
+                        <GridItem
+                            title="Exam Results Link"
+                            description="directly redirect to the jntuh results page"
+                            link="/features/Examresultslink"
                         />
                         <GridItem
                             title="Suggestions"

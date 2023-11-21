@@ -16,7 +16,7 @@ const Hallticketgenerate = ({ query }) => {
     // State variable to store subject details
     const [subjectDetails, setSubjectDetails] = useState({});
     const [isModalVisible, setModalVisible] = useState(false);
- 
+
     const Results = query['Results'];
     const Details = query['Details'];
     const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'D', 'P'];
@@ -160,6 +160,7 @@ const Hallticketgenerate = ({ query }) => {
                                                                         <input
                                                                             type='date'
                                                                             onChange={(e) => handleDateTimeChange(sem, subjectIndex, 'date', e.target.value)}
+                                                                            placeholder='Select Date'
                                                                         />
                                                                     </td>
                                                                     <td>
@@ -203,7 +204,7 @@ const Hallticketgenerate = ({ query }) => {
                                 <li className='m-2'>After completing the selection of date and time for subjects according to your current exam schedule, proceed to the next step.</li>
                                 <li className='m-2'>Click on Generate Hall Ticket to see a pop-up displaying your hall ticket.</li>
                                 <li className='m-2'>Preview and review the generated hall ticket.</li>
-                                <li className='m-2'>If any changes are needed, go back or click the specific area to re-edit and re-generate the hall ticket. Ensure to preview it again. <br/>Download the hall ticket, A generated hall tickets are not stored on our server, reducing the risk of data loss.</li>
+                                <li className='m-2'>If any changes are needed, go back or click the specific area to re-edit and re-generate the hall ticket. Ensure to preview it again. <br />Download the hall ticket, A generated hall tickets are not stored on our server, reducing the risk of data loss.</li>
                                 <li className='m-2'>In case of any errors or if changes cannot be undone, simply refresh the page to start the process again.</li>
                             </ol>
                         </div>

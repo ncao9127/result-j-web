@@ -97,6 +97,13 @@ const HomeNavLinks = () => {
       ],
     },
     {
+      route: '/Examresults',
+      desctiption: [
+        'Exam Results',
+        'You Can Find All The JNTUH Exam Results Here',
+      ],
+    },
+    {
       route: '/Notifications',
       desctiption: [
         'Notifications',

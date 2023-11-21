@@ -3,7 +3,7 @@ const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
   skipWaiting: true,
-
+  disable: process.env.NODE_ENV === 'development',
 });
 
 const nextConfig = withPWA({
@@ -13,7 +13,7 @@ const nextConfig = withPWA({
     locales: ["en"],
     defaultLocale: "en",
   },
-   images: {
+  images: {
     domains: ['www.gstatic.com'],
   },
 })
