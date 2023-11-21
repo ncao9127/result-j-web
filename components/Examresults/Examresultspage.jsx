@@ -13,10 +13,10 @@ const Examresultspage = ({ title, link, homepage }) => {
 
   const payload = link.replace("http://results.jntuh.ac.in/jsp/SearchResult.jsp?", "");
   // Create a URL object from the link
-  const url = new URL(link);
+  const path = new URL(link);
 
   // Extract examCode from the searchParams of the URL
-  const examCode = url.searchParams.get('examCode');
+  const examCode = path.searchParams.get('examCode');
   console.log(examCode);
 
   const submit = async (event) => {
