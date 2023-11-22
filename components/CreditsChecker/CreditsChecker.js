@@ -4,8 +4,12 @@ import Credits from '../CreditsChecker/Credits.json'
 import Hr from '../Hr/Hr';
 import PrintButton from '../ui/PrintButton';
 import Info from '../Home/info'
+import Creditsview from './Creditsview';
 
 const CreditsChecker = ({ query }) => {
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
   const Results = query['Results'];
   const Details = query['Details'];
 
@@ -51,29 +55,34 @@ const CreditsChecker = ({ query }) => {
   // let rc; // RequiredCredits
   // let sc; // SecuredCredits
   let R18Regular, R18LE, R22Regular, R22LE = false;
+  let Type;
 
   if (rollNumber.slice(0, 2) < '22' && rollNumber[4] === '1') {
     // R18Regular
     R18Regular = true;
     console.log('R18Regular', R18Regular);
+    Type = "R18 Regular";
     rc = Credits.find(item => item.Btech === 'R18')?.Regular;
     sc = rc.find(item => item.semester === lastVal)?.secured_credits || '-';
   } else if (rollNumber.slice(0, 2) < '23' && rollNumber[4] === '5') {
     // R18LE
     R18LE = true;
     console.log('R18LE', R18LE);
+    Type = "R18 LE";
     rc = Credits.find(item => item.Btech === 'R18')?.LE;
     sc = rc.find(item => item.semester === lastVal)?.secured_credits || '-';
   } else if (rollNumber.slice(0, 2) >= '22' && rollNumber[4] === '1') {
     // R22Regular
     R22Regular = true;
     console.log('R22Regular', R22Regular);
+    Type = "R22 Regular";
     rc = Credits.find(item => item.Btech === 'R22')?.Regular;
     sc = rc.find(item => item.semester === lastVal)?.secured_credits || '-';
   } else if (rollNumber.slice(0, 2) > '22' && rollNumber[4] === '5') {
     // R22LE
     R22LE = true;
     console.log('R22LE', R22LE);
+    Type = "R22 LE";
     rc = Credits.find(item => item.Btech === 'R22')?.LE;
     sc = rc.find(item => item.semester === lastVal)?.secured_credits || '-';
   }
@@ -125,7 +134,15 @@ const CreditsChecker = ({ query }) => {
       break;
   }
   console.log('rc:', sc, message, lastVal); // To debug and check if 'rc' is correctly assigned
-
+  const data = rc;
+  // Function to handle the link click and show the modal
+  const handleLinkClick = () => {
+    setModalVisible(true);
+  };
+  // Function to hide the modal
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
 
   return (
     <>
@@ -169,13 +186,14 @@ const CreditsChecker = ({ query }) => {
               <td colSpan={10} className='capitalize'>{message}</td>
             </tr>
           </tbody>
+          <caption onClick={handleLinkClick} className='caption-bottom text-blue-400 hover:text-blue-600 text-[55%] md:text-[80%] cursor-pointer' >View Credits Chart</caption>
         </table>
       </div>
       {/* <PrintButton/> */}
       <Info />
       <br />
       <Hr />
-
+      {isModalVisible && <Creditsview query={data} reg={Type} onClose={handleCloseModal} />}
       {R18Regular || R18LE ? (
         <div className="mt-1 block text-center text-[#808080] mb-4 text-[55%] md:text-[80%] text-red-600">
           <b>NOTE:</b> Your Credits Validation Is Done Based Upon JNTUH B.Tech Regulation Given.<br />
