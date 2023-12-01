@@ -2,6 +2,7 @@ import Link from "next/link";
 import SocialHandles from "../ui/SocialHandles";
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import Copywrite from "./Copywrite";
 const Footer = () => {
     const { theme } = useTheme();
     // Define the image source based on the current theme
@@ -21,10 +22,9 @@ const Footer = () => {
             </div> */}
             <div className="opacity-80">
                 <SocialHandles />
+                <Copywrite/>
             </div>
-            <div className="flex justify-center text-center m-2 text-xs	 text-black-1600  font-bold my-6">
-                <p>Copyright &copy; 2023<br /> <Link href="/"> resultsjntuh.vercel.app</Link></p>
-            </div>
+           
         </>
     )
 }

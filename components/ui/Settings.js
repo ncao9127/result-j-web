@@ -53,7 +53,7 @@ const Settings = ({ onClose }) => {
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-10">
-                <div className="bg-white dark:text-black p-4 rounded-md border border-black-500 shadow-2xl rounded-xl" ref={containerRef}>
+                <div className="bg-white dark:text-black p-4 border border-black-500 shadow-2xl rounded-xl" ref={containerRef}>
                     <div className="flex items-center mb-4 ">
                         <div className="flex-grow text-lg font-bold">Settings</div>
                         <button className="text-gray-600 hover:text-gray-800" onClick={onClose}>

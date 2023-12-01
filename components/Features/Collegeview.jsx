@@ -23,7 +23,7 @@ const Collegeview = ({ query, onClose }) => {
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black qr bg-opacity-50 z-10">
-                <div className="m-4 md:m-1 bg-white dark:text-black p-4 rounded-md border border-black-500 shadow-2xl rounded-xl" ref={containerRef}>
+                <div className="m-4 md:m-1 bg-white dark:text-black p-4 border border-black-500 shadow-2xl rounded-xl" ref={containerRef}>
                     <div class="text-[45%] sm:text-[60%] md:text-[80%] lg:text-[100%] mt-2">
                         <table className='text-center border-0'>
                             <tbody className='divide-y'>

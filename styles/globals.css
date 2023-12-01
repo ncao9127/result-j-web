@@ -231,6 +231,11 @@ tr:hover {
   animation: ellipsis 1s infinite steps(3);
 }
 
+.box-blur {
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+}
+
+
 /* -------- */
 
 @keyframes wave {

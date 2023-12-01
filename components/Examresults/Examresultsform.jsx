@@ -45,7 +45,7 @@ const Examresultsform = ({ homepage }) => {
                                 <span class="relative">Exams Results</span>
                             </span>
                             </h1>
-                            <p class="mx-auto mt-6 text-base tracking-tight text-slate-700 dark:text-slate-300 capitalize">All your results in one place.</p>
+                            <p class="mx-auto mt-6 text-base tracking-tight text-slate-700 dark:text-slate-300 capitalize">All your Jntuh results in one place.</p>
                         </div>
                         <div className="flex justify-center m-4">
                             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>

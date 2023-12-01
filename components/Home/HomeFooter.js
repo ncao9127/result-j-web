@@ -17,7 +17,7 @@ const HomeFooter = ()=>{
     
     return (
     <>
-        <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
+        <p className="mt-1 block mx-[12%] text-center mb-4 text-[65%] sm:text-[100%]">
             Made with ❤ by &nbsp;
             <Link href="/" >
                 <a target="_blank" className="font-bold text-[#9C1A8B]" >
@@ -25,7 +25,7 @@ const HomeFooter = ()=>{
                 </a>
             </Link>
         </p>
-        <p className="mt-1 block text-left mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
+        <p className="mt-1 block mx-[12%] text-center mb-4 text-[67%] sm:text-[100%]">
         If you found this app helpful, you can support me by &nbsp;
         <a className="font-bold text-[#9C1A8B] cursor-pointer" onClick={handleLinkClick}>
           buying me a pizza here.

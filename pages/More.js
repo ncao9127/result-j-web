@@ -53,6 +53,16 @@ export default function More() {
                             link="/features/Hallticketgenerator"
                         />
                         <GridItem
+                            title="GPA Calculator"
+                            description="Get Your SGPA And CGPA Calculation Manually"
+                            link="/GPACalculator"
+                        />
+                        <GridItem
+                            title="CGPA Percentage"
+                            description="Get Your CGPA Percentage Here"
+                            link="/features/CGPAPercentage"
+                        />
+                        <GridItem
                             title="Institutes Profile"
                             description="get here the complete fee estimation"
                             link="/features/Institutes"
