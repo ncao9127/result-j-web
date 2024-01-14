@@ -152,5 +152,82 @@
         "out_of": ""
       }
     ]
+  },
+  {
+    "Bpharmacy": "R17",
+    "Regular": [
+      {
+        "semester": "1-1",
+        "secured_credits": "24",
+        "out_of": ""
+      },
+      {
+        "semester": "1-2",
+        "secured_credits": "24",
+        "out_of": "48"
+      },
+      {
+        "semester": "2-1",
+        "secured_credits": "58",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "58",
+        "out_of": "96"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "86",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "86",
+        "out_of": "144"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ],
+    "LE": [
+      {
+        "semester": "2-1",
+        "secured_credits": "29",
+        "out_of": ""
+      },
+      {
+        "semester": "2-2",
+        "secured_credits": "29",
+        "out_of": "48"
+      },
+      {
+        "semester": "3-1",
+        "secured_credits": "58",
+        "out_of": ""
+      },
+      {
+        "semester": "3-2",
+        "secured_credits": "58",
+        "out_of": "96"
+      },
+      {
+        "semester": "4-1",
+        "secured_credits": "",
+        "out_of": ""
+      },
+      {
+        "semester": "4-2",
+        "secured_credits": "",
+        "out_of": ""
+      }
+    ]
   }
 ]

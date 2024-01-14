@@ -111,7 +111,7 @@ const HomeNavLinks = () => {
       ],
     },
     {
-      route: '/More',
+      route: '/features',
       desctiption: [
         'More Features',
         'Check Out The New Features Here',

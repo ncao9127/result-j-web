@@ -5,22 +5,26 @@ const Redis = require('ioredis');
 // Create a new Redis client and connect to the Redis server
 const redis = new Redis(process.env.REDIS_URL);
 
+const urls = [
+    "http://results.jntuh.ac.in/resultAction",
+    "http://202.63.105.184/results/resultAction",
+];
+
 class ResultScraper {
     constructor(rollNumber) {
-        this.url = 'http://results.jntuh.ac.in/resultAction';
-        // this.url = "http://202.63.105.184/results/resultAction";
+
         this.rollNumber = rollNumber;
         this.results = { Details: {}, Results: {} };
         this.examCodes = {
             btech: {
                 R16: {
-                    '1-1': ['1302', '1324', '1359', '1405', '1431', '1468', '1505', '1573', '1616', '1659', '1701'],
-                    '1-2': ['1310', '1357', '1363', '1382', '1436', '1482', '1571', '1621', '1657', '1706'],
-                    '2-1': ['1297', '1319', '1352', '1392', '1426', '1450', '1497', '1561', '1611', '1632', '1668', '1708'],
-                    '2-2': ['1438', '1477', '1566', '1606', '1631', '1664', '1712'],
-                    '3-1': ['1315', '1348', '1387', '1421', '1455', '1492', '1551', '1591', '1630', '1646', '1687'],
-                    '3-2': ['1337', '1396', '1442', '1446', '1472', '1556', '1596', '1629', '1650', '1683'],
-                    '4-1': ['1383', '1417', '1459', '1487', '1546', '1586', '1641', '1679'],
+                    '1-1': ['1302', '1324', '1359', '1405', '1431', '1468', '1505', '1573', '1616', '1659', '1701', '1733'],
+                    '1-2': ['1310', '1357', '1363', '1382', '1436', '1482', '1571', '1621', '1657', '1706', '1731'],
+                    '2-1': ['1297', '1319', '1352', '1392', '1426', '1450', '1497', '1561', '1611', '1632', '1668', '1708', '1729'],
+                    '2-2': ['1438', '1477', '1566', '1606', '1631', '1664', '1712', '1726'],
+                    '3-1': ['1315', '1348', '1387', '1421', '1455', '1492', '1551', '1591', '1630', '1646', '1687', '1723'],
+                    '3-2': ['1337', '1396', '1442', '1446', '1472', '1556', '1596', '1629', '1650', '1683', '1720'],
+                    '4-1': ['1383', '1417', '1459', '1487', '1546', '1586', '1641', '1679', '1718'],
                     '4-2': ['1409', '1413', '1463', '1483', '1601', '1674', '1692']
                 }
             }
@@ -29,6 +33,30 @@ class ResultScraper {
         this.payloads = {
             btech: ['&degree=btech&etype=r17&result=null&grad=null&type=intgrade&htno=', '&degree=btech&etype=r17&result=gradercrv&grad=null&type=rcrvintgrade&htno='],
         };
+    }
+
+    async checkUrlStatus(url) {
+        try {
+            const response = await axios.get(url, { timeout: 1000 });
+            return response.status === 200;
+        } catch (error) {
+            console.error(`Error checking URL ${url}:`, error.message);
+            return false; // Handle the error as needed
+        }
+    }
+
+    async chooseUrl() {
+        for (let i = 0; i < urls.length; i++) {
+            const isUrlValid = await this.checkUrlStatus(urls[i]);
+            if (isUrlValid) {
+                this.url = urls[i];
+                console.log('Using URL:', urls[i]);
+                return; // Exit the loop and the method once a valid URL is found
+            }
+        }
+        // If none of the URLs are valid, you might want to handle this case accordingly.
+        console.error('No valid URLs found.');
+        // You can throw an error or set a default URL, depending on your requirements.
     }
 
     async fetchResult(examCode, payload) {
@@ -260,6 +288,7 @@ export default async function handler(req, res) {
     const htnos = req.query['htnos']; // Parameter for multiple roll numbers separated by commas
     const examCode = req.query['code']; // New parameter for specifying the exam code
     const scraper = new ResultScraper(rollNumber);
+    await scraper.chooseUrl(); // This will set the valid URL index before making requests
 
     if (examCode) {
         scraper.scrapeAllResults(examCode) // Call the new method

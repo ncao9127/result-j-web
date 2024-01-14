@@ -1,6 +1,6 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "resultsjntuh",
+  "version": "14.1.24",
   "private": true,
   "scripts": {
     "dev": "next dev",

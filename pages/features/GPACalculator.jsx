@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useState } from 'react';
-import GPAview from "../components/ui/GPAview"
+import GPAview from "../../components/ui/GPAview"
 
 const GPACalculator = () => {
 

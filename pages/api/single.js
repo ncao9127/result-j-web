@@ -5,10 +5,14 @@ const Redis = require('ioredis');
 // Create a new Redis client and connect to the Redis server
 const redis = new Redis(process.env.REDIS_URL);
 
+const urls = [
+    "http://results.jntuh.ac.in/resultAction",
+    "http://202.63.105.184/results/resultAction",
+];
+
 class ResultScraper {
     constructor(rollNumber) {
-        this.url = 'http://results.jntuh.ac.in/resultAction';
-        this.url = "http://202.63.105.184/results/resultAction";
+
         this.rollNumber = rollNumber;
         this.results = { Details: {}, Results: {} };
         this.examCodes = {
@@ -95,6 +99,30 @@ class ResultScraper {
             mpharmacy: ["&degree=mpharmacy&grad=pg&etype=null&result=grade17&type=intgrade&htno=", "&degree=mpharmacy&grad=pg&etype=r16&result=gradercrv&type=rcrvintgrade&htno="],
             mba: ["&degree=mba&grad=pg&etype=null&result=grade17&type=intgrade&htno=", "&degree=mba&grad=pg&etype=r16&result=gradercrv&type=rcrvintgrade&htno="]
         };
+    }
+
+    async checkUrlStatus(url) {
+        try {
+            const response = await axios.get(url, { timeout: 1000 });
+            return response.status === 200;
+        } catch (error) {
+            console.error(`Error checking URL ${url}:`, error.message);
+            return false; // Handle the error as needed
+        }
+    }
+
+    async chooseUrl() {
+        for (let i = 0; i < urls.length; i++) {
+            const isUrlValid = await this.checkUrlStatus(urls[i]);
+            if (isUrlValid) {
+                this.url = urls[i];
+                console.log('Using URL:', urls[i]);
+                return; // Exit the loop and the method once a valid URL is found
+            }
+        }
+        // If none of the URLs are valid, you might want to handle this case accordingly.
+        console.error('No valid URLs found.');
+        // You can throw an error or set a default URL, depending on your requirements.
     }
 
     async fetchResult(examCode, payload) {
@@ -326,6 +354,7 @@ export default async function handler(req, res) {
     const htnos = req.query['htnos']; // Parameter for multiple roll numbers separated by commas
     const examCode = req.query['code']; // New parameter for specifying the exam code
     const scraper = new ResultScraper(rollNumber);
+    await scraper.chooseUrl(); // This will set the valid URL index before making requests
 
     if (examCode) {
         scraper.scrapeAllResults(examCode) // Call the new method

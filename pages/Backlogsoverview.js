@@ -25,7 +25,8 @@ const Backlogsoverview = ({ homepage }) => {
             homepage(<Loading />);
             try {
                 // localStorage.clear();
-                const storedData = localStorage.getItem(htno + code);
+                // BO + Backlogs Overview
+                const storedData = localStorage.getItem(htno + 'BO' + code);
 
                 if (storedData) {
                     const { data, expiryTimestamp } = JSON.parse(storedData);
@@ -36,7 +37,7 @@ const Backlogsoverview = ({ homepage }) => {
                         return;
                     } else {
                         console.log("dateexpired")
-                        localStorage.removeItem(htno + code);
+                        localStorage.removeItem(htno + 'BO' + code);
                     }
                 }
 
@@ -70,7 +71,7 @@ const Backlogsoverview = ({ homepage }) => {
                 } else {
                     const expiryTimestamp = Date.now() + 15 * 60 * 1000;
                     const dataToStore = { data: response.data, expiryTimestamp };
-                    localStorage.setItem(htno + code, JSON.stringify(dataToStore));
+                    localStorage.setItem(htno + 'BO' + code, JSON.stringify(dataToStore));
                     homepage(<Resultsanalysis query={response.data} />);
                 }
             } catch {

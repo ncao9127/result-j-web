@@ -55,7 +55,7 @@ export default function More() {
                         <GridItem
                             title="GPA Calculator"
                             description="Get Your SGPA And CGPA Calculation Manually"
-                            link="/GPACalculator"
+                            link="/features/GPACalculator"
                         />
                         <GridItem
                             title="CGPA Percentage"
