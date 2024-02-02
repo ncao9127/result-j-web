@@ -320,7 +320,7 @@ export default async function handler(req, res) {
     // List of allowed origins
     const allowedOrigins = [
         "https://resultsjntuh.vercel.app",
-        "https://resultsjntuh.netlify.app",
+        "https://resultsjntuhne.vercel.app",
         "http://localhost:3000"
     ];
 
