@@ -11,7 +11,7 @@ const Alertinfo = () => {
                 <p className={`text-black text-[65%] capitalize flex`}>
                     Our site is currently undergoing scheduled maintenance to enhance performance and security.
                     <br />
-                    Maintenance Window: 17/02/24 12:00 pm - 6:00 pm (UTC)
+                    Maintenance Window: 17/02/24 11:00 am - 2:00 pm (UTC)
                     <br />
                     During this time, the website may be temporarily unavailable. We appreciate your patience and apologize for any inconvenience.
                 </p>
